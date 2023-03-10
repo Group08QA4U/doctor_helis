@@ -122,15 +122,16 @@ DWAVE_TOKEN = os.getenv('DWAVE_TOKEN')
 print('DWAVE_TOKEN',DWAVE_TOKEN)
 
 class QA(Optimizer):
-  def __init__(self, use_d_wave = False, use_hybrid = True, is_debug = False, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False):
+  def __init__(self, use_d_wave = False, use_hybrid = True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False, hyper_params = None, title_dict =None):
     super().__init__()
     self.token = DWAVE_TOKEN 
     self.endpoint = 'https://cloud.dwavesys.com/sapi/'
-    self.DEBUG = is_debug
+    self.hyper_params = hyper_params
     self.use_d_wave = use_d_wave
     self.use_hybrid = use_hybrid
     self.is_new_algorithm_p1 = is_new_algorithm_p1
     self.is_new_algorithm_p2 = is_new_algorithm_p2
+    self.title_dict = title_dict
 
   def getCandidateRoutes(self, time_a2p, time_p2r, time_r2d, time_r2h, remaining_time_all_patients):
     super().getCandidateRoutes(time_a2p, time_p2r, time_r2d, time_r2h, remaining_time_all_patients)
@@ -156,7 +157,7 @@ class QA(Optimizer):
               estimate_time[i][j][k][l][m] = remaining_time_all_patients[i] - (max(time_a2p[j][i] + time_p2r[i][k], time_r2d[k][l]) + time_r2h[k][m])
               estimate_time_to_start_treatment[i][j][k][l] = max(time_a2p[j][i] + time_p2r[i][k], time_r2d[k][l])
       
-    if self.DEBUG != True:   
+    if self.hyper_params == None:   
       qubo = self.QUBO(time_a2p, time_p2r, time_r2d, time_r2h, estimate_time, remaining_time_all_patients)
       
       self.Nsamples=10
@@ -178,34 +179,37 @@ class QA(Optimizer):
 
       return self.postProcessing(results, time_a2p, time_p2r, time_r2d, time_r2h, remaining_time_all_patients)
     else:
-      
-      for i in [10,]:
-        lam1 = lam2 = i
-
-        for j in [0.21,0.22,0.23,0.24,0.25,0.26,0.27,0.28,0.29]:
-          lam3 = - j
+      while self.hyper_params.set_next_params():
+        lam1 = self.hyper_params.lam1
+        lam2 = self.hyper_params.lam2
+        lam3 = self.hyper_params.lam3
+        _, dict_hyper_parameters = self.hyper_params.get_title_from_params()
         
-          print('■lam1',lam1,'lam2',lam2,'lam3',lam3,'====================================================')
-          qubo = self.QUBO(time_a2p, time_p2r, time_r2d, time_r2h, estimate_time, remaining_time_all_patients,lam1,lam2,lam3)
-          
-          self.Nsamples=10
-          
-          if self.use_d_wave:
-            if self.use_hybrid:
-              sampler = LeapHybridSampler(solver='hybrid_binary_quadratic_model_version2', token=self.token, endpoint=self.endpoint)
-              results = sampler.sample_qubo(qubo)
-            else:
-              dw_sampler = DWaveSampler(solver='Advantage_system1.1', token=self.token, endpoint=self.endpoint)
-              sampler = EmbeddingComposite(dw_sampler)
-              results = sampler.sample_qubo(qubo, num_reads=self.Nsamples)
-          else:      
-            # OpenJIJ
-            sampler = SQASampler(num_sweeps = 3000)
+        qubo = self.QUBO(time_a2p, time_p2r, time_r2d, time_r2h, estimate_time, remaining_time_all_patients,lam1,lam2,lam3)
+        
+        self.Nsamples=10
+        
+        if self.use_d_wave:
+          if self.use_hybrid:
+            sampler = LeapHybridSampler(solver='hybrid_binary_quadratic_model_version2', token=self.token, endpoint=self.endpoint)
+            results = sampler.sample_qubo(qubo)
+          else:
+            dw_sampler = DWaveSampler(solver='Advantage_system1.1', token=self.token, endpoint=self.endpoint)
+            sampler = EmbeddingComposite(dw_sampler)
             results = sampler.sample_qubo(qubo, num_reads=self.Nsamples)
-          
-          self.postProcessing(results, time_a2p, time_p2r, time_r2d, time_r2h, remaining_time_all_patients)
+        else:      
+          # OpenJIJ
+          sampler = SQASampler(num_sweeps = 3000)
+          results = sampler.sample_qubo(qubo, num_reads=self.Nsamples)
+        
 
-      return self.postProcessing(results, time_a2p, time_p2r, time_r2d, time_r2h, remaining_time_all_patients)
+        opt_routes, total_score = self.postProcessing(results, time_a2p, time_p2r, time_r2d, time_r2h, remaining_time_all_patients)
+        if self.title_dict:
+          self.title_dict.update(dict_hyper_parameters)
+          self.title_dict['score'] = total_score
+          print('Summary',self.title_dict)
+
+      return opt_routes
 
 
 
@@ -336,7 +340,7 @@ class QA(Optimizer):
       #print(route)
     print('Total score:',total_score)
 
-    return opt_routes
+    return opt_routes, total_score
 
 
   def QUBO(self, time_a2p, time_p2r, time_r2d, time_r2h, estimate_time, remaining_time_all_patients, lam1=40.0, lam2=40.0, lam3 = -0.229):
@@ -509,7 +513,7 @@ def output_as_csv(best_classic_total_scores_list, best_qa_total_scores_list, num
   #files.download(file_name)
 
 import copy
-def evaluate(num_of_patients, relocation_count=1, qa_trial_count=1, width = 86000, height = 86000, num_of_fire_departments = 8, num_of_rendezvous_points = 10, num_of_basehospitals = 8, use_d_wave=True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False):
+def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000, height = 86000, num_of_fire_departments = 8, num_of_rendezvous_points = 10, num_of_basehospitals = 8, use_d_wave=True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False):
 
   qa_total_scores_list = []
   classic_total_scores_list = []
@@ -521,7 +525,7 @@ def evaluate(num_of_patients, relocation_count=1, qa_trial_count=1, width = 8600
   best_classic = None
   best_location = None
 
-  for j in range(relocation_count):
+  for j in range(map_relocations):
     # 要救助者、救命リソースをランダム配置
     world_base = worlds.World(width = width, height = height, num_of_patients=num_of_patients, num_of_fire_departments = num_of_fire_departments, num_of_rendezvous_points = num_of_rendezvous_points, num_of_basehospitals = num_of_basehospitals)
 
@@ -572,7 +576,12 @@ def evaluate(num_of_patients, relocation_count=1, qa_trial_count=1, width = 8600
   
   return df, world_classic, world_qa
 
-def grid_search(num_of_patients, relocation_count=1, qa_trial_count=1, width = 86000, height = 86000, num_of_fire_departments = 8, num_of_rendezvous_points = 10, num_of_basehospitals = 8, use_d_wave=True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False):
+def grid_search(life_saving_resources_params, hyper_params, map_relocations=10, qa_trial_count=5, width = 86000, height = 86000, use_d_wave=True, is_new_algorithm_p1 = True, is_new_algorithm_p2 = True):
+
+  num_of_patients = life_saving_resources_params.patients
+  num_of_fire_departments = life_saving_resources_params.fire_departments
+  num_of_rendezvous_points = life_saving_resources_params.rendezvous_points
+  num_of_basehospitals = life_saving_resources_params.basehospitals
 
   qa_total_scores_list = []
   classic_total_scores_list = []
@@ -581,29 +590,35 @@ def grid_search(num_of_patients, relocation_count=1, qa_trial_count=1, width = 8
   best_qa_total_score = -10000
   best_world_base = None
   best_qa = None
-  best_classic = None
+  #best_classic = None
   best_location = None
 
-  for j in range(relocation_count):
+  params_dict = {'width':width, 'height':height}
+
+  for j in range(map_relocations):
+    params_dict['map_relocations'] = j
     # 要救助者、救命リソースをランダム配置
     world_base = worlds.World(width = width, height = height, num_of_patients=num_of_patients, num_of_fire_departments = num_of_fire_departments, num_of_rendezvous_points = num_of_rendezvous_points, num_of_basehospitals = num_of_basehospitals)
 
     # 古典コンピューターで計算
-    world_classic = copy.deepcopy(world_base)
-    classic = Classic()
-    best_classic = copy.deepcopy(classic)
-    classic_total_score = world_classic.getTotalScore(classic)
-    classic_total_scores_list.append(classic_total_score)
+    #world_classic = copy.deepcopy(world_base)
+    #classic = Classic()
+    #best_classic = copy.deepcopy(classic)
+    #classic_total_score = world_classic.getTotalScore(classic)
+    #classic_total_scores_list.append(classic_total_score)
+
 
     # QAで計算
     qa_total_scores = []
     for k in range(qa_trial_count):
-      title = '# of patients:' + str(num_of_patients) + ' ' + 'relocation#:' + str(j) + ' '  + 'qa_trial_count#:' + str(k) + ' ' + 'ambulance:' + str(num_of_fire_departments) + ' ' + 'rendezvous_points:' + str(num_of_rendezvous_points) + ' ' + 'doctor_helis:' + str(num_of_basehospitals)
-      print(title)      
+      #title = '# of patients:' + str(num_of_patients) + ' ' + 'relocation#:' + str(j) + ' '  + 'qa_trial_count#:' + str(k) + ' ' + 'ambulance:' + str(num_of_fire_departments) + ' ' + 'rendezvous_points:' + str(num_of_rendezvous_points) + ' ' + 'doctor_helis:' + str(num_of_basehospitals)
+      title_str, title_dict = life_saving_resources_params.get_title_from_params()
+      params_dict.update(title_dict)
+      #print(params_dict)      
       world_qa = copy.deepcopy(world_base)
 
       # QA
-      qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algorithm_p1, is_new_algorithm_p2 = is_new_algorithm_p2, is_debug = True)
+      qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algorithm_p1, is_new_algorithm_p2 = is_new_algorithm_p2, hyper_params = hyper_params, title_dict = params_dict)
 
       qa_total_score = world_qa.getTotalScore(qa)
       qa_total_scores.append(qa_total_score)
@@ -624,13 +639,13 @@ def grid_search(num_of_patients, relocation_count=1, qa_trial_count=1, width = 8
   #print(best_world_base)
   #print(best_qa)
   #print(best_classic)
-  print('# Classic despatch')
-  world_classic = copy.deepcopy(best_world_base)
-  world_classic.despatch(best_classic)  
+  #print('# Classic despatch')
+  #world_classic = copy.deepcopy(best_world_base)
+  #world_classic.despatch(best_classic)  
 
-  print('# QA despatch location#',best_location)
-  world_qa = copy.deepcopy(best_world_base)
-  world_qa.despatch(best_qa)  
+  #print('# QA despatch location#',best_location)
+  #world_qa = copy.deepcopy(best_world_base)
+  #world_qa.despatch(best_qa)  
   
   
   return df, world_classic, world_qa
