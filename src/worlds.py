@@ -371,13 +371,14 @@ class World:
     best_routes = optimizer.getCandidateRoutes(time_a2p, time_p2r, time_r2d, time_r2h, remaining_time_all_patients)
 
     total_score = 0
-    for route in best_routes:
-      if route[1][0] == -1 or route[1][1] == -1 or route[1][2] == -1 or route[1][3] == -1:
-        total_score = None
-        break      
-      total_score += route[4]
-      #print(route)
-    #print('Total score:',total_score)    
+    if best_routes:
+      for route in best_routes:
+        if route[1][0] == -1 or route[1][1] == -1 or route[1][2] == -1 or route[1][3] == -1:
+          total_score = None
+          break      
+        total_score += route[4]
+        #print(route)
+      #print('Total score:',total_score)    
     return total_score
 
   def addPatients(self, num_of_patients):

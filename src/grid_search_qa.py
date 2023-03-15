@@ -41,8 +41,7 @@ def wraper(parameters_list):
 
 
     params_str, params_dict = life_saving_resources_params.get_title_from_params()
-    print(str('{:.4f}'.format(acc)), params_str)
-    return acc, params_str, params_dict
+    return params_str, params_dict
 
 def main(life_saving_resources_params):
     p = Pool(n_cpu)
