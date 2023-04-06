@@ -1,7 +1,8 @@
-# -*- coding: utf-8 -*-
+#-*- coding: utf-8 -*-
 
 import sys
 import numpy as np
+import time
 
 import worlds
 
@@ -109,6 +110,71 @@ class Classic(Optimizer):
 
     return best_routes
 
+class IP(Optimizer):
+  def __init__(self):
+    super().__init__()
+
+  def getCandidateRoutes(self, time_a2p, time_p2r, time_r2d, time_r2h, remaining_time_all_patients):
+    super().getCandidateRoutes(time_a2p, time_p2r, time_r2d, time_r2h, remaining_time_all_patients)
+    
+    candidate_routes = np.zeros((self.num_of_patients, self.num_of_ambulances * self.num_of_rendezvous_points * self.num_of_doctor_helis * self.num_of_basehospitals ))
+    reserved_ambulances = np.zeros(self.num_of_ambulances)
+    reserved_rendezvous_points = np.zeros(self.num_of_rendezvous_points)
+    reserved_doctor_helis = np.zeros(self.num_of_doctor_helis)
+    #reserved_sdf_helis = np.zeros(self.num_of_sdf_helis)
+    reserved_basehospitals = np.zeros(self.num_of_basehospitals)
+    
+    best_routes = []
+    for i in range(self.num_of_patients):
+      best_routes.append([i, [-1, -1, -1, -1 ], remaining_time_all_patients[i], -1, -remaining_time_all_patients[i]])
+      #min_route1 = min_time_to_treatment_1 = min_time_to_treatment_2 = sys.maxsize
+      min_time_to_treatment_1 = min_time_to_treatment_2 = sys.maxsize
+      a2p = p2r = r2d = d2h = -1      
+      #s2p = p2h = -1   
+      for j in range(self.num_of_ambulances):
+        if reserved_ambulances[j] == True:
+          continue 
+        for k in range(self.num_of_rendezvous_points):
+          if reserved_rendezvous_points[k] == True:
+            continue           
+          for l in range(self.num_of_doctor_helis):
+            if reserved_doctor_helis[l] == True:
+              continue 
+
+            time_to_treatment = max( time_a2p[j][i] + time_p2r[i][k] , time_r2d[k][l] )
+            if min_time_to_treatment_1 > time_to_treatment:
+              min_time_to_treatment_1 = time_to_treatment
+              a2p = j
+              p2r = k
+              r2d = l
+              d2h = l # ドクターヘリは、出動した基地病院へ戻る
+
+            #for m in range(self.num_of_basehospitals):
+            #  #route_estimated_time = max( time_a2p[j][i] + time_p2r[i][k] , time_r2d[k][l] ) + time_r2h[k][m]
+            #  time_to_treatment = max( time_a2p[j][i] + time_p2r[i][k] , time_r2d[k][l] )
+            #  #print(i,j,k,l,m,-1,-1,route_estimated_time)
+            #  if min_time_to_treatment_1 > time_to_treatment:
+            #    min_time_to_treatment_1 = time_to_treatment
+            #    #min_route1 = route_estimated_time
+            #    a2p = j
+            #    p2r = k
+            #    r2d = l
+            #    d2h = m
+
+
+
+      if min_time_to_treatment_1 < min_time_to_treatment_2:
+        reserved_ambulances[a2p] = True
+        reserved_rendezvous_points[p2r] = True
+        reserved_doctor_helis[r2d] = True
+        #[patient#, [a2p, p2r, r2d, d2h], Time left for the patient, Estimated time to start treatment, Score(Difference b/w the time left for the patient and the time to start treatment)]
+        best_routes[i] = [i, [a2p, p2r, r2d, d2h ], remaining_time_all_patients[i], min_time_to_treatment_1, remaining_time_all_patients[i] - min_time_to_treatment_1]
+        #best_routes.append([i, [a2p, p2r, r2d, d2h ], remaining_time_all_patients[i], min_time_to_treatment_1, remaining_time_all_patients[i] - min_time_to_treatment_1])
+
+
+
+
+    return best_routes
 
 from dwave.system import DWaveSampler, EmbeddingComposite, LeapHybridSampler
 from openjij import SQASampler
@@ -119,7 +185,7 @@ load_dotenv()
 
 # 環境変数を参照
 DWAVE_TOKEN = os.getenv('DWAVE_TOKEN')
-print('DWAVE_TOKEN',DWAVE_TOKEN)
+#print('DWAVE_TOKEN',DWAVE_TOKEN)
 
 class QA(Optimizer):
   def __init__(self, use_d_wave = False, use_hybrid = True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False, lams = None):
@@ -309,7 +375,7 @@ class QA(Optimizer):
       #print(route)
     print('Total score:',total_score)
 
-    return opt_routes, total_score
+    return opt_routes
 
 
   def QUBO(self, time_a2p, time_p2r, time_r2d, time_r2h, estimate_time, remaining_time_all_patients, lam1=40.0, lam2=40.0, lam3 = -0.229):
@@ -448,20 +514,19 @@ import matplotlib.pyplot as plt
 
 
 
-def output_as_csv(best_classic_total_scores_list, best_qa_total_scores_list, num_of_patients, num_of_fire_departments, num_of_rendezvous_points, num_of_basehospitals): 
+def output_as_csv(best_classic_total_scores_list, best_ip_total_scores_list, best_qa_total_scores_list, classic_processing_time_list, ip_processing_time_list, qa_processing_time_list, num_of_patients, num_of_fire_departments, num_of_rendezvous_points, num_of_basehospitals): 
   #title = 'patients=' + str(num_of_patients) + '_' + 'ambulance=' + str(num_of_fire_departments) + '_' + 'rendezvous_points=' + str(num_of_rendezvous_points) + '_' + 'doctor_helis=' + str(num_of_basehospitals)
 
   data = []
-  for classic, qa in zip(best_classic_total_scores_list, best_qa_total_scores_list):
+  for gr, ip, qa, gr_time, ip_time, qa_time  in zip(best_classic_total_scores_list, best_ip_total_scores_list, best_qa_total_scores_list, classic_processing_time_list, ip_processing_time_list, qa_processing_time_list):
     qa_max = np.max([x for x in qa if x]) if len([x for x in qa if x]) != 0 else 'None'
-    data.append([num_of_patients, qa, np.mean(qa) if None not in qa else 'None', qa_max, classic, (np.mean(qa)-classic) if None not in qa else 'None', (qa_max-classic) if qa_max != 'None' else 'None'])
+    data.append([num_of_patients, gr, gr_time, ip, ip_time, qa_max, qa_time] )
 
-  columns = ['# of patients', 'Quantum annealing', 'QA avg.', 'QA best', 'Classic', 'Delta(QA avg.-Classic)', 'Delta(QA best-Classic)']
+  columns = ['# of patients', 'Greedy(score)', 'Greedy(ptime)', 'Integer Programming(score)', 'Integer Programming(ptime)', 'Quantum annealing(score)', 'Quantum annealing(ptime)' ]
   df = pd.DataFrame(data, columns=columns)
   pd.set_option('display.max_columns', None)
   pd.set_option('display.max_rows', None)
 
-  return df
 
   #print(title)
   #print(df)
@@ -477,15 +542,20 @@ def output_as_csv(best_classic_total_scores_list, best_qa_total_scores_list, num
 
   # CSV ファイル
   ##file_name = 'evaluation_results_' + title + '.csv'
-  #file_name = 'evaluation_results.csv'
-  #df.to_csv(file_name)
+  file_name = 'evaluation_results.csv'
+  df.to_csv(file_name)
   #files.download(file_name)
+  return df
 
 import copy
 def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000, height = 86000, num_of_fire_departments = 8, num_of_rendezvous_points = 10, num_of_basehospitals = 8, use_d_wave=True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False):
 
-  qa_total_scores_list = []
   classic_total_scores_list = []
+  classic_processing_time_list=  []
+  ip_total_scores_list = []
+  ip_processing_time_list = []
+  qa_total_scores_list = []
+  qa_processing_time_list=  []
   anime_list = []
 
   best_qa_total_score = -10000
@@ -499,13 +569,25 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
     world_base = worlds.World(width = width, height = height, num_of_patients=num_of_patients, num_of_fire_departments = num_of_fire_departments, num_of_rendezvous_points = num_of_rendezvous_points, num_of_basehospitals = num_of_basehospitals)
 
     # 古典コンピューターで計算
+    start = time.time()
     world_classic = copy.deepcopy(world_base)
     classic = Classic()
     best_classic = copy.deepcopy(classic)
     classic_total_score = world_classic.getTotalScore(classic)
     classic_total_scores_list.append(classic_total_score)
+    classic_processing_time_list.append( time.time() - start)
+
+    # 整数計画で計算
+    start = time.time()
+    world_ip = copy.deepcopy(world_base)
+    ip = IP()
+    best_ip = copy.deepcopy(ip)
+    ip_total_score = world_ip.getTotalScore(ip)
+    ip_total_scores_list.append(ip_total_score)
+    ip_processing_time_list.append( time.time() - start)
 
     # QAで計算
+    start = time.time()
     qa_total_scores = []
     for k in range(qa_trial_count):
       title = '# of patients:' + str(num_of_patients) + ' ' + 'relocation#:' + str(j) + ' '  + 'qa_trial_count#:' + str(k) + ' ' + 'ambulance:' + str(num_of_fire_departments) + ' ' + 'rendezvous_points:' + str(num_of_rendezvous_points) + ' ' + 'doctor_helis:' + str(num_of_basehospitals)
@@ -513,7 +595,7 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
       world_qa = copy.deepcopy(world_base)
 
       # QA
-      qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algorithm_p1, is_new_algorithm_p2 = is_new_algorithm_p2, is_debug = True)
+      qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algorithm_p1, is_new_algorithm_p2 = is_new_algorithm_p2)
 
       qa_total_score = world_qa.getTotalScore(qa)
       qa_total_scores.append(qa_total_score)
@@ -526,10 +608,11 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
           best_location = j
 
     qa_total_scores_list.append(qa_total_scores)
+    qa_processing_time_list.append( time.time() - start)
 
 
 
-  df = output_as_csv(classic_total_scores_list, qa_total_scores_list, num_of_patients, num_of_fire_departments = num_of_fire_departments, num_of_rendezvous_points = num_of_rendezvous_points, num_of_basehospitals = num_of_basehospitals)
+  df = output_as_csv(classic_total_scores_list, ip_total_scores_list, qa_total_scores_list, classic_processing_time_list, ip_processing_time_list, qa_processing_time_list, num_of_patients, num_of_fire_departments = num_of_fire_departments, num_of_rendezvous_points = num_of_rendezvous_points, num_of_basehospitals = num_of_basehospitals)
 
   #print(best_world_base)
   #print(best_qa)
@@ -538,12 +621,16 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
   world_classic = copy.deepcopy(best_world_base)
   world_classic.despatch(best_classic)  
 
+  print('# IP despatch')
+  world_ip = copy.deepcopy(best_world_base)
+  world_ip.despatch(best_ip)  
+
   print('# QA despatch location#',best_location)
   world_qa = copy.deepcopy(best_world_base)
   world_qa.despatch(best_qa)  
   
   
-  return df, world_classic, world_qa
+  return df, world_classic, world_ip, world_qa
 
 def grid_search(life_saving_resources_params, hyper_params, map_relocations=10, qa_trial_count=5, width = 86000, height = 86000, use_d_wave=True, is_new_algorithm_p1 = True, is_new_algorithm_p2 = True):
 

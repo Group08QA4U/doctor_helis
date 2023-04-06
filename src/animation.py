@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import matplotlib.pyplot as plt
+from matplotlib import animation, rc
 class Animation:
   def __init__(self, classic, qa, frame=800):
     self.classic = classic

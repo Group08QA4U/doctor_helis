@@ -2,9 +2,10 @@
 import math
 from numpy import linalg as LA
 from matplotlib import animation, rc
-from IPython.display import HTML
+#from IPython.display import HTML
 import plotable
 import numpy as np
+import matplotlib.pyplot as plt
 
 class World:
   def __init__(self, width, height, num_of_patients, num_of_rendezvous_points, num_of_basehospitals, num_of_fire_departments):
@@ -348,7 +349,7 @@ class World:
       if route[1][0] == -1 or route[1][1] == -1 or route[1][2] == -1 or route[1][3] == -1:
         total_score = None
         break      
-      total_score += route[4]
+      total_score += route[3]
       print(route)
     print('Total score:',total_score)
 
@@ -372,11 +373,14 @@ class World:
 
     total_score = 0
     if best_routes:
+      #print('best_routes',best_routes)
       for route in best_routes:
+        #print('route',route)
         if route[1][0] == -1 or route[1][1] == -1 or route[1][2] == -1 or route[1][3] == -1:
           total_score = None
           break      
-        total_score += route[4]
+        #print('route[4]',route[4])
+        total_score += route[3]
         #print(route)
       #print('Total score:',total_score)    
     return total_score
