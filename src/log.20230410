@@ -1,0 +1,1619 @@
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f4b7a8799c0>
+Set parameter Username
+Set parameter LogFile to value "gurobi.log"
+Academic license - for non-commercial use only - expires 2024-04-04
+Using license file /home/ktanno/gurobi.lic
+
+Gurobi Optimizer version 9.5.2 build v9.5.2rc0 (linux64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read LP format model from file /tmp/5a25071a78884cdf991e4d23a7cef231-pulp.lp
+Reading time = 0.03 seconds
+OBJ: 25407 rows, 6584 columns, 70192 nonzeros
+Thread count: 6 physical cores, 12 logical processors, using up to 12 threads
+Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
+Model fingerprint: 0x26c19a90
+Variable types: 0 continuous, 6584 integer (6584 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [3e+00, 4e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective 203.4734706
+Presolve removed 18144 rows and 0 columns
+Presolve time: 0.14s
+Presolved: 7263 rows, 6584 columns, 52048 nonzeros
+Variable types: 0 continuous, 6584 integer (6584 binary)
+
+Root relaxation: objective 1.126590e+02, 472 iterations, 0.03 seconds (0.04 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0     112.6589774  112.65898  0.00%     -    0s
+
+Explored 1 nodes (472 simplex iterations) in 0.18 seconds (0.26 work units)
+Thread count was 12 (of 12 available processors)
+
+Solution count 2: 112.659 203.473 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.126589773633e+02, best bound 1.126589773633e+02, gap 0.0000%
+
+Wrote result file '/tmp/5a25071a78884cdf991e4d23a7cef231-pulp.sol'
+
+Optimal
+112.65897736320505
+Ambulance -> Patients
+(0, 2)
+(1, 1)
+(2, 7)
+(3, 5)
+(4, 4)
+(5, 0)
+(6, 3)
+(8, 6)
+Patient -> Rendezvous points
+(0, 10)
+(1, 8)
+(2, 2)
+(3, 5)
+(4, 6)
+(5, 3)
+(6, 1)
+(7, 9)
+Rendezvous point -> Doctor helis
+(1, 2)
+(2, 7)
+(3, 5)
+(5, 1)
+(6, 3)
+(8, 0)
+(9, 4)
+(10, 6)
+routes
+0
+[2, [0, 2, 7, 7], 29.682644418757974, 14.1105256108832, 15.572118807874775]
+1
+[1, [1, 8, 0, 0], 21.47375487993235, 20.386326680572186, 1.0874281993601649]
+2
+[7, [2, 9, 4, 4], 28.660486390480408, 10.550129637364916, 18.11035675311549]
+3
+[5, [3, 3, 5, 5], 23.95345187908098, 19.537490105533834, 4.415961773547146]
+4
+[4, [4, 6, 3, 3], 1.0, 14.872442910368612, -13.872442910368612]
+5
+[0, [5, 10, 6, 6], 7.4240370666672195, 2.5756654357326676, 4.848371630934552]
+6
+[3, [6, 5, 1, 1], 27.22394964196061, 21.72480563135159, 5.499144010609019]
+8
+[6, [8, 1, 2, 2], 19.760651860010903, 8.901591351398057, 10.859060508612846]
+# of patients:8 relocation#:0 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 2 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 3 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 5 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 7 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+Total score: 28.277097547123635
+# of patients:8 relocation#:0 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 2 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 3 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 4 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 6 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+Total score: 26.6786170835166
+# of patients:8 relocation#:0 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 1 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 2 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 4 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 5 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 6 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 7 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+Total score: 29.370203522153393
+# of patients:8 relocation#:0 qa_trial_count#:3 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 2 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 3 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 5 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 6 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+Total score: 32.17093681937055
+# of patients:8 relocation#:0 qa_trial_count#:4 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 5 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 6 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+Total score: 31.720313111825106
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f4b7abdd960>
+Set parameter Username
+Set parameter LogFile to value "gurobi.log"
+Academic license - for non-commercial use only - expires 2024-04-04
+Using license file /home/ktanno/gurobi.lic
+
+Gurobi Optimizer version 9.5.2 build v9.5.2rc0 (linux64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read LP format model from file /tmp/2523365aed5b47a7aa4afbbc843568ad-pulp.lp
+Reading time = 0.03 seconds
+OBJ: 25407 rows, 6584 columns, 70192 nonzeros
+Thread count: 6 physical cores, 12 logical processors, using up to 12 threads
+Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
+Model fingerprint: 0x7978a8df
+Variable types: 0 continuous, 6584 integer (6584 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [5e+00, 4e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective 194.1391913
+Presolve removed 18144 rows and 0 columns
+Presolve time: 0.13s
+Presolved: 7263 rows, 6584 columns, 52048 nonzeros
+Variable types: 0 continuous, 6584 integer (6584 binary)
+
+Root relaxation: objective 1.091630e+02, 502 iterations, 0.03 seconds (0.04 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0     109.1629832  109.16298  0.00%     -    0s
+
+Explored 1 nodes (502 simplex iterations) in 0.18 seconds (0.26 work units)
+Thread count was 12 (of 12 available processors)
+
+Solution count 2: 109.163 194.139 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.091629832142e+02, best bound 1.091629832142e+02, gap 0.0000%
+
+Wrote result file '/tmp/2523365aed5b47a7aa4afbbc843568ad-pulp.sol'
+
+Optimal
+109.16298321415604
+Ambulance -> Patients
+(0, 3)
+(1, 4)
+(2, 1)
+(3, 2)
+(4, 6)
+(5, 0)
+(6, 7)
+(8, 5)
+Patient -> Rendezvous points
+(0, 10)
+(1, 3)
+(2, 6)
+(3, 0)
+(4, 9)
+(5, 7)
+(6, 8)
+(7, 2)
+Rendezvous point -> Doctor helis
+(0, 0)
+(2, 2)
+(3, 3)
+(6, 5)
+(7, 6)
+(8, 7)
+(9, 4)
+(10, 1)
+routes
+0
+[3, [0, 0, 0, 0], 33.14606946455784, 17.25361364484932, 15.89245581970852]
+1
+[4, [1, 9, 4, 4], 31.643254906758088, 23.274297139410475, 8.368957767347613]
+2
+[1, [2, 3, 3, 3], 25.58338260087843, 5.633068870151894, 19.950313730726535]
+3
+[2, [3, 6, 5, 5], 38.76990133930429, 12.596425545269202, 26.173475794035088]
+4
+[6, [4, 8, 7, 7], 1.0, 16.772117141514574, -15.772117141514574]
+5
+[0, [5, 10, 1, 1], 53.11521254682659, 12.58682812137166, 40.52838442545493]
+6
+[7, [6, 2, 2, 2], 48.21791095778816, 10.60896431301375, 37.60894664477441]
+8
+[5, [8, 7, 6, 6], 19.29560259493923, 10.437668438575173, 8.857934156364056]
+# of patients:8 relocation#:1 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 2 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 6 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 7 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 1 0 0 0]
+Total score: 124.34054587105798
+# of patients:8 relocation#:1 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 1 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 4 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 6 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 1 0 0 0 0 0 0]
+Total score: 127.59858328405495
+# of patients:8 relocation#:1 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 1 0 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 1 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 3 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 6 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 1 0 0 0 0 0 0]
+Total score: 125.83225615412483
+# of patients:8 relocation#:1 qa_trial_count#:3 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 2 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 3 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 4 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+Total score: 124.55766465805748
+# of patients:8 relocation#:1 qa_trial_count#:4 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 1 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 2 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 7 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+Total score: 127.54002816058754
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f4b7a5be7d0>
+Set parameter Username
+Set parameter LogFile to value "gurobi.log"
+Academic license - for non-commercial use only - expires 2024-04-04
+Using license file /home/ktanno/gurobi.lic
+
+Gurobi Optimizer version 9.5.2 build v9.5.2rc0 (linux64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read LP format model from file /tmp/9b7d7c37d92c4f7f9b11ff5b07622da2-pulp.lp
+Reading time = 0.03 seconds
+OBJ: 25407 rows, 6584 columns, 70192 nonzeros
+Thread count: 6 physical cores, 12 logical processors, using up to 12 threads
+Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
+Model fingerprint: 0xd868e92c
+Variable types: 0 continuous, 6584 integer (6584 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [5e+00, 5e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective 187.5118482
+Presolve removed 18144 rows and 0 columns
+Presolve time: 0.13s
+Presolved: 7263 rows, 6584 columns, 52048 nonzeros
+Variable types: 0 continuous, 6584 integer (6584 binary)
+
+Root relaxation: objective 1.250427e+02, 430 iterations, 0.02 seconds (0.03 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0     125.0427192  125.04272  0.00%     -    0s
+
+Explored 1 nodes (430 simplex iterations) in 0.18 seconds (0.26 work units)
+Thread count was 12 (of 12 available processors)
+
+Solution count 2: 125.043 187.512 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.250427191723e+02, best bound 1.250427191723e+02, gap 0.0000%
+
+Wrote result file '/tmp/9b7d7c37d92c4f7f9b11ff5b07622da2-pulp.sol'
+
+Optimal
+125.042719172331
+Ambulance -> Patients
+(0, 4)
+(1, 1)
+(2, 6)
+(3, 0)
+(5, 2)
+(6, 3)
+(7, 7)
+(8, 5)
+Patient -> Rendezvous points
+(0, 2)
+(1, 0)
+(2, 9)
+(3, 7)
+(4, 4)
+(5, 6)
+(6, 3)
+(7, 8)
+Rendezvous point -> Doctor helis
+(0, 4)
+(2, 3)
+(3, 2)
+(4, 0)
+(6, 1)
+(7, 6)
+(8, 7)
+(9, 5)
+routes
+0
+[4, [0, 4, 0, 0], 31.523806101173168, 9.97983832514143, 21.54396777603174]
+1
+[1, [1, 0, 4, 4], 16.56832693277757, 12.33220360862429, 4.236123324153279]
+2
+[6, [2, 3, 2, 2], 38.03865614389684, 20.597320986680103, 17.441335157216734]
+3
+[0, [3, 2, 3, 3], 25.887543987984202, 9.535065236163119, 16.35247875182108]
+5
+[2, [5, 9, 5, 5], 12.89759206826286, 16.511465340747108, -3.6138732724842484]
+6
+[3, [6, 7, 6, 6], 20.857278792466076, 21.608042500008523, -0.7507637075424469]
+7
+[7, [7, 8, 7, 7], 13.700431352259645, 5.494748182987313, 8.205683169272334]
+8
+[5, [8, 6, 1, 1], 41.08342839325651, 28.984034991979136, 12.099393401277375]
+# of patients:8 relocation#:2 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 1 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 2 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 4 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+Total score: 63.81547799417654
+# of patients:8 relocation#:2 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 1 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 2 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 4 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 6 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+Total score: 65.20420564135433
+# of patients:8 relocation#:2 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 4 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 6 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+Total score: 69.99837834111386
+# of patients:8 relocation#:2 qa_trial_count#:3 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 1 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 2 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 6 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 0 1 0]
+Total score: 69.85536842493303
+# of patients:8 relocation#:2 qa_trial_count#:4 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 4 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 5 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 6 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 1 0 0 0 0 0 0]
+Total score: 60.09427050116926
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f4b7a5eb790>
+Set parameter Username
+Set parameter LogFile to value "gurobi.log"
+Academic license - for non-commercial use only - expires 2024-04-04
+Using license file /home/ktanno/gurobi.lic
+
+Gurobi Optimizer version 9.5.2 build v9.5.2rc0 (linux64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read LP format model from file /tmp/cbfed87b0c81474ab7444dd37a1d3818-pulp.lp
+Reading time = 0.03 seconds
+OBJ: 25407 rows, 6584 columns, 70192 nonzeros
+Thread count: 6 physical cores, 12 logical processors, using up to 12 threads
+Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
+Model fingerprint: 0xa18d3829
+Variable types: 0 continuous, 6584 integer (6584 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [5e+00, 5e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective 176.9296902
+Presolve removed 18144 rows and 0 columns
+Presolve time: 0.14s
+Presolved: 7263 rows, 6584 columns, 52048 nonzeros
+Variable types: 0 continuous, 6584 integer (6584 binary)
+
+Root relaxation: objective 1.300908e+02, 688 iterations, 0.03 seconds (0.05 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0     130.0907937  130.09079  0.00%     -    0s
+
+Explored 1 nodes (688 simplex iterations) in 0.19 seconds (0.27 work units)
+Thread count was 12 (of 12 available processors)
+
+Solution count 2: 130.091 176.93 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.300907936860e+02, best bound 1.300907936860e+02, gap 0.0000%
+
+Wrote result file '/tmp/cbfed87b0c81474ab7444dd37a1d3818-pulp.sol'
+
+Optimal
+130.09079368605077
+Ambulance -> Patients
+(0, 0)
+(1, 7)
+(2, 3)
+(3, 1)
+(5, 5)
+(6, 4)
+(7, 6)
+(8, 2)
+Patient -> Rendezvous points
+(0, 4)
+(1, 0)
+(2, 5)
+(3, 7)
+(4, 8)
+(5, 9)
+(6, 10)
+(7, 1)
+Rendezvous point -> Doctor helis
+(0, 5)
+(1, 7)
+(4, 1)
+(5, 6)
+(7, 3)
+(8, 2)
+(9, 4)
+(10, 0)
+routes
+0
+[0, [0, 4, 1, 1], 22.528984624371635, 31.571167745186187, -9.042183120814553]
+1
+[7, [1, 1, 7, 7], 41.95610702379018, 14.292726440940909, 27.66338058284927]
+2
+[3, [2, 7, 3, 3], 26.007204144518177, 14.73589894912923, 11.271305195388948]
+3
+[1, [3, 0, 5, 5], 20.83650360383315, 11.911123220207264, 8.925380383625887]
+5
+[5, [5, 9, 4, 4], 23.99831257516526, 11.426100480916427, 12.572212094248835]
+6
+[4, [6, 8, 2, 2], 50.048348773926364, 14.276776837213497, 35.77157193671287]
+7
+[6, [7, 10, 0, 0], 2.1727001462265996, 17.290545663062968, -15.117845516836368]
+8
+[2, [8, 5, 6, 6], 13.85077235036585, 14.586454349394272, -0.7356819990284222]
+# of patients:8 relocation#:3 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 1 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 4 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 6 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+Total score: 60.22412519449742
+# of patients:8 relocation#:3 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 2 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 3 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+Total score: 67.5647486776093
+# of patients:8 relocation#:3 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 1 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 2 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 3 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+Total score: 63.66556650876534
+# of patients:8 relocation#:3 qa_trial_count#:3 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 1 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 2 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 1 0 0 0 0]
+Total score: 63.2789887864773
+# of patients:8 relocation#:3 qa_trial_count#:4 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 1 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 2 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+Total score: 60.84695233075198
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f4b48411210>
+Set parameter Username
+Set parameter LogFile to value "gurobi.log"
+Academic license - for non-commercial use only - expires 2024-04-04
+Using license file /home/ktanno/gurobi.lic
+
+Gurobi Optimizer version 9.5.2 build v9.5.2rc0 (linux64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read LP format model from file /tmp/7362cea933204e36bee79441a59124b6-pulp.lp
+Reading time = 0.03 seconds
+OBJ: 25407 rows, 6584 columns, 70192 nonzeros
+Thread count: 6 physical cores, 12 logical processors, using up to 12 threads
+Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
+Model fingerprint: 0x2a1bd3e0
+Variable types: 0 continuous, 6584 integer (6584 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [6e+00, 4e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective 168.9263847
+Presolve removed 18144 rows and 0 columns
+Presolve time: 0.14s
+Presolved: 7263 rows, 6584 columns, 52048 nonzeros
+Variable types: 0 continuous, 6584 integer (6584 binary)
+
+Root relaxation: objective 1.086212e+02, 429 iterations, 0.02 seconds (0.03 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0     108.6211522  108.62115  0.00%     -    0s
+
+Explored 1 nodes (429 simplex iterations) in 0.18 seconds (0.25 work units)
+Thread count was 12 (of 12 available processors)
+
+Solution count 2: 108.621 168.926 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.086211521777e+02, best bound 1.086211521777e+02, gap 0.0000%
+
+Wrote result file '/tmp/7362cea933204e36bee79441a59124b6-pulp.sol'
+
+Optimal
+108.62115217764344
+Ambulance -> Patients
+(1, 6)
+(2, 1)
+(3, 0)
+(4, 7)
+(5, 2)
+(6, 5)
+(7, 4)
+(8, 3)
+Patient -> Rendezvous points
+(0, 3)
+(1, 2)
+(2, 5)
+(3, 8)
+(4, 7)
+(5, 1)
+(6, 9)
+(7, 0)
+Rendezvous point -> Doctor helis
+(0, 4)
+(1, 3)
+(2, 1)
+(3, 0)
+(5, 2)
+(7, 6)
+(8, 5)
+(9, 7)
+routes
+1
+[6, [1, 9, 7, 7], 9.638653761423509, 12.894089694338351, -3.2554359329148426]
+2
+[1, [2, 2, 1, 1], 47.233469312987204, 12.780200696199058, 34.453268616788144]
+3
+[0, [3, 3, 0, 0], 41.461623423396205, 22.972423345857074, 18.48920007753913]
+4
+[7, [4, 0, 4, 4], 28.258309096942565, 12.251640389787585, 16.00666870715498]
+5
+[2, [5, 5, 2, 2], 23.252025450774696, 20.61098564048612, 2.641039810288575]
+6
+[5, [6, 1, 3, 3], 13.813457100942358, 9.588249143249516, 4.225207957692842]
+7
+[4, [7, 7, 6, 6], 24.08451885243588, 11.521627639691465, 12.562891212744416]
+8
+[3, [8, 8, 5, 5], 2.914816319218815, 6.001935628034275, -3.08711930881546]
+# of patients:8 relocation#:4 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 1 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 2 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 4 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+Total score: 73.75162662741837
+# of patients:8 relocation#:4 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 1 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 3 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 4 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 1 0 0 0]
+Total score: 77.3786022837853
+# of patients:8 relocation#:4 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 1 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 2 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 5 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 1 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 1 0 0 0 0 0 0]
+Total score: 64.39651052903525
+# of patients:8 relocation#:4 qa_trial_count#:3 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 5 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+Total score: 66.19067279950305
+# of patients:8 relocation#:4 qa_trial_count#:4 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 2 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 5 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+Total score: 65.22143999145618
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f4b284307f0>
+Set parameter Username
+Set parameter LogFile to value "gurobi.log"
+Academic license - for non-commercial use only - expires 2024-04-04
+Using license file /home/ktanno/gurobi.lic
+
+Gurobi Optimizer version 9.5.2 build v9.5.2rc0 (linux64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read LP format model from file /tmp/401c25017bdd40c0adade8e0610b9455-pulp.lp
+Reading time = 0.03 seconds
+OBJ: 25407 rows, 6584 columns, 70192 nonzeros
+Thread count: 6 physical cores, 12 logical processors, using up to 12 threads
+Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
+Model fingerprint: 0x62c9df3a
+Variable types: 0 continuous, 6584 integer (6584 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [5e+00, 4e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective 177.1512932
+Presolve removed 18144 rows and 0 columns
+Presolve time: 0.13s
+Presolved: 7263 rows, 6584 columns, 52048 nonzeros
+Variable types: 0 continuous, 6584 integer (6584 binary)
+
+Root relaxation: objective 1.299589e+02, 495 iterations, 0.03 seconds (0.03 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0     129.9588981  129.95890  0.00%     -    0s
+
+Explored 1 nodes (495 simplex iterations) in 0.18 seconds (0.26 work units)
+Thread count was 12 (of 12 available processors)
+
+Solution count 2: 129.959 177.151 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.299588981367e+02, best bound 1.299588981367e+02, gap 0.0000%
+
+Wrote result file '/tmp/401c25017bdd40c0adade8e0610b9455-pulp.sol'
+
+Optimal
+129.958898136524
+Ambulance -> Patients
+(0, 4)
+(1, 0)
+(3, 2)
+(4, 5)
+(5, 6)
+(6, 1)
+(7, 3)
+(8, 7)
+Patient -> Rendezvous points
+(0, 7)
+(1, 0)
+(2, 4)
+(3, 6)
+(4, 10)
+(5, 2)
+(6, 3)
+(7, 8)
+Rendezvous point -> Doctor helis
+(0, 3)
+(2, 2)
+(3, 1)
+(4, 6)
+(6, 4)
+(7, 7)
+(8, 5)
+(10, 0)
+routes
+0
+[4, [0, 10, 0, 0], 22.52250998168701, 22.65596917868863, -0.13345919700162057]
+1
+[0, [1, 7, 7, 7], 27.551623937515675, 25.99765200558394, 1.5539719319317342]
+3
+[2, [3, 4, 6, 6], 45.74610340821815, 10.881720658257581, 34.86438274996057]
+4
+[5, [4, 2, 2, 2], 25.22581949763312, 10.175773436053682, 15.050046061579437]
+5
+[6, [5, 3, 1, 1], 12.851464748307269, 17.344364241541356, -4.492899493234088]
+6
+[1, [6, 0, 3, 3], 14.336109529825322, 16.69653548285041, -2.3604259530250893]
+7
+[3, [7, 6, 4, 4], 24.33977422307047, 11.938632657159733, 12.401141565910738]
+8
+[7, [8, 8, 5, 5], 35.28537948494972, 14.268250476388669, 21.017129008561053]
+# of patients:8 relocation#:5 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 2 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 3 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 6 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+Total score: 70.60365735601835
+# of patients:8 relocation#:5 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 2 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 3 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 6 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 7 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+Total score: 67.24848454393528
+# of patients:8 relocation#:5 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 2 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 3 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 6 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 7 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [1 0 0 0 0 0 0 0]
+Total score: 66.15898930492654
+# of patients:8 relocation#:5 qa_trial_count#:3 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 4 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 6 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 1 0 0]
+Total score: 67.40202248554098
+# of patients:8 relocation#:5 qa_trial_count#:4 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 4 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 6 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+Total score: 67.96837055252726
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f4b4873e170>
+Set parameter Username
+Set parameter LogFile to value "gurobi.log"
+Academic license - for non-commercial use only - expires 2024-04-04
+Using license file /home/ktanno/gurobi.lic
+
+Gurobi Optimizer version 9.5.2 build v9.5.2rc0 (linux64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read LP format model from file /tmp/e0120f00a9494fe2bb6ac53d8f8622cb-pulp.lp
+Reading time = 0.03 seconds
+OBJ: 25407 rows, 6584 columns, 70192 nonzeros
+Thread count: 6 physical cores, 12 logical processors, using up to 12 threads
+Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
+Model fingerprint: 0xf199c859
+Variable types: 0 continuous, 6584 integer (6584 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [4e+00, 4e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective 185.0070595
+Presolve removed 18144 rows and 0 columns
+Presolve time: 0.13s
+Presolved: 7263 rows, 6584 columns, 52048 nonzeros
+Variable types: 0 continuous, 6584 integer (6584 binary)
+
+Root relaxation: objective 1.218292e+02, 446 iterations, 0.02 seconds (0.03 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0     121.8292313  121.82923  0.00%     -    0s
+
+Explored 1 nodes (446 simplex iterations) in 0.18 seconds (0.26 work units)
+Thread count was 12 (of 12 available processors)
+
+Solution count 2: 121.829 185.007 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.218292312510e+02, best bound 1.218292312510e+02, gap 0.0000%
+
+Wrote result file '/tmp/e0120f00a9494fe2bb6ac53d8f8622cb-pulp.sol'
+
+Optimal
+121.82923125104998
+Ambulance -> Patients
+(0, 6)
+(1, 7)
+(2, 0)
+(3, 5)
+(4, 4)
+(6, 1)
+(7, 3)
+(8, 2)
+Patient -> Rendezvous points
+(0, 10)
+(1, 8)
+(2, 6)
+(3, 1)
+(4, 2)
+(5, 7)
+(6, 5)
+(7, 9)
+Rendezvous point -> Doctor helis
+(1, 5)
+(2, 7)
+(5, 6)
+(6, 2)
+(7, 0)
+(8, 1)
+(9, 4)
+(10, 3)
+routes
+0
+[6, [0, 5, 6, 6], 22.38205324415265, 19.253977349378797, 3.128075894773854]
+1
+[7, [1, 9, 4, 4], 16.521260321902176, 10.837564571226853, 5.683695750675323]
+2
+[0, [2, 10, 3, 3], 55.11237231087428, 15.340397777633815, 39.77197453324047]
+3
+[5, [3, 7, 0, 0], 39.69422888973683, 4.121368653184881, 35.572860236551946]
+4
+[4, [4, 2, 7, 7], 24.655287041045877, 6.61816164502234, 18.037125396023537]
+6
+[1, [6, 8, 1, 1], 23.19154696357755, 28.004368594895773, -4.812821631318222]
+7
+[3, [7, 1, 5, 5], 42.366928039804755, 19.341144381758152, 23.025783658046603]
+8
+[2, [8, 6, 2, 2], 23.801065489959488, 18.312248277949358, 5.4888172120101295]
+# of patients:8 relocation#:6 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 1 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 2 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 7 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+Total score: 112.20265345052105
+# of patients:8 relocation#:6 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 1 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 2 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 6 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 7 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 1 0 0 0 0]
+Total score: 109.62928496399512
+# of patients:8 relocation#:6 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 1 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 2 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 5 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 1 0 0 0 0 0 0]
+Total score: 113.94625359803894
+# of patients:8 relocation#:6 qa_trial_count#:3 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 2 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 3 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 7 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 1 0 0 0]
+Total score: 108.92626480086973
+# of patients:8 relocation#:6 qa_trial_count#:4 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 1 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 2 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+Total score: 115.74436714402623
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f4b48430430>
+Set parameter Username
+Set parameter LogFile to value "gurobi.log"
+Academic license - for non-commercial use only - expires 2024-04-04
+Using license file /home/ktanno/gurobi.lic
+
+Gurobi Optimizer version 9.5.2 build v9.5.2rc0 (linux64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read LP format model from file /tmp/556c6694f98342b4bfd803561ded3d49-pulp.lp
+Reading time = 0.03 seconds
+OBJ: 25407 rows, 6584 columns, 70192 nonzeros
+Thread count: 6 physical cores, 12 logical processors, using up to 12 threads
+Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
+Model fingerprint: 0x10418aba
+Variable types: 0 continuous, 6584 integer (6584 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [4e+00, 4e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective 226.9625229
+Presolve removed 18144 rows and 0 columns
+Presolve time: 0.13s
+Presolved: 7263 rows, 6584 columns, 52048 nonzeros
+Variable types: 0 continuous, 6584 integer (6584 binary)
+
+Root relaxation: objective 1.273624e+02, 521 iterations, 0.03 seconds (0.04 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0     127.3624079  127.36241  0.00%     -    0s
+
+Explored 1 nodes (521 simplex iterations) in 0.18 seconds (0.26 work units)
+Thread count was 12 (of 12 available processors)
+
+Solution count 2: 127.362 226.963 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.273624079146e+02, best bound 1.273624079146e+02, gap 0.0000%
+
+Wrote result file '/tmp/556c6694f98342b4bfd803561ded3d49-pulp.sol'
+
+Optimal
+127.36240791450537
+Ambulance -> Patients
+(1, 0)
+(2, 2)
+(3, 6)
+(4, 5)
+(5, 1)
+(6, 4)
+(7, 7)
+(8, 3)
+Patient -> Rendezvous points
+(0, 9)
+(1, 1)
+(2, 4)
+(3, 0)
+(4, 7)
+(5, 5)
+(6, 8)
+(7, 2)
+Rendezvous point -> Doctor helis
+(0, 0)
+(1, 5)
+(2, 1)
+(4, 2)
+(5, 7)
+(7, 6)
+(8, 3)
+(9, 4)
+routes
+1
+[0, [1, 9, 4, 4], 29.453782342334776, 14.187588822762223, 15.266193519572553]
+2
+[2, [2, 4, 2, 2], 24.269231975865406, 4.6891312209524045, 19.580100754913]
+3
+[6, [3, 8, 3, 3], 14.751923201846607, 32.39069269478502, -17.63876949293841]
+4
+[5, [4, 5, 7, 7], 26.293878624841675, 15.24058060628657, 11.053298018555104]
+5
+[1, [5, 1, 5, 5], 7.089979425630846, 23.045262359595252, -15.955282933964407]
+6
+[4, [6, 7, 6, 6], 33.63119324023043, 17.860022917979947, 15.771170322250484]
+7
+[7, [7, 2, 1, 1], 28.2423150440316, 10.756033506928336, 17.486281537103263]
+8
+[3, [8, 0, 0, 0], 19.456229659451516, 9.19309578521562, 10.263133874235896]
+# of patients:8 relocation#:7 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 2 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+Total score: 36.476999407827066
+# of patients:8 relocation#:7 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 1 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 4 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 6 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+Total score: 40.34187717417621
+# of patients:8 relocation#:7 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 6 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 7 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 1 0 0]
+Total score: 47.14903351503003
+# of patients:8 relocation#:7 qa_trial_count#:3 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 2 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 4 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 6 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+Total score: 44.73358967403976
+# of patients:8 relocation#:7 qa_trial_count#:4 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 2 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 4 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 7 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+Total score: 47.1791201703265
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f4b283227d0>
+Set parameter Username
+Set parameter LogFile to value "gurobi.log"
+Academic license - for non-commercial use only - expires 2024-04-04
+Using license file /home/ktanno/gurobi.lic
+
+Gurobi Optimizer version 9.5.2 build v9.5.2rc0 (linux64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read LP format model from file /tmp/74b7c6a3525748acb63f8227f6a82d75-pulp.lp
+Reading time = 0.03 seconds
+OBJ: 25407 rows, 6584 columns, 70192 nonzeros
+Thread count: 6 physical cores, 12 logical processors, using up to 12 threads
+Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
+Model fingerprint: 0x45fa3379
+Variable types: 0 continuous, 6584 integer (6584 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [8e+00, 4e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective 175.7607693
+Presolve removed 18144 rows and 0 columns
+Presolve time: 0.14s
+Presolved: 7263 rows, 6584 columns, 52048 nonzeros
+Variable types: 0 continuous, 6584 integer (6584 binary)
+
+Root relaxation: objective 1.174624e+02, 390 iterations, 0.02 seconds (0.03 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0     117.4623619  117.46236  0.00%     -    0s
+
+Explored 1 nodes (390 simplex iterations) in 0.18 seconds (0.25 work units)
+Thread count was 12 (of 12 available processors)
+
+Solution count 2: 117.462 175.761 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.174623618927e+02, best bound 1.174623618927e+02, gap 0.0000%
+
+Wrote result file '/tmp/74b7c6a3525748acb63f8227f6a82d75-pulp.sol'
+
+Optimal
+117.46236189284754
+Ambulance -> Patients
+(0, 6)
+(1, 5)
+(3, 2)
+(4, 4)
+(5, 1)
+(6, 7)
+(7, 0)
+(8, 3)
+Patient -> Rendezvous points
+(0, 9)
+(1, 7)
+(2, 5)
+(3, 4)
+(4, 0)
+(5, 10)
+(6, 6)
+(7, 2)
+Rendezvous point -> Doctor helis
+(0, 3)
+(2, 4)
+(4, 6)
+(5, 2)
+(6, 5)
+(7, 0)
+(9, 1)
+(10, 7)
+routes
+0
+[6, [0, 6, 5, 5], 8.44018671241733, 12.710255485017585, -4.270068772600256]
+1
+[5, [1, 10, 7, 7], 16.497170091576038, 7.921779258441024, 8.575390833135014]
+3
+[2, [3, 5, 2, 2], 9.65636975628719, 14.476486945026236, -4.8201171887390455]
+4
+[4, [4, 0, 3, 3], 48.274709137062764, 11.564408844503204, 36.71030029255956]
+5
+[1, [5, 7, 0, 0], 31.276349981314755, 11.881438405329453, 19.394911575985304]
+6
+[7, [6, 2, 4, 4], 22.62996133586358, 24.799946267695763, -2.1699849318321824]
+7
+[0, [7, 9, 1, 1], 47.25194463735808, 20.724103471733265, 26.527841165624814]
+8
+[3, [8, 4, 6, 6], 23.476284285081515, 13.383943215101018, 10.092341069980497]
+# of patients:8 relocation#:8 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 4 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 1 0 0 0]
+Total score: 71.34979522855042
+# of patients:8 relocation#:8 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 1 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 2 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 3 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 5 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+Total score: 76.24818296535902
+# of patients:8 relocation#:8 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 1 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 6 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 1 0 0 0 0 0 0]
+Total score: 81.51904188594146
+# of patients:8 relocation#:8 qa_trial_count#:3 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 2 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 3 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 4 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+Total score: 77.29881215734994
+# of patients:8 relocation#:8 qa_trial_count#:4 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 5 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 6 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+Total score: 77.12044344679275
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f4b68319d80>
+Set parameter Username
+Set parameter LogFile to value "gurobi.log"
+Academic license - for non-commercial use only - expires 2024-04-04
+Using license file /home/ktanno/gurobi.lic
+
+Gurobi Optimizer version 9.5.2 build v9.5.2rc0 (linux64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read LP format model from file /tmp/b5f1fa9dceeb4e21850af43057a5f4bc-pulp.lp
+Reading time = 0.03 seconds
+OBJ: 25407 rows, 6584 columns, 70192 nonzeros
+Thread count: 6 physical cores, 12 logical processors, using up to 12 threads
+Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
+Model fingerprint: 0xa12e2381
+Variable types: 0 continuous, 6584 integer (6584 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [2e+00, 5e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective 175.0905477
+Presolve removed 18144 rows and 0 columns
+Presolve time: 0.13s
+Presolved: 7263 rows, 6584 columns, 52048 nonzeros
+Variable types: 0 continuous, 6584 integer (6584 binary)
+
+Root relaxation: objective 1.015414e+02, 457 iterations, 0.03 seconds (0.03 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0     101.5414189  101.54142  0.00%     -    0s
+
+Explored 1 nodes (457 simplex iterations) in 0.18 seconds (0.26 work units)
+Thread count was 12 (of 12 available processors)
+
+Solution count 2: 101.541 175.091 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.015414188962e+02, best bound 1.015414188962e+02, gap 0.0000%
+
+Wrote result file '/tmp/b5f1fa9dceeb4e21850af43057a5f4bc-pulp.sol'
+
+Optimal
+101.5414188961898
+Ambulance -> Patients
+(0, 1)
+(1, 2)
+(2, 6)
+(3, 4)
+(4, 3)
+(6, 0)
+(7, 5)
+(8, 7)
+Patient -> Rendezvous points
+(0, 10)
+(1, 1)
+(2, 6)
+(3, 2)
+(4, 5)
+(5, 3)
+(6, 7)
+(7, 0)
+Rendezvous point -> Doctor helis
+(0, 0)
+(1, 6)
+(2, 1)
+(3, 4)
+(5, 3)
+(6, 5)
+(7, 7)
+(10, 2)
+routes
+0
+[1, [0, 1, 6, 6], 34.9335380262793, 20.479622080334487, 14.453915945944814]
+1
+[2, [1, 6, 5, 5], 24.838395486401566, 8.536513586440565, 16.301881899961003]
+2
+[6, [2, 7, 7, 7], 14.523927720172338, 19.021406931366343, -4.497479211194005]
+3
+[4, [3, 5, 3, 3], 30.533312392186232, 3.3450065552424264, 27.188305836943805]
+4
+[3, [4, 2, 1, 1], 18.625668945387346, 14.978528275401935, 3.6471406699854114]
+6
+[0, [6, 10, 2, 2], 39.669324968995724, 11.309843250492435, 28.35948171850329]
+7
+[5, [7, 3, 4, 4], 31.128281383851345, 18.241492463135135, 12.88678892071621]
+8
+[7, [8, 0, 0, 0], 38.83034373290422, 5.6290057537764735, 33.20133797912774]
+# of patients:8 relocation#:9 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 1 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 4 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 1 0 0]
+Total score: 122.37371185570439
+# of patients:8 relocation#:9 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 1 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 2 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 4 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 6 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+Total score: 120.14198508968718
+# of patients:8 relocation#:9 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 1 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 3 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 6 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+Total score: 117.52892658283339
+# of patients:8 relocation#:9 qa_trial_count#:3 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 1 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 2 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 4 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 6 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+Total score: 109.02673356711333
+# of patients:8 relocation#:9 qa_trial_count#:4 ambulance:9 rendezvous_points:11 doctor_helis:8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 1 0 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 1 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 0 1 0 0 0]
+    OK   # 3 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 7 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [1 0 0 0 0 0 0 0]
+Total score: 125.72664980355526
+# Classic despatch
+[patient#, [a2p, p2r, r2d, d2h], Time left for the patient, Estimated time to start treatment, Score(Difference b/w the time left for the patient and the time to start treatment)]
+[0, [8, 9, 0, 0], 47.25194463735808, 10.634997997670121, 36.61694663968796]
+[1, [1, 7, 1, 1], 31.276349981314755, 10.735335313510298, 20.541014667804458]
+[2, [4, 5, 2, 2], 9.65636975628719, 9.03058673319427, 0.6257830230929216]
+[3, [0, 4, 3, 3], 23.476284285081515, 13.676710322931227, 9.799573962150289]
+[4, [5, 10, 4, 4], 48.274709137062764, 8.887513554876925, 39.38719558218584]
+[5, [3, 0, 5, 5], 16.497170091576038, 20.867438369905337, -4.3702682783292985]
+[6, [7, 6, 6, 6], 8.44018671241733, 24.933712231875376, -16.493525519458046]
+[7, [6, 2, 7, 7], 22.62996133586358, 24.799946267695763, -2.1699849318321824]
+Total score: 123.56624079165931
+# IP despatch
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f4b487c91b0>
+Set parameter Username
+Set parameter LogFile to value "gurobi.log"
+Academic license - for non-commercial use only - expires 2024-04-04
+Using license file /home/ktanno/gurobi.lic
+
+Gurobi Optimizer version 9.5.2 build v9.5.2rc0 (linux64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read LP format model from file /tmp/6409c74b48034270953d224374702155-pulp.lp
+Reading time = 0.03 seconds
+OBJ: 25407 rows, 6584 columns, 70192 nonzeros
+Thread count: 6 physical cores, 12 logical processors, using up to 12 threads
+Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
+Model fingerprint: 0x45fa3379
+Variable types: 0 continuous, 6584 integer (6584 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [8e+00, 4e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective 175.7607693
+Presolve removed 18144 rows and 0 columns
+Presolve time: 0.14s
+Presolved: 7263 rows, 6584 columns, 52048 nonzeros
+Variable types: 0 continuous, 6584 integer (6584 binary)
+
+Root relaxation: objective 1.174624e+02, 390 iterations, 0.02 seconds (0.03 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0     117.4623619  117.46236  0.00%     -    0s
+
+Explored 1 nodes (390 simplex iterations) in 0.18 seconds (0.25 work units)
+Thread count was 12 (of 12 available processors)
+
+Solution count 2: 117.462 175.761 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.174623618927e+02, best bound 1.174623618927e+02, gap 0.0000%
+
+Wrote result file '/tmp/6409c74b48034270953d224374702155-pulp.sol'
+
+Optimal
+117.46236189284754
+Ambulance -> Patients
+(0, 6)
+(1, 5)
+(3, 2)
+(4, 4)
+(5, 1)
+(6, 7)
+(7, 0)
+(8, 3)
+Patient -> Rendezvous points
+(0, 9)
+(1, 7)
+(2, 5)
+(3, 4)
+(4, 0)
+(5, 10)
+(6, 6)
+(7, 2)
+Rendezvous point -> Doctor helis
+(0, 3)
+(2, 4)
+(4, 6)
+(5, 2)
+(6, 5)
+(7, 0)
+(9, 1)
+(10, 7)
+routes
+0
+[6, [0, 6, 5, 5], 8.44018671241733, 12.710255485017585, -4.270068772600256]
+1
+[5, [1, 10, 7, 7], 16.497170091576038, 7.921779258441024, 8.575390833135014]
+3
+[2, [3, 5, 2, 2], 9.65636975628719, 14.476486945026236, -4.8201171887390455]
+4
+[4, [4, 0, 3, 3], 48.274709137062764, 11.564408844503204, 36.71030029255956]
+5
+[1, [5, 7, 0, 0], 31.276349981314755, 11.881438405329453, 19.394911575985304]
+6
+[7, [6, 2, 4, 4], 22.62996133586358, 24.799946267695763, -2.1699849318321824]
+7
+[0, [7, 9, 1, 1], 47.25194463735808, 20.724103471733265, 26.527841165624814]
+8
+[3, [8, 4, 6, 6], 23.476284285081515, 13.383943215101018, 10.092341069980497]
+[patient#, [a2p, p2r, r2d, d2h], Time left for the patient, Estimated time to start treatment, Score(Difference b/w the time left for the patient and the time to start treatment)]
+[6, [0, 6, 5, 5], 8.44018671241733, 12.710255485017585, -4.270068772600256]
+[5, [1, 10, 7, 7], 16.497170091576038, 7.921779258441024, 8.575390833135014]
+[2, [3, 5, 2, 2], 9.65636975628719, 14.476486945026236, -4.8201171887390455]
+[4, [4, 0, 3, 3], 48.274709137062764, 11.564408844503204, 36.71030029255956]
+[1, [5, 7, 0, 0], 31.276349981314755, 11.881438405329453, 19.394911575985304]
+[7, [6, 2, 4, 4], 22.62996133586358, 24.799946267695763, -2.1699849318321824]
+[0, [7, 9, 1, 1], 47.25194463735808, 20.724103471733265, 26.527841165624814]
+[3, [8, 4, 6, 6], 23.476284285081515, 13.383943215101018, 10.092341069980497]
+Total score: 117.46236189284754
+# QA despatch location# 8
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital [0 0 0 0 0 0 1 0]
+    OK   # 1 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital [0 0 1 0 0 0 0 0]
+    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital [0 0 0 0 0 0 0 1]
+    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital [1 0 0 0 0 0 0 0]
+    OK   # 4 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital [0 1 0 0 0 0 0 0]
+    OK   # 5 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 1 0 0 0] basehospital [0 0 0 0 0 1 0 0]
+    OK   # 6 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital [0 0 0 1 0 0 0 0]
+    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital [0 0 0 0 1 0 0 0]
+Total score: 78.5006556931288
+[patient#, [a2p, p2r, r2d, d2h], Time left for the patient, Estimated time to start treatment, Score(Difference b/w the time left for the patient and the time to start treatment)]
+[0, [7, 9, 3, 3], 47.25194463735808, 20.724103471733265, 26.527841165624814]
+[1, [4, 7, 7, 7], 31.276349981314755, 12.154798839484807, 19.121551141829947]
+[2, [1, 8, 5, 5], 9.65636975628719, 11.20571244973131, -1.5493426934441192]
+[3, [8, 0, 1, 1], 23.476284285081515, 17.97290056603507, 5.503383719046447]
+[4, [5, 5, 2, 2], 48.274709137062764, 11.414339868741294, 36.86036926832147]
+[5, [6, 10, 4, 4], 16.497170091576038, 17.539695659123694, -1.0425255675476564]
+[6, [3, 4, 6, 6], 8.44018671241733, 24.629047306004964, -16.188860593587634]
+[7, [0, 2, 0, 0], 22.62996133586358, 13.36172208297804, 9.26823925288554]
+Total score: 129.00232024383243
+   # of patients  Greedy(score)  Greedy(ptime)  Integer Programming(score)  \
+0              8     130.879249       0.003155                  112.658977   
+1              8     115.427569       0.003246                  109.162983   
+2              8     138.045385       0.003099                  125.042719   
+3              8     136.341988       0.003089                  130.090794   
+4              8     137.540503       0.003178                  108.621152   
+5              8     136.328937       0.003074                  129.958898   
+6              8     134.474772       0.003263                  121.829231   
+7              8     137.486375       0.003145                  127.362408   
+8              8     123.566241       0.003079                  117.462362   
+9              8     113.187880       0.003130                  101.541419   
+
+   Integer Programming(ptime)  Quantum annealing(score)  \
+0                    1.217121                132.500359   
+1                    1.269170                126.430789   
+2                    1.278290                140.462793   
+3                    1.238852                141.174808   
+4                    1.293668                126.260363   
+5                    1.276675                141.699796   
+6                    1.278402                138.798478   
+7                    1.313700                146.711534   
+8                    1.306439                136.153181   
+9                    1.220851                124.056059   
+
+   Quantum annealing(ptime)  
+0                 52.150020  
+1                 50.822172  
+2                 51.820792  
+3                 51.447165  
+4                 51.977083  
+5                 50.782180  
+6                 51.920244  
+7                 50.753511  
+8                 50.143279  
+9                 51.517106  
+
