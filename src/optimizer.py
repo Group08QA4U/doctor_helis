@@ -110,6 +110,10 @@ class Classic(Optimizer):
 
     return best_routes
 
+# 整数計画Optimizerクラス
+import pulp
+import itertools
+
 class IP(Optimizer):
   def __init__(self):
     super().__init__()
@@ -123,56 +127,130 @@ class IP(Optimizer):
     reserved_doctor_helis = np.zeros(self.num_of_doctor_helis)
     #reserved_sdf_helis = np.zeros(self.num_of_sdf_helis)
     reserved_basehospitals = np.zeros(self.num_of_basehospitals)
-    
+
+    # 定数読み込み
+    N = self.num_of_patients
+    A = self.num_of_ambulances
+    R = self.num_of_rendezvous_points
+    D = self.num_of_doctor_helis
+    B = self.num_of_basehospitals
+    M = A + R + D + B
+
+    # 変数のアドレスリスト作成
+    pr = list( itertools.product(range(A),range(N),range(R),range(D)) )  # 全体
+    pra = list( itertools.product(range(A),range(N)) )
+    prr = list( itertools.product(range(N),range(R)) )
+    prd = list( itertools.product(range(R),range(D)) )
+
+    # 決定変数定義
+    xa = {(i,j):pulp.LpVariable('xa%d_%d'%(i,j), cat="Binary") for i,j in pra}    # 救急車
+    xr = {(j,k):pulp.LpVariable('xr%d_%d'%(j,k), cat="Binary") for j,k in prr}    # ランデブーポイント
+    xd = {(k,l):pulp.LpVariable('xd%d_%d'%(k,l), cat="Binary") for k,l in prd}    # ドクターヘリ
+
+    # 非線形関数の線形化用バイナリ変数定義
+    y = {(i,j,k,l):pulp.LpVariable('y%d_%d_%d_%d'%(i,j,k,l), cat="Binary") for i,j,k,l in pr}
+
+    # 最適化モデルの定義
+    mip_model = pulp.LpProblem(sense=pulp.LpMinimize)
+
+    # Objective function -> minimize(搬送時間)
+    objective =  pulp.lpSum(y[i,j,k,l] * max(time_a2p[i][j] + time_p2r[j][k], time_r2d[k][l]) for i,j,k,l in pr)
+
+    mip_model += objective
+
+    # Constraint functions
+    ## Ambulance -> Patients
+    for i in range(A):
+        mip_model += pulp.lpSum(xa[i,j] for j in range(N)) <= 1
+    for j in range(N):
+        mip_model += pulp.lpSum(xa[i,j] for i in range(A)) == 1
+
+    ## Patient -> Randezvous points
+    for j in range(N):
+        mip_model += pulp.lpSum(xr[j,k] for k in range(R)) == 1
+    for k in range(R):
+        mip_model += pulp.lpSum(xr[j,k] for j in range(N)) <= 1
+
+    #mip_model += pulp.lpSum(xr[j,k] for j in range(N) for k in range(R)) == N
+
+    ## Randezvous points -> Doctor helis
+    for k in range(R):
+        mip_model += pulp.lpSum(xd[k,l] for l in range(D)) <= 1
+    for l in range(D):
+        mip_model += pulp.lpSum(xd[k,l] for k in range(R)) <= 1
+
+    #mip_model += pulp.lpSum(xd[k,l] for k in range(R) for l in range(D)) == N
+
+    ## 非線形関数→線形関数のための制約条件
+    for i in range(A):
+        for j in range(N):
+            for k in range(R):
+                for l in range(D):
+                    mip_model += 2 - (xa[i,j] + xr[j,k] + xd[k,l]) + y[i,j,k,l] >= 0
+                    mip_model += xa[i,j] - y[i,j,k,l] >= 0
+                    mip_model += xr[j,k] - y[i,j,k,l] >= 0
+                    mip_model += xd[k,l] - y[i,j,k,l] >= 0
+
+    for j in range(N):
+        mip_model += pulp.lpSum(y[i,j,k,l] for i in range(A) for k in range(R) for l in range(D)) == 1
+
+    # ソルバー設定
+    #solver = pulp.PULP_CBC_CMD(threads=10, timeLimit=600)    # 4 thread 並列指定
+    solver = pulp.GUROBI_CMD()
+
+    print("start pulp solver :{}".format(solver))
+
+    # ソルバー起動
+    mip_model.solve(solver)
+
+    # 実行可能解が存在したかを表示
+    print(pulp.LpStatus[mip_model.status])
+
+    # 目的関数の計算値
+    print(pulp.value(mip_model.objective))
+
+    print("Ambulance -> Patients")
+    for i,x in xa.items():
+        if pulp.value(x) > 0:
+            print(i)
+
+    print("Patient -> Rendezvous points")
+    for i,x in xr.items():
+        if pulp.value(x) > 0:
+            print(i)
+
+    print("Rendezvous point -> Doctor helis")
+    for i,x in xd.items():
+        if pulp.value(x) > 0:
+            print(i)
+
+
+    print("routes")
+
+    # 結果の格納
     best_routes = []
-    for i in range(self.num_of_patients):
-      best_routes.append([i, [-1, -1, -1, -1 ], remaining_time_all_patients[i], -1, -remaining_time_all_patients[i]])
-      #min_route1 = min_time_to_treatment_1 = min_time_to_treatment_2 = sys.maxsize
-      min_time_to_treatment_1 = min_time_to_treatment_2 = sys.maxsize
-      a2p = p2r = r2d = d2h = -1      
-      #s2p = p2h = -1   
-      for j in range(self.num_of_ambulances):
-        if reserved_ambulances[j] == True:
-          continue 
-        for k in range(self.num_of_rendezvous_points):
-          if reserved_rendezvous_points[k] == True:
-            continue           
-          for l in range(self.num_of_doctor_helis):
-            if reserved_doctor_helis[l] == True:
-              continue 
-
-            time_to_treatment = max( time_a2p[j][i] + time_p2r[i][k] , time_r2d[k][l] )
-            if min_time_to_treatment_1 > time_to_treatment:
-              min_time_to_treatment_1 = time_to_treatment
-              a2p = j
-              p2r = k
-              r2d = l
-              d2h = l # ドクターヘリは、出動した基地病院へ戻る
-
-            #for m in range(self.num_of_basehospitals):
-            #  #route_estimated_time = max( time_a2p[j][i] + time_p2r[i][k] , time_r2d[k][l] ) + time_r2h[k][m]
-            #  time_to_treatment = max( time_a2p[j][i] + time_p2r[i][k] , time_r2d[k][l] )
-            #  #print(i,j,k,l,m,-1,-1,route_estimated_time)
-            #  if min_time_to_treatment_1 > time_to_treatment:
-            #    min_time_to_treatment_1 = time_to_treatment
-            #    #min_route1 = route_estimated_time
-            #    a2p = j
-            #    p2r = k
-            #    r2d = l
-            #    d2h = m
-
-
-
-      if min_time_to_treatment_1 < min_time_to_treatment_2:
-        reserved_ambulances[a2p] = True
-        reserved_rendezvous_points[p2r] = True
-        reserved_doctor_helis[r2d] = True
-        #[patient#, [a2p, p2r, r2d, d2h], Time left for the patient, Estimated time to start treatment, Score(Difference b/w the time left for the patient and the time to start treatment)]
-        best_routes[i] = [i, [a2p, p2r, r2d, d2h ], remaining_time_all_patients[i], min_time_to_treatment_1, remaining_time_all_patients[i] - min_time_to_treatment_1]
-        #best_routes.append([i, [a2p, p2r, r2d, d2h ], remaining_time_all_patients[i], min_time_to_treatment_1, remaining_time_all_patients[i] - min_time_to_treatment_1])
-
-
-
+    ans_num = 0
+    for i,x_a2p in xa.items():
+        if pulp.value(x_a2p) > 0:
+            best_routes.append([i[1], [-1, -1, -1, -1 ], remaining_time_all_patients[i[1]], -1, -remaining_time_all_patients[i[1]]])
+            a2p = i[0]
+            for j,x_p2r in xr.items():
+                if pulp.value(x_p2r) > 0:
+                    if j[0] == i[1]:
+                        p2r = j[1]
+                        for k,x_r2d in xd.items():
+                            if pulp.value(x_r2d) > 0:
+                                if k[0] == p2r:
+                                    r2d = k[1]
+                                    d2h = k[1] # ドクターヘリは、出動した基地病院へ戻る
+                                    reserved_ambulances[a2p] = True
+                                    reserved_rendezvous_points[p2r] = True
+                                    reserved_doctor_helis[r2d] = True
+                                    time_to_treatment = max( time_a2p[i[0]][i[1]] + time_p2r[j[0]][j[1]] , time_r2d[k[0]][k[1]] )
+                                    print(i[0])
+                                    best_routes[ans_num] = [i[1], [a2p, p2r, r2d, d2h ], remaining_time_all_patients[i[1]], time_to_treatment, remaining_time_all_patients[i[1]] - time_to_treatment]
+                                    print(best_routes[ans_num])
+            ans_num += 1
 
     return best_routes
 
