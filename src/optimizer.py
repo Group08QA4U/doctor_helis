@@ -667,13 +667,15 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
     # QAで計算
     start = time.time()
     qa_total_scores = []
+    lams=[39.0,39.0,-0.3]
     for k in range(qa_trial_count):
-      title = '# of patients:' + str(num_of_patients) + ' ' + 'relocation#:' + str(j) + ' '  + 'qa_trial_count#:' + str(k) + ' ' + 'ambulance:' + str(num_of_fire_departments) + ' ' + 'rendezvous_points:' + str(num_of_rendezvous_points) + ' ' + 'doctor_helis:' + str(num_of_basehospitals)
+      title = 'patients#:' + str(num_of_patients) + ' ' + 'relocation#:' + str(j) + ' '  + 'qa_trial_count#:' + str(k) + ' ' + 'ambulance:' + str(num_of_fire_departments) + ' ' + 'rendezvous_points:' + str(num_of_rendezvous_points) + ' ' + 'doctor_helis:' + str(num_of_basehospitals) + ' lams:' + " ".join([str(_) for _ in lams])
       print(title)      
       world_qa = copy.deepcopy(world_base)
 
       # QA
-      qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algorithm_p1, is_new_algorithm_p2 = is_new_algorithm_p2)
+      #qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algorithm_p1, is_new_algorithm_p2 = is_new_algorithm_p2)
+      qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algorithm_p1, is_new_algorithm_p2 = is_new_algorithm_p2, lams=lams)
 
       qa_total_score = world_qa.getTotalScore(qa)
       qa_total_scores.append(qa_total_score)
