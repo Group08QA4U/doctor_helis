@@ -571,15 +571,19 @@ class QA(Optimizer):
           # 救急車→要救助者→ランデブーポイント
           time_a2p2r = (time_a2p[j][i] + time_p2r[i][k-a])
 
-          Q3[(i * M + j, i * M + k)] = lam3 * (remaining_time_all_patients[i] - time_a2p2r)
-          Q3[(i * M + k, i * M + j)] = lam3 * (remaining_time_all_patients[i] - time_a2p2r)
+          #Q3[(i * M + j, i * M + k)] = lam3 * (remaining_time_all_patients[i] - time_a2p2r)
+          #Q3[(i * M + k, i * M + j)] = lam3 * (remaining_time_all_patients[i] - time_a2p2r)
+          Q3[(i * M + j, i * M + k)] = lam3 * time_a2p2r
+          Q3[(i * M + k, i * M + j)] = lam3 * time_a2p2r
 
       # ドクターヘリ
       for j in range(a + r, a + r + d):
         # ランデブーポイント
         for l in range(a, a + r):
-          Q3[(i * M + j, i * M + l)] = lam3 * (remaining_time_all_patients[i] - time_r2d[l-a][j-(a + r)])
-          Q3[(i * M + l, i * M + j)] = lam3 * (remaining_time_all_patients[i] - time_r2d[l-a][j-(a + r)])
+          #Q3[(i * M + j, i * M + l)] = lam3 * (remaining_time_all_patients[i] - time_r2d[l-a][j-(a + r)])
+          #Q3[(i * M + l, i * M + j)] = lam3 * (remaining_time_all_patients[i] - time_r2d[l-a][j-(a + r)])
+          Q3[(i * M + j, i * M + l)] = lam3 * time_r2d[l-a][j-(a + r)]
+          Q3[(i * M + l, i * M + j)] = lam3 * time_r2d[l-a][j-(a + r)]
 
 
     Q.update(Q1) 
@@ -672,7 +676,7 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
     # QAで計算
     start = time.time()
     qa_total_scores = []
-    lams=[39.0,39.0,-0.301]
+    lams=[39.0,39.0,0.301]
     for k in range(qa_trial_count):
       title = 'patients#:' + str(num_of_patients) + ' ' + 'relocation#:' + str(j) + ' '  + 'qa_trial_count#:' + str(k) + ' ' + 'ambulance:' + str(num_of_fire_departments) + ' ' + 'rendezvous_points:' + str(num_of_rendezvous_points) + ' ' + 'doctor_helis:' + str(num_of_basehospitals) + ' lams:' + " ".join([str(_) for _ in lams])
       print(title)      
