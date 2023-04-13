@@ -596,12 +596,17 @@ def output_as_csv(best_classic_total_scores_list, best_ip_total_scores_list, bes
   #title = 'patients=' + str(num_of_patients) + '_' + 'ambulance=' + str(num_of_fire_departments) + '_' + 'rendezvous_points=' + str(num_of_rendezvous_points) + '_' + 'doctor_helis=' + str(num_of_basehospitals)
 
   data = []
+  cnt = 0
   for gr, ip, qa, gr_time, ip_time, qa_time  in zip(best_classic_total_scores_list, best_ip_total_scores_list, best_qa_total_scores_list, classic_processing_time_list, ip_processing_time_list, qa_processing_time_list):
     qa_max = np.max([x for x in qa if x]) if len([x for x in qa if x]) != 0 else 'None'
-    data.append([num_of_patients, gr, gr_time, ip, ip_time, qa_max, qa_time] )
+    print('cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time',cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time)
+    data.append([cnt, (gr * 60)/num_of_patients, gr_time, (ip * 60)/num_of_patients, ip_time, (qa_max * 60)/num_of_patients if qa_max != 'None' else 'Not found', qa_time] )
+    cnt += 1
 
-  columns = ['# of patients', 'Greedy(score)', 'Greedy(ptime)', 'Integer Programming(score)', 'Integer Programming(ptime)', 'Quantum annealing(score)', 'Quantum annealing(ptime)' ]
+  columns = ['map#','Greedy(score sec/patient)', 'Greedy(ptime sec)', 'Integer Programming(score sec/patient)', 'Integer Programming(ptime sec)', 'Quantum annealing(score sec/patient)', 'Quantum annealing(ptime sec)' ]
   df = pd.DataFrame(data, columns=columns)
+  df.set_index("map#",inplace=True)
+  print('df',df)
   pd.set_option('display.max_columns', None)
   pd.set_option('display.max_rows', None)
 
@@ -667,7 +672,7 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
     # QAで計算
     start = time.time()
     qa_total_scores = []
-    lams=[39.0,39.0,-0.30]
+    lams=[39.0,39.0,-0.301]
     for k in range(qa_trial_count):
       title = 'patients#:' + str(num_of_patients) + ' ' + 'relocation#:' + str(j) + ' '  + 'qa_trial_count#:' + str(k) + ' ' + 'ambulance:' + str(num_of_fire_departments) + ' ' + 'rendezvous_points:' + str(num_of_rendezvous_points) + ' ' + 'doctor_helis:' + str(num_of_basehospitals) + ' lams:' + " ".join([str(_) for _ in lams])
       print(title)      
