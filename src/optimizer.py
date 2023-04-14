@@ -266,7 +266,7 @@ DWAVE_TOKEN = os.getenv('DWAVE_TOKEN')
 #print('DWAVE_TOKEN',DWAVE_TOKEN)
 
 class QA(Optimizer):
-  def __init__(self, use_d_wave = False, use_hybrid = True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False, lams = None):
+  def __init__(self, use_d_wave = False, use_hybrid = True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False, is_max_algorithm_p3 = True, lams = None):
     super().__init__()
     self.token = DWAVE_TOKEN 
     self.endpoint = 'https://cloud.dwavesys.com/sapi/'
@@ -274,6 +274,7 @@ class QA(Optimizer):
     self.use_hybrid = use_hybrid
     self.is_new_algorithm_p1 = is_new_algorithm_p1
     self.is_new_algorithm_p2 = is_new_algorithm_p2
+    self.is_max_algorithm_p3 = is_max_algorithm_p3
 
     self.lams = lams
 
@@ -561,30 +562,145 @@ class QA(Optimizer):
     Q3 = {}
     if self.use_d_wave != True:
       lam3 = -0.000001
-    # 要救助者
-    for i in range(N):
 
-      # 救急車
-      for j in range(a):
+    if self.is_max_algorithm_p3:  
+      # 要救助者
+      for i in range(N):
+
+        # 救急車
+        for j in range(a):
+
+          # ランデブーポイント
+          for k in range(a, a + r):
+            # 救急車→要救助者→ランデブーポイント
+            time_a2p2r = (time_a2p[j][i] + time_p2r[i][k-a])
+
+            #Q3[(i * M + j, i * M + k)] = lam3 * (remaining_time_all_patients[i] - time_a2p2r)
+            #Q3[(i * M + k, i * M + j)] = lam3 * (remaining_time_all_patients[i] - time_a2p2r)
+            Q3[(i * M + j, i * M + k)] = lam3 * time_a2p2r / N
+            Q3[(i * M + k, i * M + j)] = lam3 * time_a2p2r / N
+
+        # ドクターヘリ
+        for j in range(a + r, a + r + d):
+          # ランデブーポイント
+          for l in range(a, a + r):
+            #Q3[(i * M + j, i * M + l)] = lam3 * (remaining_time_all_patients[i] - time_r2d[l-a][j-(a + r)])
+            #Q3[(i * M + l, i * M + j)] = lam3 * (remaining_time_all_patients[i] - time_r2d[l-a][j-(a + r)])
+            Q3[(i * M + j, i * M + l)] = lam3 * time_r2d[l-a][j-(a + r)] / N
+            Q3[(i * M + l, i * M + j)] = lam3 * time_r2d[l-a][j-(a + r)] / N
+    else:
+      # 要救助者
+      for i in range(N):
+
+        # 救急車
+        for j in range(a):
+
+          # ランデブーポイント
+          for k in range(a, a + r):
+            # 救急車→要救助者→ランデブーポイント
+            time_a2p2r = (time_a2p[j][i] + time_p2r[i][k-a])
+
+            # ドクターヘリ
+            for l in range(a + r, a + r + d):
+              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N
+              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N
+            
+              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N
+              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N
+            
+              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N
+              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N
+
+          # ドクターヘリ
+          for k in range(a + r, a + r + d):
+
+            # ランデブーポイント
+            for l in range(a, a + r):
+              # 救急車→要救助者→ランデブーポイント
+              time_a2p2r = (time_a2p[j][i] + time_p2r[i][l-a])
+
+              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N
+              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N
+            
+              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N
+              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N
+            
+              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N
+              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N
+            
 
         # ランデブーポイント
-        for k in range(a, a + r):
-          # 救急車→要救助者→ランデブーポイント
-          time_a2p2r = (time_a2p[j][i] + time_p2r[i][k-a])
+        for j in range(a, a + r):
 
-          #Q3[(i * M + j, i * M + k)] = lam3 * (remaining_time_all_patients[i] - time_a2p2r)
-          #Q3[(i * M + k, i * M + j)] = lam3 * (remaining_time_all_patients[i] - time_a2p2r)
-          Q3[(i * M + j, i * M + k)] = lam3 * time_a2p2r / N
-          Q3[(i * M + k, i * M + j)] = lam3 * time_a2p2r / N
+          # 救急車
+          for k in range(a):
+            # 救急車→要救助者→ランデブーポイント
+            time_a2p2r = (time_a2p[k][i] + time_p2r[i][j-a])
 
-      # ドクターヘリ
-      for j in range(a + r, a + r + d):
-        # ランデブーポイント
-        for l in range(a, a + r):
-          #Q3[(i * M + j, i * M + l)] = lam3 * (remaining_time_all_patients[i] - time_r2d[l-a][j-(a + r)])
-          #Q3[(i * M + l, i * M + j)] = lam3 * (remaining_time_all_patients[i] - time_r2d[l-a][j-(a + r)])
-          Q3[(i * M + j, i * M + l)] = lam3 * time_r2d[l-a][j-(a + r)] / N
-          Q3[(i * M + l, i * M + j)] = lam3 * time_r2d[l-a][j-(a + r)] / N
+            # ドクターヘリ
+            for l in range(a + r, a + r + d):
+              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N
+              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N
+            
+              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N
+              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N
+            
+              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N
+              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N
+            
+
+          # ドクターヘリ
+          for k in range(a + r, a + r + d):
+
+            # 救急車
+            for l in range(a):
+              # 救急車→要救助者→ランデブーポイント
+              time_a2p2r = (time_a2p[l][i] + time_p2r[i][j-a])            
+              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N
+              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N
+            
+              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N
+              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N
+            
+              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N
+              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N
+            
+
+        # ドクターヘリ
+        for j in range(a + r, a + r + d):
+
+          # 救急車
+          for k in range(a):
+
+            # ランデブーポイント
+            for l in range(a, a + r):
+              # 救急車→要救助者→ランデブーポイント
+              time_a2p2r = (time_a2p[k][i] + time_p2r[i][l-a])            
+              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N
+              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N
+           
+              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N
+              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N
+            
+              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N
+              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N
+
+
+          # ランデブーポイント
+          for k in range(a, a + r):
+
+            # 救急車
+            for l in range(a):
+              # 救急車→要救助者→ランデブーポイント
+              time_a2p2r = (time_a2p[l][i] + time_p2r[i][k-a])            
+              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N
+              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N
+            
+              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N
+              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N
+            
+              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N
+              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N
 
 
     Q.update(Q1) 
@@ -679,19 +795,21 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
     qa_total_scores = []
     lams=[39.0,39.0,2.40]
     is_new_algo = False
+    is_max_algo = True
+    #for is_max_algo in [True,False]:
     #for is_new_algo in [True,False]:
     for k in range(qa_trial_count):
       title = 'patients#:' + str(num_of_patients) + ' ' + 'relocation#:' + str(j) + ' '  + \
               'qa_trial_count#:' + str(k) + ' ' + 'ambulance:' + str(num_of_fire_departments) + ' ' + \
               'rendezvous_points:' + str(num_of_rendezvous_points) + ' ' + \
               'doctor_helis:' + str(num_of_basehospitals) + ' lams:' + " ".join([str(_) for _ in lams]) + ' ' + \
-              'is_new_algo:' + str(is_new_algo)
+              'is_new_algo:' + str(is_new_algo) + ' ' + 'is_max_algo:' + str(is_max_algo) 
       print(title)      
       world_qa = copy.deepcopy(world_base)
 
       # QA
       #qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algorithm_p1, is_new_algorithm_p2 = is_new_algorithm_p2)
-      qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, lams=lams)
+      qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, is_max_algorithm_p3=is_max_algo, lams=lams)
 
       qa_total_score = world_qa.getTotalScore(qa)
       qa_total_scores.append(qa_total_score)
