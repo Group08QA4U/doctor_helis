@@ -23,8 +23,8 @@ def main():
         df, best_world_classic, best_world_ip, best_world_qa = optimizer.evaluate(num_of_patients = num_of_patients,\
                 width = width, height = height, num_of_fire_departments=num_of_fire_departments,\
                 num_of_rendezvous_points=num_of_rendezvous_points, num_of_basehospitals=num_of_basehospitals,\
-                map_relocations=map_relocations, qa_trial_count=qa_trial_count, use_d_wave=True,\
-                is_new_algorithm_p1 = True, is_new_algorithm_p2 = True)
+                map_relocations=map_relocations, qa_trial_count=qa_trial_count, use_d_wave=True)
+                #is_new_algorithm_p1 = False, is_new_algorithm_p2 = False)
 
         print(df)
 

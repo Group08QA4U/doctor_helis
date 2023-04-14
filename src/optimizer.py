@@ -346,8 +346,8 @@ class QA(Optimizer):
       doctor_helis_cnt= 0
       basehospital_cnt= 0
       opt_routes = []
-      for patient, resources in enumerate(result[0].reshape(N,a+r+d+b)):
-      #for patient, resources in enumerate(result[0].reshape(N,a+r+d)):
+      #for patient, resources in enumerate(result[0].reshape(N,a+r+d+b)):
+      for patient, resources in enumerate(result[0].reshape(N,a+r+d)):
 
         #min_time_to_treatment = max(time_a2p[ambulance_num][patient] + time_p2r[patient][rendezvous_point_num], time_r2d[rendezvous_point_num][doctor_heli_num])
         #score = remaining_time_all_patients[patient] - min_time_to_treatment
@@ -439,7 +439,8 @@ class QA(Optimizer):
         score = remaining_time_all_patients[patient] - min_time_to_treatment
         # [patient#, [a2p, p2r, r2d, d2h], Time left for the patient, Estimated time to start treatment, Score(Difference b/w the time left for the patient and the time to start treatment)]
         #opt_routes.append([patient,[ambulance_num, rendezvous_point_num, doctor_heli_num, basehospital_num], remaining_time_all_patients[patient], min_time_to_treatment, score])
-        opt_routes[patient] = [patient,[ambulance_num, rendezvous_point_num, doctor_heli_num, basehospital_num], remaining_time_all_patients[patient], min_time_to_treatment, score]
+        #opt_routes[patient] = [patient,[ambulance_num, rendezvous_point_num, doctor_heli_num, basehospital_num], remaining_time_all_patients[patient], min_time_to_treatment, score]
+        opt_routes[patient] = [patient,[ambulance_num, rendezvous_point_num, doctor_heli_num, doctor_heli_num], remaining_time_all_patients[patient], min_time_to_treatment, score]
       if is_found_opt_routes:
         break
 
@@ -449,7 +450,7 @@ class QA(Optimizer):
       if route[1][0] == -1 or route[1][1] == -1 or route[1][2] == -1 or route[1][3] == -1:
         total_score = None
         break
-      total_score += route[4]
+      total_score += route[4] # min_time_to_treatment
       #print(route)
     print('Total score:',total_score)
 
@@ -501,14 +502,14 @@ class QA(Optimizer):
               Q1[(i * M + j, i * M + k)] = Q1[(i * M + j, i * M + k)] - (2 * lam1)
 
       # 基地病院（基地病院の使用数は制限しない）
-      for j in range(a + r + d, a + r + d + b):
-        for k in range(a + r + d, a + r + d + b):
-          Q1[(i * M + j, i * M + k)] = lam1
-          if j == k:
-            if self.is_new_algorithm_p1:             
-              Q1[(i * M + j, i * M + k)] = Q1[(i * M + j, i * M + k)] - (2 * lam1 * min(N,a,r,d))/b
-            else:
-              Q1[(i * M + j, i * M + k)] = Q1[(i * M + j, i * M + k)] - (2 * lam1)
+      #for j in range(a + r + d, a + r + d + b):
+      #  for k in range(a + r + d, a + r + d + b):
+      #    Q1[(i * M + j, i * M + k)] = lam1
+      #    if j == k:
+      #      if self.is_new_algorithm_p1:             
+      #        Q1[(i * M + j, i * M + k)] = Q1[(i * M + j, i * M + k)] - (2 * lam1 * min(N,a,r,d))/b
+      #      else:
+      #        Q1[(i * M + j, i * M + k)] = Q1[(i * M + j, i * M + k)] - (2 * lam1)
 
     # 各救命リソースの数を制限する
     Q2 = {}
@@ -545,15 +546,15 @@ class QA(Optimizer):
               Q2[(i * M + j, k * M + j)] = Q2[(i * M + j, k * M + j)] -(2 * lam2)
 
     # 基地病院（基地病院の使用数は制限しない）
-    for j in range(a + r + d, a + r + d + b):
-      for i in range(N):
-        for k in range(N):
-          Q2[(i * M + j, k * M + j)] = lam2
-          if i == k:
-           if self.is_new_algorithm_p2:
-             Q2[(i * M + j, k * M + j)] = Q2[(i * M + j, k * M + j)] - (2 * lam2 * min(N,a,r,d))/b
-           else:
-             Q2[(i * M + j, k * M + j)] = Q2[(i * M + j, k * M + j)] - (2 * lam2)
+    #for j in range(a + r + d, a + r + d + b):
+    #  for i in range(N):
+    #    for k in range(N):
+    #      Q2[(i * M + j, k * M + j)] = lam2
+    #      if i == k:
+    #       if self.is_new_algorithm_p2:
+    #         Q2[(i * M + j, k * M + j)] = Q2[(i * M + j, k * M + j)] - (2 * lam2 * min(N,a,r,d))/b
+    #       else:
+    #         Q2[(i * M + j, k * M + j)] = Q2[(i * M + j, k * M + j)] - (2 * lam2)
 
 
     # 要救助者に残された時間と搬送時間を勘案する。
@@ -573,8 +574,8 @@ class QA(Optimizer):
 
           #Q3[(i * M + j, i * M + k)] = lam3 * (remaining_time_all_patients[i] - time_a2p2r)
           #Q3[(i * M + k, i * M + j)] = lam3 * (remaining_time_all_patients[i] - time_a2p2r)
-          Q3[(i * M + j, i * M + k)] = lam3 * time_a2p2r
-          Q3[(i * M + k, i * M + j)] = lam3 * time_a2p2r
+          Q3[(i * M + j, i * M + k)] = lam3 * time_a2p2r / N
+          Q3[(i * M + k, i * M + j)] = lam3 * time_a2p2r / N
 
       # ドクターヘリ
       for j in range(a + r, a + r + d):
@@ -582,8 +583,8 @@ class QA(Optimizer):
         for l in range(a, a + r):
           #Q3[(i * M + j, i * M + l)] = lam3 * (remaining_time_all_patients[i] - time_r2d[l-a][j-(a + r)])
           #Q3[(i * M + l, i * M + j)] = lam3 * (remaining_time_all_patients[i] - time_r2d[l-a][j-(a + r)])
-          Q3[(i * M + j, i * M + l)] = lam3 * time_r2d[l-a][j-(a + r)]
-          Q3[(i * M + l, i * M + j)] = lam3 * time_r2d[l-a][j-(a + r)]
+          Q3[(i * M + j, i * M + l)] = lam3 * time_r2d[l-a][j-(a + r)] / N
+          Q3[(i * M + l, i * M + j)] = lam3 * time_r2d[l-a][j-(a + r)] / N
 
 
     Q.update(Q1) 
@@ -676,15 +677,21 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
     # QAで計算
     start = time.time()
     qa_total_scores = []
-    lams=[39.0,39.0,0.301]
+    lams=[39.0,39.0,2.40]
+    is_new_algo = False
+    #for is_new_algo in [True,False]:
     for k in range(qa_trial_count):
-      title = 'patients#:' + str(num_of_patients) + ' ' + 'relocation#:' + str(j) + ' '  + 'qa_trial_count#:' + str(k) + ' ' + 'ambulance:' + str(num_of_fire_departments) + ' ' + 'rendezvous_points:' + str(num_of_rendezvous_points) + ' ' + 'doctor_helis:' + str(num_of_basehospitals) + ' lams:' + " ".join([str(_) for _ in lams])
+      title = 'patients#:' + str(num_of_patients) + ' ' + 'relocation#:' + str(j) + ' '  + \
+              'qa_trial_count#:' + str(k) + ' ' + 'ambulance:' + str(num_of_fire_departments) + ' ' + \
+              'rendezvous_points:' + str(num_of_rendezvous_points) + ' ' + \
+              'doctor_helis:' + str(num_of_basehospitals) + ' lams:' + " ".join([str(_) for _ in lams]) + ' ' + \
+              'is_new_algo:' + str(is_new_algo)
       print(title)      
       world_qa = copy.deepcopy(world_base)
 
       # QA
       #qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algorithm_p1, is_new_algorithm_p2 = is_new_algorithm_p2)
-      qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algorithm_p1, is_new_algorithm_p2 = is_new_algorithm_p2, lams=lams)
+      qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, lams=lams)
 
       qa_total_score = world_qa.getTotalScore(qa)
       qa_total_scores.append(qa_total_score)
