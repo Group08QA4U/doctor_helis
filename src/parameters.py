@@ -98,7 +98,7 @@ class HyperParams(Parameters):
         self._num_of_grid_search = 0
         self.lam1 = [39,]
         self.lam2 = [39,]
-        self.lam3 = [2.384, 2.392, 2.400, 2.408, 2.416]
+        self.lam3 = [1.50,1.75,2.00,2.25]
         #self.lam3 = [0.24,0.25]
 
     def set_next_params(self):
