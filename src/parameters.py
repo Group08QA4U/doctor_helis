@@ -47,12 +47,10 @@ class LifeSavingResourcesParams(Parameters):
         self.init_parameters()
 
     def init_parameters(self):
-        self.range_patients = [4,7,14]
-        #self.range_patients = [4,]
-        self.range_fire_departments = [14,]
-        self.range_rendezvous_points = [20,40,80,160,320,640,1280,2560]
-        #self.range_rendezvous_points = [20,40]
-        self.range_basehospitals = [14,]
+        self.range_patients = [8,]
+        self.range_fire_departments = [9,]
+        self.range_rendezvous_points = [11,]
+        self.range_basehospitals = [8,]
 
     def set_next_params(self):
         if self._idx >= self._num_of_grid_search and self._idx != 0:
@@ -98,9 +96,9 @@ class HyperParams(Parameters):
     def init_parameters(self):
         self._idx = 0
         self._num_of_grid_search = 0
-        self.lam1 = [40,]
-        self.lam2 = [40,]
-        self.lam3 = [-0.220,-0.222,-0.224,-0.226,-0.228,-0.229,-0.230]
+        self.lam1 = [39,]
+        self.lam2 = [39,]
+        self.lam3 = [2.384, 2.392, 2.400, 2.408, 2.416]
         #self.lam3 = [0.24,0.25]
 
     def set_next_params(self):

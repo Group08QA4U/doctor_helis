@@ -37,7 +37,7 @@ def write_result_csv(out_filename, results_data):
 
 def wraper(parameters_list):
     life_saving_resources_params, hyper_params = parameters_list
-    optimizer.grid_search(life_saving_resources_params, hyper_params)
+    optimizer.grid_search(life_saving_resources_params, hyper_params, map_relocations=5, qa_trial_count=3, width = 20000, height = 20000)
 
 
     params_str, params_dict = life_saving_resources_params.get_title_from_params()
