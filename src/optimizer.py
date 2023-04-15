@@ -792,7 +792,8 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
     # QAで計算
     start = time.time()
     qa_total_scores = []
-    lams=[39.0,39.0,2.5]
+    #lams=[39.0,39.0,2.5]
+    lams=[34.63320538704878, 49.15841176773455, 4.08550171630701]
     is_new_algo = False
     is_max_algo = True
     #for is_max_algo in [True,False]:
