@@ -266,10 +266,11 @@ DWAVE_TOKEN = os.getenv('DWAVE_TOKEN')
 #print('DWAVE_TOKEN',DWAVE_TOKEN)
 
 class QA(Optimizer):
-  def __init__(self, use_d_wave = True, use_hybrid = True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False, is_max_algorithm_p3 = True, lams = None):
+  def __init__(self, area, use_d_wave = True, use_hybrid = True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False, is_max_algorithm_p3 = True, lams = None):
     super().__init__()
     self.token = DWAVE_TOKEN 
     self.endpoint = 'https://cloud.dwavesys.com/sapi/'
+    self.area = area # 仮想地図面積
     self.use_d_wave = use_d_wave
     self.use_hybrid = use_hybrid
     self.is_new_algorithm_p1 = is_new_algorithm_p1
@@ -468,6 +469,11 @@ class QA(Optimizer):
     b = self.num_of_basehospitals
     M = a + r + d + b
 
+    #S = np.sqrt(self.area * 2)
+    # 仮想地図の面積 x 単位面積当たりの2点間の平均距離
+    S = self.area * ((2 + np.sqrt(2) + 5 * np.log(np.sqrt(2)+1)) / 15)
+
+
 
     Q1 = {}
     # 要救助者は、各救命リソースを１つだけ選択するよう制限する
@@ -577,8 +583,8 @@ class QA(Optimizer):
 
             #Q3[(i * M + j, i * M + k)] = lam3 * (remaining_time_all_patients[i] - time_a2p2r)
             #Q3[(i * M + k, i * M + j)] = lam3 * (remaining_time_all_patients[i] - time_a2p2r)
-            Q3[(i * M + j, i * M + k)] = lam3 * time_a2p2r / N
-            Q3[(i * M + k, i * M + j)] = lam3 * time_a2p2r / N
+            Q3[(i * M + j, i * M + k)] = lam3 * time_a2p2r / N / S
+            Q3[(i * M + k, i * M + j)] = lam3 * time_a2p2r / N / S
 
         # ドクターヘリ
         for j in range(a + r, a + r + d):
@@ -586,8 +592,8 @@ class QA(Optimizer):
           for l in range(a, a + r):
             #Q3[(i * M + j, i * M + l)] = lam3 * (remaining_time_all_patients[i] - time_r2d[l-a][j-(a + r)])
             #Q3[(i * M + l, i * M + j)] = lam3 * (remaining_time_all_patients[i] - time_r2d[l-a][j-(a + r)])
-            Q3[(i * M + j, i * M + l)] = lam3 * time_r2d[l-a][j-(a + r)] / N
-            Q3[(i * M + l, i * M + j)] = lam3 * time_r2d[l-a][j-(a + r)] / N
+            Q3[(i * M + j, i * M + l)] = lam3 * time_r2d[l-a][j-(a + r)] / N / S
+            Q3[(i * M + l, i * M + j)] = lam3 * time_r2d[l-a][j-(a + r)] / N / S
     else:
       # 要救助者
       for i in range(N):
@@ -602,14 +608,14 @@ class QA(Optimizer):
 
             # ドクターヘリ
             for l in range(a + r, a + r + d):
-              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N
-              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N
+              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N / S
+              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N / S
             
-              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N
-              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N
+              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N / S
+              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N / S
             
-              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N
-              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N
+              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N / S
+              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[k-a][l-(a + r)]) / N / S
 
           # ドクターヘリ
           for k in range(a + r, a + r + d):
@@ -619,14 +625,14 @@ class QA(Optimizer):
               # 救急車→要救助者→ランデブーポイント
               time_a2p2r = (time_a2p[j][i] + time_p2r[i][l-a])
 
-              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N
-              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N
+              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N / S
+              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N / S
             
-              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N
-              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N
+              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N / S
+              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N / S
             
-              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N
-              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N
+              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N / S
+              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[l-a][k-(a + r)]) / N / S
             
 
         # ランデブーポイント
@@ -639,14 +645,14 @@ class QA(Optimizer):
 
             # ドクターヘリ
             for l in range(a + r, a + r + d):
-              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N
-              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N
+              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N / S
+              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N / S
             
-              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N
-              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N
+              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N / S
+              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N / S
             
-              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N
-              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N
+              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N / S
+              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[j-a][l-(a + r)]) / N / S
             
 
           # ドクターヘリ
@@ -656,14 +662,14 @@ class QA(Optimizer):
             for l in range(a):
               # 救急車→要救助者→ランデブーポイント
               time_a2p2r = (time_a2p[l][i] + time_p2r[i][j-a])            
-              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N
-              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N
+              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N / S
+              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N / S
             
-              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N
-              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N
+              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N / S
+              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N / S
             
-              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N
-              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N
+              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N / S
+              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[j-a][k-(a + r)]) / N / S
             
 
         # ドクターヘリ
@@ -676,14 +682,14 @@ class QA(Optimizer):
             for l in range(a, a + r):
               # 救急車→要救助者→ランデブーポイント
               time_a2p2r = (time_a2p[k][i] + time_p2r[i][l-a])            
-              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N
-              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N
+              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N / S
+              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N / S
            
-              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N
-              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N
+              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N / S
+              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N / S
             
-              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N
-              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N
+              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N / S
+              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[l-a][j-(a + r)]) / N / S
 
 
           # ランデブーポイント
@@ -693,14 +699,14 @@ class QA(Optimizer):
             for l in range(a):
               # 救急車→要救助者→ランデブーポイント
               time_a2p2r = (time_a2p[l][i] + time_p2r[i][k-a])            
-              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N
-              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N
+              Q3[(i * M + j, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N / S
+              Q3[(i * M + k, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N / S
+           
+              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N / S
+              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N / S
             
-              Q3[(i * M + j, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N
-              Q3[(i * M + l, i * M + j)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N
-            
-              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N
-              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N
+              Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N / S
+              Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N / S
 
 
     Q.update(Q1) 
@@ -793,7 +799,8 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
     start = time.time()
     qa_total_scores = []
     #lams=[39.0,39.0,2.5]
-    lams=[34.63320538704878, 49.15841176773455, 4.08550171630701]
+    lam3 = 4.08550171630701 / ((2 + np.sqrt(2) + 5 * np.log(np.sqrt(2)+1)) / 15)
+    lams=[34.63320538704878, 49.15841176773455, lam3]
     is_new_algo = False
     is_max_algo = True
     #for is_max_algo in [True,False]:
@@ -809,7 +816,7 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
 
       # QA
       #qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algorithm_p1, is_new_algorithm_p2 = is_new_algorithm_p2)
-      qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, is_max_algorithm_p3=is_max_algo, lams=lams)
+      qa = QA( width * height, use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, is_max_algorithm_p3=is_max_algo, lams=lams)
 
       qa_total_score = world_qa.getTotalScore(qa)
       qa_total_scores.append(qa_total_score)
@@ -893,7 +900,8 @@ def grid_search(life_saving_resources_params, hyper_params, map_relocations=10, 
         _, dict_hyper_parameters = hyper_params.get_title_from_params()
         params_dict.update(dict_hyper_parameters)
       # QA
-        qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algorithm_p1, is_new_algorithm_p2 = is_new_algorithm_p2, lams = [lam1,lam2,lam3])
+        #qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algorithm_p1, is_new_algorithm_p2 = is_new_algorithm_p2, lams = [lam1,lam2,lam3])
+        qa = QA( width * height, use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algorithm_p1, is_new_algorithm_p2 = is_new_algorithm_p2, lams = [lam1,lam2,lam3])
 
         qa_total_score = world_qa.getTotalScore(qa)
         params_dict['score'] = qa_total_score
@@ -936,7 +944,8 @@ def bayes(X):
     world_qa = copy.deepcopy(world_base)
 
     # QA
-    qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, is_max_algorithm_p3=is_max_algo, lams=lams)
+    #qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, is_max_algorithm_p3=is_max_algo, lams=lams)
+    qa = QA(width * height, use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, is_max_algorithm_p3=is_max_algo, lams=lams)
 
     qa_total_score = world_qa.getTotalScore(qa)
     qa_total_scores.append(qa_total_score)
