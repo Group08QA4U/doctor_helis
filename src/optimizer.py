@@ -471,7 +471,8 @@ class QA(Optimizer):
 
     #S = np.sqrt(self.area * 2)
     # 仮想地図の面積 x 単位面積当たりの2点間の平均距離
-    S = self.area * ((2 + np.sqrt(2) + 5 * np.log(np.sqrt(2)+1)) / 15)
+    #S = self.area * ((2 + np.sqrt(2) + 5 * np.log(np.sqrt(2)+1)) / 15)
+    S = 1
 
 
 
@@ -758,7 +759,7 @@ def output_as_csv(best_classic_total_scores_list, best_ip_total_scores_list, bes
   return df
 
 import copy
-def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000, height = 86000, num_of_fire_departments = 8, num_of_rendezvous_points = 10, num_of_basehospitals = 8, use_d_wave=True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False):
+def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000, height = 86000, num_of_fire_departments = 8, num_of_rendezvous_points = 10, num_of_basehospitals = 8, use_d_wave=True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False, lams=[34.63320538704878, 49.15841176773455, 4.08550171630701]):
 
   classic_total_scores_list = []
   classic_processing_time_list=  []
@@ -799,12 +800,13 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
     start = time.time()
     qa_total_scores = []
     #lams=[39.0,39.0,2.5]
-    lam3 = 4.08550171630701 / ((2 + np.sqrt(2) + 5 * np.log(np.sqrt(2)+1)) / 15)
-    lams=[34.63320538704878, 49.15841176773455, lam3]
+    #lam3 = 4.08550171630701 / ((2 + np.sqrt(2) + 5 * np.log(np.sqrt(2)+1)) / 15)
+    #lams=[34.63320538704878, 49.15841176773455, lam3]
+
+    #lams=[38.2604549772066, 40.227539295627075, 3.611067604728468]
+    #lams=[34.63320538704878, 49.15841176773455, 4.08550171630701]
     is_new_algo = False
     is_max_algo = True
-    #for is_max_algo in [True,False]:
-    #for is_new_algo in [True,False]:
     for k in range(qa_trial_count):
       title = 'patients#:' + str(num_of_patients) + ' ' + 'relocation#:' + str(j) + ' '  + \
               'qa_trial_count#:' + str(k) + ' ' + 'ambulance:' + str(num_of_fire_departments) + ' ' + \
@@ -815,7 +817,6 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
       world_qa = copy.deepcopy(world_base)
 
       # QA
-      #qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algorithm_p1, is_new_algorithm_p2 = is_new_algorithm_p2)
       qa = QA( width * height, use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, is_max_algorithm_p3=is_max_algo, lams=lams)
 
       qa_total_score = world_qa.getTotalScore(qa)
@@ -837,9 +838,6 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
 
   df = output_as_csv(classic_total_scores_list, ip_total_scores_list, qa_total_scores_list, classic_processing_time_list, ip_processing_time_list, qa_processing_time_list, num_of_patients, num_of_fire_departments = num_of_fire_departments, num_of_rendezvous_points = num_of_rendezvous_points, num_of_basehospitals = num_of_basehospitals)
 
-  #print(best_world_base)
-  #print(best_qa)
-  #print(best_classic)
   print('# Classic despatch')
   world_classic = copy.deepcopy(best_world_base)
   world_classic.despatch(best_classic)  
@@ -911,17 +909,16 @@ def grid_search(life_saving_resources_params, hyper_params, map_relocations=10, 
 
 
 def bayes(X):
-  print('X',X)  
-  lams=[X[0],X[1],X[2]]
+  lams=[X[0],X[0],X[1]]
 
-  map_relocations=3
-  qa_trial_count=3
+  map_relocations=1
+  qa_trial_count=2
   width = 20000
   height = 20000
-  num_of_patients = 8
-  num_of_fire_departments = 9
-  num_of_rendezvous_points = 11
-  num_of_basehospitals = 8
+  num_of_patients = 14
+  num_of_fire_departments = 14
+  num_of_rendezvous_points = 20
+  num_of_basehospitals = 14
 
   use_d_wave = True
   is_new_algo = False
@@ -954,5 +951,5 @@ def bayes(X):
       if best_qa_total_score > qa_total_score:
         best_qa_total_score = qa_total_score
 
-  print('best_qa_total_score',best_qa_total_score)
-  return best_qa_total_score
+  print('X, best_qa_total_score',X, best_qa_total_score)
+  return X, best_qa_total_score
