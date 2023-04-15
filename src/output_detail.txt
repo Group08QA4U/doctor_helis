@@ -4,7 +4,7 @@ Using license file /home/yamashin/d/gurobi/gurobi.lic
 Gurobi Optimizer version 10.0.1 build v10.0.1rc0 (linux64)
 Copyright (c) 2023, Gurobi Optimization, LLC
 
-Read LP format model from file /tmp/c989162c80744bc6800edcdef98cb061-pulp.lp
+Read LP format model from file /tmp/5da062cfd85048fb8e463eb74ab3734d-pulp.lp
 Reading time = 0.03 seconds
 OBJ: 25407 rows, 6584 columns, 70192 nonzeros
 
@@ -12,35 +12,35 @@ CPU model: Intel(R) Xeon(R) Silver 4316 CPU @ 2.30GHz, instruction set [SSE2|AVX
 Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
 
 Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
-Model fingerprint: 0x15a00a6f
+Model fingerprint: 0x4b0e5f88
 Variable types: 0 continuous, 6584 integer (6584 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
-  Objective range  [2e+00, 4e+01]
+  Objective range  [3e+00, 4e+01]
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
-Found heuristic solution: objective 164.2178797
+Found heuristic solution: objective 190.4305586
 Presolve removed 18144 rows and 0 columns
 Presolve time: 0.13s
 Presolved: 7263 rows, 6584 columns, 52048 nonzeros
 Variable types: 0 continuous, 6584 integer (6584 binary)
 
-Root relaxation: objective 7.364643e+01, 286 iterations, 0.01 seconds (0.02 work units)
+Root relaxation: objective 1.311907e+02, 537 iterations, 0.02 seconds (0.04 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-*    0     0               0      73.6464276   73.64643  0.00%     -    0s
+*    0     0               0     131.1907004  131.19070  0.00%     -    0s
 
-Explored 1 nodes (286 simplex iterations) in 0.17 seconds (0.25 work units)
+Explored 1 nodes (537 simplex iterations) in 0.17 seconds (0.27 work units)
 Thread count was 8 (of 8 available processors)
 
-Solution count 2: 73.6464 164.218 
+Solution count 2: 131.191 190.431 
 
 Optimal solution found (tolerance 1.00e-04)
-Best objective 7.364642762273e+01, best bound 7.364642762273e+01, gap 0.0000%
+Best objective 1.311907003641e+02, best bound 1.311907003641e+02, gap 0.0000%
 
-Wrote result file '/tmp/c989162c80744bc6800edcdef98cb061-pulp.sol'
+Wrote result file '/tmp/5da062cfd85048fb8e463eb74ab3734d-pulp.sol'
 
 Set parameter LogFile to value "gurobi.log"
 Using license file /home/yamashin/d/gurobi/gurobi.lic
@@ -48,7 +48,7 @@ Using license file /home/yamashin/d/gurobi/gurobi.lic
 Gurobi Optimizer version 10.0.1 build v10.0.1rc0 (linux64)
 Copyright (c) 2023, Gurobi Optimization, LLC
 
-Read LP format model from file /tmp/22f271b039e945c39b3f9cc27b81d557-pulp.lp
+Read LP format model from file /tmp/5b1fe96eeab64de0bfedb995ecffa441-pulp.lp
 Reading time = 0.03 seconds
 OBJ: 25407 rows, 6584 columns, 70192 nonzeros
 
@@ -56,190 +56,190 @@ CPU model: Intel(R) Xeon(R) Silver 4316 CPU @ 2.30GHz, instruction set [SSE2|AVX
 Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
 
 Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
-Model fingerprint: 0xdc63027c
+Model fingerprint: 0xd682cd7d
 Variable types: 0 continuous, 6584 integer (6584 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
   Objective range  [5e+00, 4e+01]
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
-Found heuristic solution: objective 191.1280080
+Found heuristic solution: objective 189.9451266
 Presolve removed 18144 rows and 0 columns
 Presolve time: 0.13s
 Presolved: 7263 rows, 6584 columns, 52048 nonzeros
 Variable types: 0 continuous, 6584 integer (6584 binary)
 
-Root relaxation: objective 1.232643e+02, 566 iterations, 0.03 seconds (0.04 work units)
+Root relaxation: objective 1.429588e+02, 492 iterations, 0.03 seconds (0.04 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-*    0     0               0     123.2643248  123.26432  0.00%     -    0s
+*    0     0               0     142.9588497  142.95885  0.00%     -    0s
 
-Explored 1 nodes (566 simplex iterations) in 0.18 seconds (0.27 work units)
+Explored 1 nodes (492 simplex iterations) in 0.17 seconds (0.27 work units)
 Thread count was 8 (of 8 available processors)
 
-Solution count 2: 123.264 191.128 
+Solution count 2: 142.959 189.945 
 
 Optimal solution found (tolerance 1.00e-04)
-Best objective 1.232643248434e+02, best bound 1.232643248434e+02, gap 0.0000%
+Best objective 1.429588496706e+02, best bound 1.429588496706e+02, gap 0.0000%
 
-Wrote result file '/tmp/22f271b039e945c39b3f9cc27b81d557-pulp.sol'
+Wrote result file '/tmp/5b1fe96eeab64de0bfedb995ecffa441-pulp.sol'
 
-start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f07bcf48220>
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7fd034a3f220>
 Optimal
-73.64642762278712
+131.19070036404023
 Ambulance -> Patients
-(0, 2)
-(1, 6)
-(2, 7)
-(3, 5)
-(5, 1)
-(6, 4)
-(7, 0)
-(8, 3)
-Patient -> Rendezvous points
 (0, 7)
-(1, 2)
-(2, 4)
-(3, 10)
-(4, 0)
-(5, 5)
-(6, 9)
-(7, 8)
-Rendezvous point -> Doctor helis
-(0, 1)
-(2, 6)
-(4, 0)
-(5, 4)
-(7, 2)
-(8, 5)
-(9, 3)
-(10, 7)
-routes
-0
-[2, [0, 4, 0, 0], 43.123633935269055, 6.945988877584226, 36.17764505768483]
-1
-[6, [1, 9, 3, 3], 43.99707995414407, 5.000202666432763, 38.99687728771131]
-2
-[7, [2, 8, 5, 5], 40.96222467864196, 11.303604424945629, 29.65862025369633]
-3
-[5, [3, 5, 4, 4], 30.446917080809094, 6.490931529161221, 23.95598555164787]
-5
-[1, [5, 2, 6, 6], 40.47236869664749, 10.44003640718859, 30.032332289458903]
-6
-[4, [6, 0, 1, 1], 11.54398037383536, 7.1898020167130365, 4.354178357122324]
-7
-[0, [7, 7, 2, 2], 21.89512169257548, 17.007221465715087, 4.887900226860392]
-8
-[3, [8, 10, 7, 7], 43.445212274910816, 9.26864023504656, 34.176572039864254]
-patients#:8 relocation#:0 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 1 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 5 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-Total score: 81.02832101411875
-patients#:8 relocation#:0 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 2 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 7 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-Total score: 74.01713571408958
-patients#:8 relocation#:0 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 5 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-Total score: 73.79524845044571
-start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f07f0007850>
-Optimal
-123.26432484341542
-Ambulance -> Patients
-(0, 0)
-(2, 3)
-(3, 6)
-(4, 1)
-(5, 4)
-(6, 2)
+(1, 1)
+(2, 2)
+(3, 0)
+(4, 6)
+(5, 3)
 (7, 5)
-(8, 7)
+(8, 4)
 Patient -> Rendezvous points
 (0, 6)
-(1, 7)
-(2, 10)
-(3, 2)
-(4, 3)
-(5, 8)
-(6, 0)
+(1, 3)
+(2, 5)
+(3, 4)
+(4, 10)
+(5, 0)
+(6, 1)
 (7, 9)
 Rendezvous point -> Doctor helis
 (0, 1)
-(2, 7)
-(3, 5)
+(1, 0)
+(3, 4)
+(4, 6)
+(5, 2)
 (6, 3)
-(7, 6)
-(8, 2)
-(9, 4)
-(10, 0)
+(9, 5)
+(10, 7)
 routes
 0
-[0, [0, 6, 3, 3], 22.551353231460478, 15.653894952536433, 6.897458278924045]
+[7, [0, 9, 5, 5], 11.740506963958504, 22.801918217919543, -11.061411253961039]
+1
+[1, [1, 3, 4, 4], 19.447338446105164, 9.940965737717939, 9.506372708387225]
 2
-[3, [2, 2, 7, 7], 38.41611667555246, 8.615883219600592, 29.80023345595187]
+[2, [2, 5, 2, 2], 1.3761714959833782, 19.861109258424612, -18.484937762441234]
 3
-[6, [3, 0, 1, 1], 44.30738494953832, 5.475740024569371, 38.83164492496895]
+[0, [3, 6, 3, 3], 38.547981031350886, 8.400519096186269, 30.147461935164618]
 4
-[1, [4, 7, 6, 6], 25.865041102948695, 22.078109880639477, 3.7869312223092173]
+[6, [4, 1, 0, 0], 33.509129823130735, 11.943593479455833, 21.5655363436749]
 5
-[4, [5, 3, 5, 5], 37.83789309879423, 20.902224675283136, 16.935668423511096]
-6
-[2, [6, 10, 0, 0], 56.55358067471903, 12.441651654758871, 44.11192901996016]
+[3, [5, 4, 6, 6], 48.35401579926195, 16.073651102469253, 32.2803646967927]
 7
-[5, [7, 8, 2, 2], 4.619460395279686, 26.787879646678505, -22.168419251398817]
+[5, [7, 0, 1, 1], 9.822649221208374, 19.49552163195887, -9.672872410750495]
 8
-[7, [8, 9, 4, 4], 33.73891899658522, 11.308940789349041, 22.42997820723618]
+[4, [8, 10, 7, 7], 53.482791662070206, 22.67342183990791, 30.809369822162296]
+patients#:8 relocation#:0 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 5 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 7 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+Total score: 134.35910376967564
+patients#:8 relocation#:0 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 1 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 2 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 5 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 7 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+Total score: 136.1634309521187
+patients#:8 relocation#:0 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 1 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 2 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 4 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 5 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+Total score: 135.71241288592955
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7fd067a48370>
+Optimal
+142.9588496705365
+Ambulance -> Patients
+(0, 1)
+(1, 6)
+(2, 2)
+(4, 3)
+(5, 5)
+(6, 7)
+(7, 4)
+(8, 0)
+Patient -> Rendezvous points
+(0, 10)
+(1, 8)
+(2, 9)
+(3, 1)
+(4, 6)
+(5, 7)
+(6, 3)
+(7, 5)
+Rendezvous point -> Doctor helis
+(1, 7)
+(3, 4)
+(5, 0)
+(6, 1)
+(7, 5)
+(8, 6)
+(9, 2)
+(10, 3)
+routes
+0
+[1, [0, 8, 6, 6], 15.92748353850936, 32.396010510584006, -16.468526972074645]
+1
+[6, [1, 3, 4, 4], 11.226722520148668, 5.177563274174683, 6.049159245973985]
+2
+[2, [2, 9, 2, 2], 23.88710807013812, 20.0046761113584, 3.882431958779719]
+4
+[3, [4, 1, 7, 7], 36.44663479198906, 8.849660480576643, 27.596974311412417]
+5
+[5, [5, 7, 5, 5], 18.06921672509093, 22.617955673483333, -4.548738948392405]
+6
+[7, [6, 5, 0, 0], 43.629637938499606, 20.228439882891465, 23.40119805560814]
+7
+[4, [7, 6, 1, 1], 11.597661772822917, 19.24372026328739, -7.646058490464473]
+8
+[0, [8, 10, 3, 3], 42.39510363413906, 14.440823474180586, 27.954280159958476]
 patients#:8 relocation#:1 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
    opt# 0
-    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 4 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 7 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-Total score: 124.3152592838245
+    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 1 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 2 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 5 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+Total score: 146.26355736683743
 patients#:8 relocation#:1 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
    opt# 0
-    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 2 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 3 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 0 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 2 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
     OK   # 7 ambulance Set parameter LogFile to value "gurobi.log"
 Using license file /home/yamashin/d/gurobi/gurobi.lic
 
 Gurobi Optimizer version 10.0.1 build v10.0.1rc0 (linux64)
 Copyright (c) 2023, Gurobi Optimization, LLC
 
-Read LP format model from file /tmp/b2441bfc5a414ebc9ff2dd1812efb939-pulp.lp
+Read LP format model from file /tmp/320ba278906e4ddfaad33ff769e31619-pulp.lp
 Reading time = 0.03 seconds
 OBJ: 25407 rows, 6584 columns, 70192 nonzeros
 
@@ -247,35 +247,35 @@ CPU model: Intel(R) Xeon(R) Silver 4316 CPU @ 2.30GHz, instruction set [SSE2|AVX
 Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
 
 Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
-Model fingerprint: 0xe570dc39
+Model fingerprint: 0x13710974
 Variable types: 0 continuous, 6584 integer (6584 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
-  Objective range  [6e+00, 5e+01]
+  Objective range  [7e+00, 4e+01]
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
-Found heuristic solution: objective 227.2174382
+Found heuristic solution: objective 235.3677865
 Presolve removed 18144 rows and 0 columns
 Presolve time: 0.13s
 Presolved: 7263 rows, 6584 columns, 52048 nonzeros
 Variable types: 0 continuous, 6584 integer (6584 binary)
 
-Root relaxation: objective 1.965613e+02, 712 iterations, 0.03 seconds (0.05 work units)
+Root relaxation: objective 1.537042e+02, 476 iterations, 0.02 seconds (0.04 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-*    0     0               0     196.5613252  196.56133  0.00%     -    0s
+*    0     0               0     153.7042414  153.70424  0.00%     -    0s
 
-Explored 1 nodes (712 simplex iterations) in 0.18 seconds (0.28 work units)
+Explored 1 nodes (476 simplex iterations) in 0.18 seconds (0.27 work units)
 Thread count was 8 (of 8 available processors)
 
-Solution count 2: 196.561 227.217 
+Solution count 2: 153.704 235.368 
 
 Optimal solution found (tolerance 1.00e-04)
-Best objective 1.965613251621e+02, best bound 1.965613251621e+02, gap 0.0000%
+Best objective 1.537042413569e+02, best bound 1.537042413569e+02, gap 0.0000%
 
-Wrote result file '/tmp/b2441bfc5a414ebc9ff2dd1812efb939-pulp.sol'
+Wrote result file '/tmp/320ba278906e4ddfaad33ff769e31619-pulp.sol'
 
 Set parameter LogFile to value "gurobi.log"
 Using license file /home/yamashin/d/gurobi/gurobi.lic
@@ -283,7 +283,7 @@ Using license file /home/yamashin/d/gurobi/gurobi.lic
 Gurobi Optimizer version 10.0.1 build v10.0.1rc0 (linux64)
 Copyright (c) 2023, Gurobi Optimization, LLC
 
-Read LP format model from file /tmp/3418862581df47b4840383dc6bb8328b-pulp.lp
+Read LP format model from file /tmp/12f7685a6480445497ea7ccb15162361-pulp.lp
 Reading time = 0.03 seconds
 OBJ: 25407 rows, 6584 columns, 70192 nonzeros
 
@@ -291,191 +291,191 @@ CPU model: Intel(R) Xeon(R) Silver 4316 CPU @ 2.30GHz, instruction set [SSE2|AVX
 Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
 
 Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
-Model fingerprint: 0x0429115b
+Model fingerprint: 0xded776b9
 Variable types: 0 continuous, 6584 integer (6584 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
-  Objective range  [3e+00, 5e+01]
+  Objective range  [4e+00, 5e+01]
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
-Found heuristic solution: objective 156.2597229
+Found heuristic solution: objective 193.3618980
 Presolve removed 18144 rows and 0 columns
 Presolve time: 0.13s
 Presolved: 7263 rows, 6584 columns, 52048 nonzeros
 Variable types: 0 continuous, 6584 integer (6584 binary)
 
-Root relaxation: objective 9.198069e+01, 381 iterations, 0.02 seconds (0.03 work units)
+Root relaxation: objective 1.500116e+02, 709 iterations, 0.03 seconds (0.05 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-*    0     0               0      91.9806917   91.98069  0.00%     -    0s
+*    0     0               0     150.0116319  150.01163  0.00%     -    0s
 
-Explored 1 nodes (381 simplex iterations) in 0.17 seconds (0.26 work units)
+Explored 1 nodes (709 simplex iterations) in 0.18 seconds (0.28 work units)
 Thread count was 8 (of 8 available processors)
 
-Solution count 2: 91.9807 156.26 
+Solution count 2: 150.012 193.362 
 
 Optimal solution found (tolerance 1.00e-04)
-Best objective 9.198069166906e+01, best bound 9.198069166906e+01, gap 0.0000%
+Best objective 1.500116319241e+02, best bound 1.500116319241e+02, gap 0.0000%
 
-Wrote result file '/tmp/3418862581df47b4840383dc6bb8328b-pulp.sol'
+Wrote result file '/tmp/12f7685a6480445497ea7ccb15162361-pulp.sol'
 
-[0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-Total score: 126.40894872870263
+[0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+Total score: 144.92632730395536
 patients#:8 relocation#:1 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
    opt# 0
-    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 2 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 3 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 4 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 6 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 7 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-Total score: 124.04261066363928
-start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f07f008d2e0>
+    OK   # 0 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 1 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 2 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 4 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 5 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+Total score: 143.42382084669958
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7fd067acc250>
 Optimal
-196.5613251620724
+153.70424135681228
 Ambulance -> Patients
-(0, 7)
-(1, 6)
-(2, 5)
-(3, 2)
-(4, 4)
-(5, 1)
-(6, 0)
-(8, 3)
-Patient -> Rendezvous points
 (0, 4)
-(1, 8)
+(1, 2)
 (2, 1)
-(3, 0)
-(4, 10)
-(5, 3)
-(6, 2)
-(7, 9)
-Rendezvous point -> Doctor helis
-(0, 6)
-(1, 5)
-(2, 2)
-(3, 1)
-(4, 4)
-(8, 3)
-(9, 0)
-(10, 7)
-routes
-0
-[7, [0, 9, 0, 0], 39.69437670759384, 22.678866342977155, 17.015510364616684]
-1
-[6, [1, 2, 2, 2], 43.441304772940995, 22.1885312676519, 21.252773505289095]
-2
-[5, [2, 3, 1, 1], 24.732497057913193, 30.710488634862628, -5.977991576949435]
-3
-[2, [3, 1, 5, 5], 46.445069947466926, 42.981897809444334, 3.4631721380225926]
-4
-[4, [4, 10, 7, 7], 35.22263382430279, 21.414540125501496, 13.808093698801294]
-5
-[1, [5, 8, 3, 3], 47.395381651403056, 17.725569865475983, 29.669811785927074]
-6
-[0, [6, 4, 4, 4], 43.337913541825515, 18.849274791228503, 24.488638750597012]
-8
-[3, [8, 0, 6, 6], 30.845779475838686, 20.01215632493038, 10.833623150908306]
-patients#:8 relocation#:2 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 6 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-Total score: 199.90346915652435
-patients#:8 relocation#:2 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 4 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-Total score: 199.48150965630532
-patients#:8 relocation#:2 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 5 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 6 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-Total score: 198.8660731744529
-start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f07f0107d00>
-Optimal
-91.98069166888806
-Ambulance -> Patients
-(0, 7)
-(2, 4)
-(3, 5)
-(4, 3)
-(5, 2)
-(6, 1)
-(7, 0)
+(3, 3)
+(4, 5)
+(5, 0)
+(7, 7)
 (8, 6)
 Patient -> Rendezvous points
-(0, 2)
-(1, 5)
-(2, 8)
-(3, 7)
-(4, 9)
-(5, 10)
-(6, 0)
-(7, 4)
+(0, 9)
+(1, 6)
+(2, 10)
+(3, 8)
+(4, 0)
+(5, 7)
+(6, 5)
+(7, 3)
 Rendezvous point -> Doctor helis
-(0, 5)
-(2, 4)
-(4, 1)
-(5, 3)
-(7, 6)
-(8, 7)
-(9, 2)
-(10, 0)
+(0, 3)
+(3, 5)
+(5, 0)
+(6, 7)
+(7, 1)
+(8, 6)
+(9, 4)
+(10, 2)
 routes
 0
-[7, [0, 4, 1, 1], 8.191642097751702, 11.887161003562095, -3.6955189058103937]
+[4, [0, 0, 3, 3], 57.92797338337089, 22.858481178763327, 35.06949220460756]
+1
+[2, [1, 10, 2, 2], 18.509395396581343, 26.594676546363104, -8.08528114978176]
 2
-[4, [2, 9, 2, 2], 42.04716756045796, 10.395996557370635, 31.65117100308732]
+[1, [2, 6, 7, 7], 33.78639504152143, 11.100897582330019, 22.68549745919141]
 3
-[5, [3, 10, 0, 0], 24.23635935610817, 11.004017562279326, 13.232341793828844]
+[3, [3, 8, 6, 6], 6.287915152367658, 19.098097693308535, -12.810182540940877]
 4
-[3, [4, 7, 6, 6], 24.67482957850638, 3.4486697020903287, 21.22615987641605]
+[5, [4, 7, 1, 1], 11.47238368972781, 16.918250127550014, -5.445866437822204]
 5
-[2, [5, 8, 7, 7], 26.2745124911909, 11.782485355071197, 14.492027136119704]
-6
-[1, [6, 5, 3, 3], 30.17523384127103, 11.417812670955069, 18.75742117031596]
+[0, [5, 9, 4, 4], 29.436903335265555, 22.969350047845158, 6.467553287420397]
 7
-[0, [7, 2, 4, 4], 10.87368962399944, 22.56406701969209, -11.69037739569265]
+[7, [7, 3, 5, 5], 20.242804437876348, 10.936025542394859, 9.30677889548149]
 8
-[6, [8, 0, 5, 5], 54.574123068990396, 9.48048179786733, 45.09364127112306]
+[6, [8, 5, 0, 0], 21.063886110911046, 23.22846263825727, -2.164576527346224]
+patients#:8 relocation#:2 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 1 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 5 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+Total score: 159.68584386528153
+patients#:8 relocation#:2 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 1 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 5 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+Total score: 160.73307636227742
+patients#:8 relocation#:2 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 1 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 2 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 4 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+Total score: 161.12735260430628
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7fd067b87d00>
+Optimal
+150.01163192419335
+Ambulance -> Patients
+(0, 5)
+(1, 0)
+(2, 2)
+(3, 3)
+(4, 1)
+(5, 4)
+(6, 6)
+(7, 7)
+Patient -> Rendezvous points
+(0, 4)
+(1, 9)
+(2, 6)
+(3, 0)
+(4, 7)
+(5, 1)
+(6, 8)
+(7, 2)
+Rendezvous point -> Doctor helis
+(0, 1)
+(1, 4)
+(2, 6)
+(4, 2)
+(6, 0)
+(7, 5)
+(8, 7)
+(9, 3)
+routes
+0
+[5, [0, 1, 4, 4], 36.79461147086017, 22.430860458039596, 14.363751012820572]
+1
+[0, [1, 4, 2, 2], 56.295360961459934, 12.237035338244773, 44.05832562321516]
+2
+[2, [2, 6, 0, 0], 33.44014454086679, 15.058174919703852, 18.381969621162938]
+3
+[3, [3, 0, 1, 1], 15.289040864759686, 17.795630066862653, -2.506589202102967]
+4
+[1, [4, 9, 3, 3], 45.354047491736694, 19.863652847093757, 25.490394644642937]
+5
+[4, [5, 7, 5, 5], 13.068925786436758, 7.56478843213978, 5.504137354296978]
+6
+[6, [6, 8, 7, 7], 14.515480267471485, 26.144207941678967, -11.628727674207482]
+7
+[7, [7, 2, 6, 6], 45.4020645477673, 28.91728192042998, 16.484782627337324]
 patients#:8 relocation#:3 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
    opt# 0
-    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 0 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 2 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 3 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 5 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
     OK   # 6 Set parameter LogFile to value "gurobi.log"
 Using license file /home/yamashin/d/gurobi/gurobi.lic
 
 Gurobi Optimizer version 10.0.1 build v10.0.1rc0 (linux64)
 Copyright (c) 2023, Gurobi Optimization, LLC
 
-Read LP format model from file /tmp/8d30fded30184759a55dc7940f5e9a90-pulp.lp
+Read LP format model from file /tmp/e2a75cddd9fd4b1f8004575aa9954d20-pulp.lp
 Reading time = 0.03 seconds
 OBJ: 25407 rows, 6584 columns, 70192 nonzeros
 
@@ -483,35 +483,424 @@ CPU model: Intel(R) Xeon(R) Silver 4316 CPU @ 2.30GHz, instruction set [SSE2|AVX
 Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
 
 Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
-Model fingerprint: 0x908cacee
+Model fingerprint: 0x4f8a4d62
+Variable types: 0 continuous, 6584 integer (6584 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [3e+00, 4e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective 167.9351729
+Presolve removed 18144 rows and 0 columns
+Presolve time: 0.13s
+Presolved: 7263 rows, 6584 columns, 52048 nonzeros
+Variable types: 0 continuous, 6584 integer (6584 binary)
+
+Root relaxation: objective 1.172193e+02, 530 iterations, 0.02 seconds (0.04 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0     117.2192572  117.21926  0.00%     -    0s
+
+Explored 1 nodes (530 simplex iterations) in 0.17 seconds (0.27 work units)
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 117.219 167.935 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.172192571689e+02, best bound 1.172192571689e+02, gap 0.0000%
+
+Wrote result file '/tmp/e2a75cddd9fd4b1f8004575aa9954d20-pulp.sol'
+
+Set parameter LogFile to value "gurobi.log"
+Using license file /home/yamashin/d/gurobi/gurobi.lic
+
+Gurobi Optimizer version 10.0.1 build v10.0.1rc0 (linux64)
+Copyright (c) 2023, Gurobi Optimization, LLC
+
+Read LP format model from file /tmp/56453491a8d14e65abdc58a2059af920-pulp.lp
+Reading time = 0.03 seconds
+OBJ: 25407 rows, 6584 columns, 70192 nonzeros
+
+CPU model: Intel(R) Xeon(R) Silver 4316 CPU @ 2.30GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
+
+Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
+Model fingerprint: 0x51afa89a
+Variable types: 0 continuous, 6584 integer (6584 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [4e+00, 4e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective 191.7611366
+Presolve removed 18144 rows and 0 columns
+Presolve time: 0.13s
+Presolved: 7263 rows, 6584 columns, 52048 nonzeros
+Variable types: 0 continuous, 6584 integer (6584 binary)
+
+Root relaxation: objective 1.263879e+02, 609 iterations, 0.03 seconds (0.04 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0     126.3879439  126.38794  0.00%     -    0s
+
+Explored 1 nodes (609 simplex iterations) in 0.17 seconds (0.27 work units)
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 126.388 191.761 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.263879438785e+02, best bound 1.263879438785e+02, gap 0.0000%
+
+Wrote result file '/tmp/56453491a8d14e65abdc58a2059af920-pulp.sol'
+
+ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+Total score: 161.26762641267752
+patients#:8 relocation#:3 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 5 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 6 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 7 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+Total score: 157.3792080630491
+patients#:8 relocation#:3 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 2 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+Total score: 152.0704756959765
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7fcfd8626250>
+Optimal
+117.21925716891027
+Ambulance -> Patients
+(1, 0)
+(2, 4)
+(3, 1)
+(4, 5)
+(5, 6)
+(6, 3)
+(7, 2)
+(8, 7)
+Patient -> Rendezvous points
+(0, 9)
+(1, 8)
+(2, 7)
+(3, 5)
+(4, 2)
+(5, 6)
+(6, 3)
+(7, 0)
+Rendezvous point -> Doctor helis
+(0, 3)
+(2, 5)
+(3, 0)
+(5, 7)
+(6, 2)
+(7, 4)
+(8, 6)
+(9, 1)
+routes
+1
+[0, [1, 9, 1, 1], 34.285310976925444, 5.844564989924123, 28.44074598700132]
+2
+[4, [2, 2, 5, 5], 38.02203486804355, 27.63063538152148, 10.391399486522069]
+3
+[1, [3, 8, 6, 6], 42.9172040068954, 15.439867515762714, 27.47733649113269]
+4
+[5, [4, 6, 2, 2], 33.52850185019604, 13.064539131714106, 20.46396271848193]
+5
+[6, [5, 3, 0, 0], 47.86202439774496, 6.379100079036718, 41.48292431870824]
+6
+[3, [6, 5, 7, 7], 50.96017412788701, 16.110256507464918, 34.84991762042209]
+7
+[2, [7, 7, 4, 4], 7.744943581637365, 12.931189575339245, -5.186245993701879]
+8
+[7, [8, 0, 3, 3], 23.206198738829528, 19.81910398814697, 3.3870947506825573]
+patients#:8 relocation#:4 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 1 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 5 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+Total score: 121.08272972593647
+patients#:8 relocation#:4 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 1 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 2 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+Total score: 122.94803230276926
+patients#:8 relocation#:4 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 2 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 3 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+Total score: 120.87575869894596
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7fd0347209a0>
+Optimal
+126.38794387848368
+Ambulance -> Patients
+(0, 0)
+(1, 1)
+(2, 4)
+(3, 6)
+(4, 7)
+(6, 3)
+(7, 5)
+(8, 2)
+Patient -> Rendezvous points
+(0, 1)
+(1, 9)
+(2, 7)
+(3, 4)
+(4, 2)
+(5, 5)
+(6, 10)
+(7, 6)
+Rendezvous point -> Doctor helis
+(1, 7)
+(2, 1)
+(4, 2)
+(5, 0)
+(6, 4)
+(7, 3)
+(9, 6)
+(10, 5)
+routes
+0
+[0, [0, 1, 7, 7], 41.693410673434336, 22.966185616175743, 18.727225057258593]
+1
+[1, [1, 9, 6, 6], 30.54532395528276, 5.454606392494754, 25.090717562788008]
+2
+Set parameter LogFile to value "gurobi.log"
+Using license file /home/yamashin/d/gurobi/gurobi.lic
+
+Gurobi Optimizer version 10.0.1 build v10.0.1rc0 (linux64)
+Copyright (c) 2023, Gurobi Optimization, LLC
+
+Read LP format model from file /tmp/79721b13af2346e79b5aa55c8a2fd4f4-pulp.lp
+Reading time = 0.03 seconds
+OBJ: 25407 rows, 6584 columns, 70192 nonzeros
+
+CPU model: Intel(R) Xeon(R) Silver 4316 CPU @ 2.30GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
+
+Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
+Model fingerprint: 0x463ae0a6
+Variable types: 0 continuous, 6584 integer (6584 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [3e+00, 4e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective 149.2633336
+Presolve removed 18144 rows and 0 columns
+Presolve time: 0.13s
+Presolved: 7263 rows, 6584 columns, 52048 nonzeros
+Variable types: 0 continuous, 6584 integer (6584 binary)
+
+Root relaxation: objective 6.964449e+01, 283 iterations, 0.02 seconds (0.02 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0      69.6444926   69.64449  0.00%     -    0s
+
+Explored 1 nodes (283 simplex iterations) in 0.16 seconds (0.25 work units)
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 69.6445 149.263 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 6.964449258266e+01, best bound 6.964449258266e+01, gap 0.0000%
+
+Wrote result file '/tmp/79721b13af2346e79b5aa55c8a2fd4f4-pulp.sol'
+
+[4, [2, 2, 1, 1], 19.476242532278846, 17.16445223142236, 2.3117903008564866]
+3
+[6, [3, 10, 5, 5], 20.555974687271387, 13.873944725281767, 6.68202996198962]
+4
+[7, [4, 6, 4, 4], 28.996800747393852, 20.692890429189966, 8.303910318203886]
+6
+[3, [6, 4, 2, 2], 41.52770932357312, 5.847935185242736, 35.67977413833039]
+7
+[5, [7, 5, 0, 0], 32.81070571573788, 26.620794622708374, 6.189911093029508]
+8
+[2, [8, 7, 3, 3], 12.98456497411635, 13.767134675967977, -0.782569701851628]
+patients#:8 relocation#:5 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 1 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 5 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 6 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+Total score: 132.1732805348499
+patients#:8 relocation#:5 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+Total score: 129.59562702804095
+patients#:8 relocation#:5 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 1 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 3 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+Total score: 132.63486045088257
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7fd067b93970>
+Optimal
+69.6444925826688
+Ambulance -> Patients
+(1, 0)
+(2, 6)
+(3, 1)
+(4, 4)
+(5, 5)
+(6, 2)
+(7, 3)
+(8, 7)
+Patient -> Rendezvous points
+(0, 8)
+(1, 10)
+(2, 9)
+(3, 2)
+(4, 3)
+(5, 4)
+(6, 5)
+(7, 7)
+Rendezvous point -> Doctor helis
+(2, 7)
+(3, 1)
+(4, 0)
+(5, 5)
+(7, 4)
+(8, 6)
+(9, 3)
+(10, 2)
+routes
+1
+[0, [1, 8, 6, 6], 25.057582879343265, 7.53254364907464, 17.525039230268625]
+2
+[6, [2, 5, 5, 5], 19.26987004792678, 9.808762440895036, 9.461107607031744]
+3
+[1, [3, 10, 2, 2], 19.142004835211424, 3.4223696118327664, 15.719635223378656]
+4
+[4, [4, 3, 1, 1], 32.879343782990226, 21.1120577857992, 11.767285997191028]
+5
+[5, [5, 4, 0, 0], 29.516821542707845, 9.21349440365279, 20.303327139055057]
+6
+[2, [6, 9, 3, 3], 21.660278245102724, 3.6517107208233037, 18.00856752427942]
+7
+[3, [7, 2, 7, 7], 37.427985217506766, 8.481505614897847, 28.946479602608918]
+8
+[7, [8, 7, 4, 4], 6.752875674236821, 6.422048355693226, 0.3308273185435944]
+patients#:8 relocation#:6 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 2 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 3 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+Total score: 81.5253529535013
+patients#:8 relocation#:6 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 2 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 4 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+Total score: 75.24490294504702
+patients#:8 relocation#:6 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point Set parameter LogFile to value "gurobi.log"
+Using license file /home/yamashin/d/gurobi/gurobi.lic
+
+Gurobi Optimizer version 10.0.1 build v10.0.1rc0 (linux64)
+Copyright (c) 2023, Gurobi Optimization, LLC
+
+Read LP format model from file /tmp/0a9e69f385c64ed79c6c10cbf38624c3-pulp.lp
+Reading time = 0.03 seconds
+OBJ: 25407 rows, 6584 columns, 70192 nonzeros
+
+CPU model: Intel(R) Xeon(R) Silver 4316 CPU @ 2.30GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
+
+Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
+Model fingerprint: 0x0c48d795
 Variable types: 0 continuous, 6584 integer (6584 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
   Objective range  [3e+00, 5e+01]
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
-Found heuristic solution: objective 197.6108334
+Found heuristic solution: objective 180.7917192
 Presolve removed 18144 rows and 0 columns
 Presolve time: 0.13s
 Presolved: 7263 rows, 6584 columns, 52048 nonzeros
 Variable types: 0 continuous, 6584 integer (6584 binary)
 
-Root relaxation: objective 1.141710e+02, 481 iterations, 0.02 seconds (0.03 work units)
+Root relaxation: objective 1.040993e+02, 434 iterations, 0.02 seconds (0.03 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-*    0     0               0     114.1710499  114.17105  0.00%     -    0s
+*    0     0               0     104.0993470  104.09935  0.00%     -    0s
 
-Explored 1 nodes (481 simplex iterations) in 0.17 seconds (0.26 work units)
+Explored 1 nodes (434 simplex iterations) in 0.17 seconds (0.26 work units)
 Thread count was 8 (of 8 available processors)
 
-Solution count 2: 114.171 197.611 
+Solution count 2: 104.099 180.792 
 
 Optimal solution found (tolerance 1.00e-04)
-Best objective 1.141710499158e+02, best bound 1.141710499158e+02, gap 0.0000%
+Best objective 1.040993469652e+02, best bound 1.040993469652e+02, gap 0.0000%
 
-Wrote result file '/tmp/8d30fded30184759a55dc7940f5e9a90-pulp.sol'
+Wrote result file '/tmp/0a9e69f385c64ed79c6c10cbf38624c3-pulp.sol'
 
 Set parameter LogFile to value "gurobi.log"
 Using license file /home/yamashin/d/gurobi/gurobi.lic
@@ -519,7 +908,7 @@ Using license file /home/yamashin/d/gurobi/gurobi.lic
 Gurobi Optimizer version 10.0.1 build v10.0.1rc0 (linux64)
 Copyright (c) 2023, Gurobi Optimization, LLC
 
-Read LP format model from file /tmp/71832dcfcda24fe2bac66c4e5b4aa1fd-pulp.lp
+Read LP format model from file /tmp/4dd0c8b0b7eb498fa370be626f556d1a-pulp.lp
 Reading time = 0.03 seconds
 OBJ: 25407 rows, 6584 columns, 70192 nonzeros
 
@@ -527,580 +916,191 @@ CPU model: Intel(R) Xeon(R) Silver 4316 CPU @ 2.30GHz, instruction set [SSE2|AVX
 Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
 
 Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
-Model fingerprint: 0x31d612ff
+Model fingerprint: 0xde42fb9c
 Variable types: 0 continuous, 6584 integer (6584 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
-  Objective range  [3e+00, 4e+01]
+  Objective range  [4e+00, 5e+01]
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
-Found heuristic solution: objective 143.6024790
+Found heuristic solution: objective 178.8066500
 Presolve removed 18144 rows and 0 columns
 Presolve time: 0.13s
 Presolved: 7263 rows, 6584 columns, 52048 nonzeros
 Variable types: 0 continuous, 6584 integer (6584 binary)
 
-Root relaxation: objective 8.402723e+01, 451 iterations, 0.02 seconds (0.04 work units)
+Root relaxation: objective 1.156394e+02, 406 iterations, 0.02 seconds (0.04 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-*    0     0               0      84.0272272   84.02723  0.00%     -    0s
+*    0     0               0     115.6393685  115.63937  0.00%     -    0s
 
-Explored 1 nodes (451 simplex iterations) in 0.17 seconds (0.27 work units)
+Explored 1 nodes (406 simplex iterations) in 0.17 seconds (0.27 work units)
 Thread count was 8 (of 8 available processors)
 
-Solution count 2: 84.0272 143.602 
+Solution count 2: 115.639 178.807 
 
 Optimal solution found (tolerance 1.00e-04)
-Best objective 8.402722720882e+01, best bound 8.402722720882e+01, gap 0.0000%
+Best objective 1.156393684779e+02, best bound 1.156393684779e+02, gap 0.0000%
 
-Wrote result file '/tmp/71832dcfcda24fe2bac66c4e5b4aa1fd-pulp.sol'
+Wrote result file '/tmp/4dd0c8b0b7eb498fa370be626f556d1a-pulp.sol'
 
-ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-Total score: 95.5602734657382
-patients#:8 relocation#:3 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 4 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-Total score: 95.90860781693014
-patients#:8 relocation#:3 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-Total score: 95.5367652319806
-start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f07f018a7c0>
+[0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 2 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 4 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 5 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 7 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+Total score: 77.0334330853534
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7fcfd82734c0>
 Optimal
-114.17104991588627
+104.09934696507545
 Ambulance -> Patients
-(0, 0)
-(1, 6)
-(2, 2)
-(3, 7)
-(5, 5)
-(6, 4)
-(7, 1)
-(8, 3)
-Patient -> Rendezvous points
-(0, 0)
-(1, 6)
-(2, 7)
-(3, 2)
-(4, 1)
-(5, 10)
-(6, 3)
-(7, 5)
-Rendezvous point -> Doctor helis
-(0, 5)
-(1, 3)
-(2, 6)
-(3, 2)
-(5, 0)
-(6, 4)
-(7, 1)
-(10, 7)
-routes
-0
-[0, [0, 0, 5, 5], 29.781366311087666, 4.810646668184981, 24.970719642902687]
-1
-[6, [1, 3, 2, 2], 41.09160229873998, 5.515298456064553, 35.57630384267543]
-2
-[2, [2, 7, 1, 1], 22.715092691474567, 24.427174466334307, -1.7120817748597403]
-3
-[7, [3, 5, 0, 0], 16.021868365258296, 18.692583661980187, -2.670715296721891]
-5
-[5, [5, 10, 7, 7], 29.118117219759917, 5.888590434296621, 23.229526785463296]
-6
-[4, [6, 1, 3, 3], 23.347810871549314, 17.39807962800856, 5.949731243540754]
-7
-[1, [7, 6, 4, 4], 10.143978294324342, 16.3673595243272, -6.2233812300028575]
-8
-[3, [8, 2, 6, 6], 9.824192961676946, 21.07131707668986, -11.247124115012912]
-patients#:8 relocation#:4 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-Total score: 116.746469762043
-patients#:8 relocation#:4 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 1 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 7 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-Total score: 121.23137322718604
-patients#:8 relocation#:4 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 1 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 5 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 7 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-Total score: 120.08907766219602
-start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f07b84659a0>
-Optimal
-84.02722720887544
-Ambulance -> Patients
-(0, 5)
-(2, 3)
-(3, 7)
-(4, 6)
-(5, 2)
-(6, 4)
-(7, 1)
-(8, 0)
-Patient -> Rendezvous points
-(0, 8)
-(1, 3)
-(2, 10)
-(3, 6)
-(4, 4)
-(5, 9)
-(6, 5)
-(7, 2)
-Rendezvous point -> Doctor helis
-(2, 7)
-(3, 1)
-(4, 2)
-(5, 5)
-(6, 0)
-(8, 3)
-(9, 6)
-(10, 4)
-routes
-0
-[5, [0, 9, 6, 6], 24.340243977916675, 15.786826023623341, 8.553417954293334]
-2
-[3, [2, 6, 0, 0], 9.949192637369189, 16.2772990281407, -6.328106390771511]
-3
-Set parameter LogFile to value "gurobi.log"
-Using license file /home/yamashin/d/gurobi/gurobi.lic
-
-Gurobi Optimizer version 10.0.1 build v10.0.1rc0 (linux64)
-Copyright (c) 2023, Gurobi Optimization, LLC
-
-Read LP format model from file /tmp/130f5bba6e4b4b79805dadc3f49599bf-pulp.lp
-Reading time = 0.03 seconds
-OBJ: 25407 rows, 6584 columns, 70192 nonzeros
-
-CPU model: Intel(R) Xeon(R) Silver 4316 CPU @ 2.30GHz, instruction set [SSE2|AVX|AVX2|AVX512]
-Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
-
-Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
-Model fingerprint: 0xc32323f7
-Variable types: 0 continuous, 6584 integer (6584 binary)
-Coefficient statistics:
-  Matrix range     [1e+00, 1e+00]
-  Objective range  [2e+00, 5e+01]
-  Bounds range     [1e+00, 1e+00]
-  RHS range        [1e+00, 2e+00]
-Found heuristic solution: objective 198.2953592
-Presolve removed 18144 rows and 0 columns
-Presolve time: 0.13s
-Presolved: 7263 rows, 6584 columns, 52048 nonzeros
-Variable types: 0 continuous, 6584 integer (6584 binary)
-
-Root relaxation: objective 1.400705e+02, 478 iterations, 0.02 seconds (0.04 work units)
-
-    Nodes    |    Current Node    |     Objective Bounds      |     Work
- Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
-
-*    0     0               0     140.0705201  140.07052  0.00%     -    0s
-
-Explored 1 nodes (478 simplex iterations) in 0.17 seconds (0.27 work units)
-Thread count was 8 (of 8 available processors)
-
-Solution count 2: 140.071 198.295 
-
-Optimal solution found (tolerance 1.00e-04)
-Best objective 1.400705201298e+02, best bound 1.400705201298e+02, gap 0.0000%
-
-Wrote result file '/tmp/130f5bba6e4b4b79805dadc3f49599bf-pulp.sol'
-
-[7, [3, 2, 7, 7], 29.802139738711617, 11.500407402400528, 18.30173233631109]
-4
-[6, [4, 5, 5, 5], 36.92942447564821, 2.793547904296383, 34.13587657135183]
-5
-[2, [5, 10, 4, 4], 21.057050178647017, 15.219028224028008, 5.838021954619009]
-6
-[4, [6, 4, 2, 2], 39.19772975808687, 6.4794006310919166, 32.71832912699496]
-7
-[1, [7, 3, 1, 1], 4.457629657314996, 12.20171340866452, -7.744083751349525]
-8
-[0, [8, 8, 3, 3], 33.9501721741395, 3.7690045866300603, 30.181167587509442]
-patients#:8 relocation#:5 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 5 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 7 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-Total score: 91.6434849373145
-patients#:8 relocation#:5 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 1 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 2 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 5 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-Total score: 96.36658589189503
-patients#:8 relocation#:5 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 7 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-Total score: 92.09483491611267
-start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f07b81fc6a0>
-Optimal
-140.0705201298143
-Ambulance -> Patients
-(0, 3)
-(1, 6)
+(0, 2)
 (2, 5)
-(3, 1)
+(3, 3)
 (4, 0)
-(6, 7)
-(7, 2)
-(8, 4)
-Patient -> Rendezvous points
-(0, 10)
-(1, 8)
-(2, 6)
-(3, 1)
-(4, 4)
-(5, 7)
-(6, 9)
-(7, 2)
-Rendezvous point -> Doctor helis
-(1, 7)
-(2, 0)
-(4, 4)
-(6, 5)
-(7, 3)
-(8, 6)
-(9, 1)
-(10, 2)
-routes
-0
-[3, [0, 1, 7, 7], 38.91132566563348, 10.69564530603391, 28.215680359599567]
-1
-[6, [1, 9, 1, 1], 47.04649948564477, 31.095984273010437, 15.950515212634336]
-2
-[5, [2, 7, 3, 3], 16.185668089919226, 21.373450814520595, -5.1877827246013695]
-3
-[1, [3, 8, 6, 6], 48.037446016987246, 22.16233038899199, 25.875115627995257]
-4
-[0, [4, 10, 2, 2], 48.76878258515745, 22.24676767646494, 26.522014908692512]
-6
-[7, [6, 2, 0, 0], 12.15965112291323, 1.84733951671045, 10.31231160620278]
-7
-[2, [7, 6, 5, 5], 44.17066408970657, 22.487855106240573, 21.682808983465996]
-8
-[4, [8, 4, 4, 4], 26.071093201786436, 8.16114704784142, 17.909946153945015]
-patients#:8 relocation#:6 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 1 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 3 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 5 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-Total score: 144.282697462509
-patients#:8 relocation#:6 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 3 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 5 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-Total score: 147.7213828629735
-patients#:8 relocation#:6 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point Set parameter LogFile to value "gurobi.log"
-Using license file /home/yamashin/d/gurobi/gurobi.lic
-
-Gurobi Optimizer version 10.0.1 build v10.0.1rc0 (linux64)
-Copyright (c) 2023, Gurobi Optimization, LLC
-
-Read LP format model from file /tmp/b2cf869d1c0644a0ba7d5d9807a84941-pulp.lp
-Reading time = 0.03 seconds
-OBJ: 25407 rows, 6584 columns, 70192 nonzeros
-
-CPU model: Intel(R) Xeon(R) Silver 4316 CPU @ 2.30GHz, instruction set [SSE2|AVX|AVX2|AVX512]
-Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
-
-Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
-Model fingerprint: 0x9c393cd2
-Variable types: 0 continuous, 6584 integer (6584 binary)
-Coefficient statistics:
-  Matrix range     [1e+00, 1e+00]
-  Objective range  [3e+00, 4e+01]
-  Bounds range     [1e+00, 1e+00]
-  RHS range        [1e+00, 2e+00]
-Found heuristic solution: objective 161.4664550
-Presolve removed 18144 rows and 0 columns
-Presolve time: 0.13s
-Presolved: 7263 rows, 6584 columns, 52048 nonzeros
-Variable types: 0 continuous, 6584 integer (6584 binary)
-
-Root relaxation: objective 9.375815e+01, 398 iterations, 0.02 seconds (0.03 work units)
-
-    Nodes    |    Current Node    |     Objective Bounds      |     Work
- Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
-
-*    0     0               0      93.7581525   93.75815  0.00%     -    0s
-
-Explored 1 nodes (398 simplex iterations) in 0.17 seconds (0.26 work units)
-Thread count was 8 (of 8 available processors)
-
-Solution count 2: 93.7582 161.466 
-
-Optimal solution found (tolerance 1.00e-04)
-Best objective 9.375815253370e+01, best bound 9.375815253370e+01, gap 0.0000%
-
-Wrote result file '/tmp/b2cf869d1c0644a0ba7d5d9807a84941-pulp.sol'
-
-Set parameter LogFile to value "gurobi.log"
-Using license file /home/yamashin/d/gurobi/gurobi.lic
-
-Gurobi Optimizer version 10.0.1 build v10.0.1rc0 (linux64)
-Copyright (c) 2023, Gurobi Optimization, LLC
-
-Read LP format model from file /tmp/e629edf7b9324c48b77a9ff5d14ebb5a-pulp.lp
-Reading time = 0.03 seconds
-OBJ: 25407 rows, 6584 columns, 70192 nonzeros
-
-CPU model: Intel(R) Xeon(R) Silver 4316 CPU @ 2.30GHz, instruction set [SSE2|AVX|AVX2|AVX512]
-Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
-
-Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
-Model fingerprint: 0x4213450e
-Variable types: 0 continuous, 6584 integer (6584 binary)
-Coefficient statistics:
-  Matrix range     [1e+00, 1e+00]
-  Objective range  [2e+00, 4e+01]
-  Bounds range     [1e+00, 1e+00]
-  RHS range        [1e+00, 2e+00]
-Found heuristic solution: objective 163.9312897
-Presolve removed 18144 rows and 0 columns
-Presolve time: 0.13s
-Presolved: 7263 rows, 6584 columns, 52048 nonzeros
-Variable types: 0 continuous, 6584 integer (6584 binary)
-
-Root relaxation: objective 1.001869e+02, 512 iterations, 0.02 seconds (0.04 work units)
-
-    Nodes    |    Current Node    |     Objective Bounds      |     Work
- Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
-
-*    0     0               0     100.1869165  100.18692  0.00%     -    0s
-
-Explored 1 nodes (512 simplex iterations) in 0.17 seconds (0.27 work units)
-Thread count was 8 (of 8 available processors)
-
-Solution count 2: 100.187 163.931 
-
-Optimal solution found (tolerance 1.00e-04)
-Best objective 1.001869164857e+02, best bound 1.001869164857e+02, gap 0.0000%
-
-Wrote result file '/tmp/e629edf7b9324c48b77a9ff5d14ebb5a-pulp.sol'
-
-[0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-Total score: 143.91798775733707
-start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f07b805a4c0>
-Optimal
-93.75815253372218
-Ambulance -> Patients
-(0, 4)
-(2, 2)
-(3, 7)
-(4, 3)
-(5, 5)
-(6, 6)
-(7, 0)
-(8, 1)
-Patient -> Rendezvous points
-(0, 2)
-(1, 9)
-(2, 6)
-(3, 5)
-(4, 0)
-(5, 10)
-(6, 8)
-(7, 7)
-Rendezvous point -> Doctor helis
-(0, 2)
-(2, 6)
-(5, 7)
-(6, 3)
-(7, 4)
-(8, 0)
-(9, 5)
-(10, 1)
-routes
-0
-[4, [0, 0, 2, 2], 15.72303370881172, 3.2127695695734335, 12.510264139238286]
-2
-[2, [2, 6, 3, 3], 23.422503903785582, 8.30966857736614, 15.112835326419443]
-3
-[7, [3, 7, 4, 4], 37.150471697028934, 11.022422350340193, 26.12804934668874]
-4
-[3, [4, 5, 7, 7], 38.98810339874302, 14.064265863014226, 24.923837535728794]
-5
-[5, [5, 10, 1, 1], 17.08765595963956, 20.326898372076343, -3.2392424124367842]
-6
-[6, [6, 8, 0, 0], 37.187677800554894, 17.55703048639773, 19.630647314157166]
-7
-[0, [7, 2, 6, 6], 44.007808212783, 11.690324482195798, 32.3174837305872]
-8
-[1, [8, 9, 5, 5], 60.7076463054882, 7.574772832758335, 53.13287347272986]
-patients#:8 relocation#:7 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 4 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 7 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-Total score: 102.34027867464863
-patients#:8 relocation#:7 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 4 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 7 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-Total score: 103.42598723917425
-patients#:8 relocation#:7 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
-   opt# 0
-    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 7 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-Total score: 100.32558909089116
-start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f07607ebdc0>
-Optimal
-100.18691648573092
-Ambulance -> Patients
-(0, 5)
-(1, 3)
-(2, 0)
-(4, 7)
 (5, 1)
-(6, 6)
+(6, 7)
 (7, 4)
-(8, 2)
+(8, 6)
 Patient -> Rendezvous points
 (0, 6)
 (1, 0)
 (2, 3)
-(3, 1)
-(4, 9)
-(5, 7)
-(6, 4)
-(7, 2)
+(3, 5)
+(4, 10)
+(5, 8)
+(6, 1)
+(7, 9)
 Rendezvous point -> Doctor helis
-(0, 2)
-(1, 1)
-(2, 3)
-(3, 4)
-(4, 7)
-(6, 0)
-(7, 6)
-(9, 5)
+(0, 4)
+(1, 5)
+(3, 7)
+(5, 6)
+(6, 2)
+(8, 1)
+(9, 3)
+(10, 0)
 routes
 0
-[5, [0, 7, 6, 6], 23.99403485640579, 3.9199987441611097, 20.07403611224468]
-1
-[3, [1, 1, 1, 1], 31.848103905668843, 15.78916188044349, 16.058942025225353]
+[2, [0, 3, 7, 7], 50.54867284306344, 13.278735039373487, 37.269937803689956]
 2
-[0, [2, 6, 0, 0], 24.824001953602476, 13.404088415625342, 11.419913537977134]
+[5, [2, 8, 1, 1], 49.865219049800714, 21.3651899867874, 28.500029063013315]
+3
+[3, [3, 5, 6, 6], 41.24660782441844, 3.478083820993851, 37.76852400342459]
 4
-[7, [4, 2, 3, 3], 13.577249096130188, 17.470868131950777, -3.8936190358205884]
+[0, [4, 6, 2, 2], 26.80808396088971, 13.070938114312405, 13.737145846577306]
 5
-[1, [5, 0, 2, 2], 45.60776886906548, 9.525022283333048, 36.08274658573244]
+[1, [5, 0, 4, 4], 31.735804332691245, 13.361916339454599, 18.373887993236647]
 6
-[6, [6, 4, 7, 7], 42.27004478411645, 19.5373481079137, 22.73269667620275]
+[7, [6, 9, 3, 3], 26.548723439351157, 15.186897649393362, 11.361825789957795]
 7
-[4, [7, 9, 5, 5], 4.787941190058227, 4.31375339340905, 0.47418779664917654]
+[4, [7, 10, 0, 0], 35.11256437922447, 10.511684127182958, 24.600880252041513]
 8
-[2, [8, 3, 4, 4], 23.910966231586226, 16.226675528894404, 7.684290702691822]
+[6, [8, 1, 5, 5], 22.02631887508033, 13.845901887577405, 8.180416987502927]
+patients#:8 relocation#:7 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 1 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 2 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 5 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 6 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+Total score: 111.29441779863782
+patients#:8 relocation#:7 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 2 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 5 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+Total score: 107.63902827218854
+patients#:8 relocation#:7 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
+   opt# 0
+    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 2 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 5 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+Total score: 110.57859347579618
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7fcfd85fadc0>
+Optimal
+115.63936847791145
+Ambulance -> Patients
+(0, 0)
+(1, 4)
+(3, 5)
+(4, 6)
+(5, 3)
+(6, 1)
+(7, 7)
+(8, 2)
+Patient -> Rendezvous points
+(0, 4)
+(1, 8)
+(2, 6)
+(3, 5)
+(4, 10)
+(5, 7)
+(6, 2)
+(7, 9)
+Rendezvous point -> Doctor helis
+(2, 1)
+(4, 0)
+(5, 4)
+(6, 7)
+(7, 2)
+(8, 3)
+(9, 6)
+(10, 5)
+routes
+0
+[0, [0, 4, 0, 0], 36.28148427656443, 20.946286467096197, 15.33519780946823]
+1
+[4, [1, 10, 5, 5], 31.801323751764897, 14.12320248653046, 17.678121265234438]
+3
+[5, [3, 7, 2, 2], 13.715304862995023, 24.744365311407, -11.029060448411979]
+4
+[6, [4, 2, 1, 1], 28.158497506958966, 14.652369786198793, 13.506127720760173]
+5
+[3, [5, 5, 4, 4], 10.651856359769925, 7.711462895152762, 2.9403934646171628]
+6
+[1, [6, 8, 3, 3], 19.901204198290458, 6.288396644505921, 13.612807553784537]
+7
+[7, [7, 9, 6, 6], 40.345714868371246, 5.607792701396308, 34.73792216697494]
+8
+[2, [8, 6, 7, 7], 35.02660467577264, 21.565492185624, 13.46111249014864]
 patients#:8 relocation#:8 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
    opt# 0
-    OK   # 0 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 1 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-Total score: 105.39137390409167
+    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 2 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 4 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 5 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 6 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+Total score: 122.52026025536628
 patients#:8 relocation#:8 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
    opt# 0
-    OK   # 0 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point Set parameter LogFile to value "gurobi.log"
+    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_pointSet parameter LogFile to value "gurobi.log"
 Using license file /home/yamashin/d/gurobi/gurobi.lic
 
 Gurobi Optimizer version 10.0.1 build v10.0.1rc0 (linux64)
 Copyright (c) 2023, Gurobi Optimization, LLC
 
-Read LP format model from file /tmp/0e40bc405a53435096660b07fc11b91a-pulp.lp
+Read LP format model from file /tmp/0d9a3aae7e0c44da891db28f868ba31f-pulp.lp
 Reading time = 0.03 seconds
 OBJ: 25407 rows, 6584 columns, 70192 nonzeros
 
@@ -1108,149 +1108,149 @@ CPU model: Intel(R) Xeon(R) Silver 4316 CPU @ 2.30GHz, instruction set [SSE2|AVX
 Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
 
 Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
-Model fingerprint: 0xc58dc0a6
+Model fingerprint: 0x9224b901
 Variable types: 0 continuous, 6584 integer (6584 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
-  Objective range  [3e+00, 4e+01]
+  Objective range  [6e+00, 5e+01]
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
-Found heuristic solution: objective 147.6824706
+Found heuristic solution: objective 190.7162818
 Presolve removed 18144 rows and 0 columns
 Presolve time: 0.13s
 Presolved: 7263 rows, 6584 columns, 52048 nonzeros
 Variable types: 0 continuous, 6584 integer (6584 binary)
 
-Root relaxation: objective 7.302501e+01, 280 iterations, 0.02 seconds (0.02 work units)
+Root relaxation: objective 1.194274e+02, 397 iterations, 0.02 seconds (0.04 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-*    0     0               0      73.0250141   73.02501  0.00%     -    0s
+*    0     0               0     119.4274386  119.42744  0.00%     -    0s
 
-Explored 1 nodes (280 simplex iterations) in 0.17 seconds (0.25 work units)
+Explored 1 nodes (397 simplex iterations) in 0.17 seconds (0.27 work units)
 Thread count was 8 (of 8 available processors)
 
-Solution count 2: 73.025 147.682 
+Solution count 2: 119.427 190.716 
 
 Optimal solution found (tolerance 1.00e-04)
-Best objective 7.302501406924e+01, best bound 7.302501406924e+01, gap 0.0000%
+Best objective 1.194274385812e+02, best bound 1.194274385812e+02, gap 0.0000%
 
-Wrote result file '/tmp/0e40bc405a53435096660b07fc11b91a-pulp.sol'
+Wrote result file '/tmp/0d9a3aae7e0c44da891db28f868ba31f-pulp.sol'
 
-[0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 3 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 5 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 7 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-Total score: 104.08199526762833
+ [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 1 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 2 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 6 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+Total score: 120.65871633876
 patients#:8 relocation#:8 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
    opt# 0
-    OK   # 0 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 1 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 2 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-Total score: 103.05416923874515
-start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f07606a50a0>
+    OK   # 0 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 2 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 4 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 5 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 6 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+Total score: 122.933622899585
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7fcfd876d400>
 Optimal
-73.02501406927885
+119.42743858114778
 Ambulance -> Patients
-(0, 1)
-(1, 2)
-(3, 0)
-(4, 7)
-(5, 5)
-(6, 3)
-(7, 4)
-(8, 6)
+(0, 2)
+(2, 1)
+(3, 5)
+(4, 6)
+(5, 3)
+(6, 4)
+(7, 0)
+(8, 7)
 Patient -> Rendezvous points
-(0, 4)
-(1, 1)
+(0, 1)
+(1, 0)
 (2, 6)
 (3, 10)
-(4, 8)
-(5, 7)
-(6, 5)
-(7, 3)
+(4, 3)
+(5, 8)
+(6, 4)
+(7, 9)
 Rendezvous point -> Doctor helis
-(1, 7)
-(3, 3)
-(4, 6)
-(5, 1)
+(0, 0)
+(1, 6)
+(3, 4)
+(4, 5)
 (6, 2)
-(7, 0)
-(8, 5)
-(10, 4)
+(8, 7)
+(9, 1)
+(10, 3)
 routes
 0
-[1, [0, 1, 7, 7], 14.357277761321823, 14.988435115111788, -0.6311573537899644]
-1
-[2, [1, 6, 2, 2], 34.5057043291971, 3.203377749939299, 31.3023265792578]
+[2, [0, 6, 2, 2], 39.77471534713447, 17.4628970035354, 22.311818343599068]
+2
+[1, [2, 0, 0, 0], 28.293156042735113, 19.958223297572598, 8.334932745162515]
 3
-[0, [3, 4, 6, 6], 52.80838803314488, 17.036384970419032, 35.772003062725844]
+[5, [3, 8, 7, 7], 35.3625320742556, 18.43370553226074, 16.92882654199486]
 4
-[7, [4, 3, 3, 3], 39.96206147136194, 9.926665084115882, 30.03539638724606]
+[6, [4, 4, 5, 5], 32.78552704132018, 15.045599054837222, 17.739927986482957]
 5
-[5, [5, 7, 0, 0], 3.814691422849684, 7.436177452259312, -3.6214860294096276]
+[3, [5, 10, 3, 3], 71.35322116294398, 17.576502120065644, 53.77671904287834]
 6
-[3, [6, 10, 4, 4], 53.94102329876606, 4.034749792674029, 49.906273506092035]
+[4, [6, 3, 4, 4], 21.03079740800956, 14.253024871880765, 6.7777725361287935]
 7
-[4, [7, 8, 5, 5], 5.417317047142493, 5.808752705450933, -0.3914356583084402]
+[0, [7, 1, 6, 6], 15.473275584724671, 6.465743558637964, 9.007532026086707]
 8
-[6, [8, 5, 1, 1], 31.607368718598714, 10.590471199308581, 21.016897519290133]
+[7, [8, 9, 1, 1], 21.250688222407074, 10.231743142357438, 11.018945080049637]
 patients#:8 relocation#:9 qa_trial_count#:0 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
    opt# 0
-    OK   # 0 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 5 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 7 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-Total score: 75.26391551507365
+    OK   # 0 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 2 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 5 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+Total score: 126.03468199642214
 patients#:8 relocation#:9 qa_trial_count#:1 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
    opt# 0
-    OK   # 0 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 1 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 7 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-Total score: 77.98699713466921
+    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 1 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 2 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 5 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 6 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+Total score: 124.22624911920585
 patients#:8 relocation#:9 qa_trial_count#:2 ambulance:9 rendezvous_points:11 doctor_helis:8 lams:34.63320538704878 49.15841176773455 4.08550171630701 is_new_algo:False is_max_algo:True
    opt# 0
-    OK   # 0 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 7 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-Total score: 75.0361923728213
-cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 0 8 79.58305566070284 0.002801179885864258 73.64642762278712 1.074510097503662 81.02832101411875 31.413710355758667
-cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 1 8 132.21964617433372 0.002821207046508789 123.26432484341542 1.1041007041931152 126.40894872870263 34.565988540649414
-cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 2 8 205.52724988647208 0.0032379627227783203 196.5613251620724 1.0689609050750732 199.90346915652435 34.77274775505066
-cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 3 8 99.15654018239493 0.0029163360595703125 91.98069166888806 1.0494234561920166 95.90860781693014 35.44525408744812
-cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 4 8 133.39525410567316 0.0028688907623291016 114.17104991588627 1.051293134689331 121.23137322718604 33.55171513557434
-cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 5 8 111.52644016484435 0.0029077529907226562 84.02722720887544 1.1104586124420166 96.36658589189503 34.16370105743408
+    OK   # 0 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+    OK   # 1 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 2 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 3 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 4 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 5 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 6 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+Total score: 125.02793698208933
+cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 0 8 135.3866205488489 0.003056049346923828 131.19070036404023 1.0777974128723145 136.1634309521187 29.58816695213318
+cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 1 8 148.8864124940211 0.003171682357788086 142.9588496705365 1.104917049407959 146.26355736683743 35.41028428077698
+cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 2 8 159.46004527310959 0.0030901432037353516 153.70424135681228 1.057185411453247 161.12735260430628 30.32683825492859
+cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 3 8 169.33856898618814 0.0031375885009765625 150.01163192419335 1.0798718929290771 161.26762641267752 32.72325253486633
+cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 4 8 130.87151777921153 0.0030813217163085938 117.21925716891027 1.0576965808868408 122.94803230276926 33.798625230789185
+cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 5 8 143.89258980337632 0.003913402557373047 126.38794387848368 1.1202025413513184 132.63486045088257 33.762763023376465
 cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 6 8 Set parameter LogFile to value "gurobi.log"
 Using license file /home/yamashin/d/gurobi/gurobi.lic
 
 Gurobi Optimizer version 10.0.1 build v10.0.1rc0 (linux64)
 Copyright (c) 2023, Gurobi Optimization, LLC
 
-Read LP format model from file /tmp/f431833274cc4735a6ddf51ec9b09c88-pulp.lp
+Read LP format model from file /tmp/9cd529e3fcb1494e81143821922bfe74-pulp.lp
 Reading time = 0.03 seconds
 OBJ: 25407 rows, 6584 columns, 70192 nonzeros
 
@@ -1258,181 +1258,181 @@ CPU model: Intel(R) Xeon(R) Silver 4316 CPU @ 2.30GHz, instruction set [SSE2|AVX
 Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
 
 Optimize a model with 25407 rows, 6584 columns and 70192 nonzeros
-Model fingerprint: 0x15a00a6f
+Model fingerprint: 0x0c48d795
 Variable types: 0 continuous, 6584 integer (6584 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
-  Objective range  [2e+00, 4e+01]
+  Objective range  [3e+00, 5e+01]
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
-Found heuristic solution: objective 164.2178797
+Found heuristic solution: objective 180.7917192
 Presolve removed 18144 rows and 0 columns
 Presolve time: 0.13s
 Presolved: 7263 rows, 6584 columns, 52048 nonzeros
 Variable types: 0 continuous, 6584 integer (6584 binary)
 
-Root relaxation: objective 7.364643e+01, 286 iterations, 0.01 seconds (0.02 work units)
+Root relaxation: objective 1.040993e+02, 434 iterations, 0.02 seconds (0.03 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-*    0     0               0      73.6464276   73.64643  0.00%     -    0s
+*    0     0               0     104.0993470  104.09935  0.00%     -    0s
 
-Explored 1 nodes (286 simplex iterations) in 0.16 seconds (0.25 work units)
+Explored 1 nodes (434 simplex iterations) in 0.17 seconds (0.26 work units)
 Thread count was 8 (of 8 available processors)
 
-Solution count 2: 73.6464 164.218 
+Solution count 2: 104.099 180.792 
 
 Optimal solution found (tolerance 1.00e-04)
-Best objective 7.364642762273e+01, best bound 7.364642762273e+01, gap 0.0000%
+Best objective 1.040993469652e+02, best bound 1.040993469652e+02, gap 0.0000%
 
-Wrote result file '/tmp/f431833274cc4735a6ddf51ec9b09c88-pulp.sol'
+Wrote result file '/tmp/9cd529e3fcb1494e81143821922bfe74-pulp.sol'
 
-155.90769598104853 0.0029053688049316406 140.0705201298143 1.0569095611572266 147.7213828629735 34.85146188735962
-cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 7 8 104.81330595375596 0.0029764175415039062 93.75815253372218 1.1037187576293945 103.42598723917425 32.36301064491272
-cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 8 8 104.01955495582196 0.0029268264770507812 100.18691648573092 1.1170732975006104 105.39137390409167 36.05167269706726
-cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 9 8 96.89513255403695 0.0029211044311523438 73.02501406927885 1.115713357925415 77.98699713466921 34.54309916496277
+84.01021222225336 0.003598451614379883 69.6444925826688 1.0524065494537354 81.5253529535013 33.21839380264282
+cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 7 8 138.6432922458126 0.0038330554962158203 104.09934696507545 1.1117489337921143 111.29441779863782 34.301605463027954
+cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 8 8 137.20777224134292 0.0032291412353515625 115.63936847791145 1.1135733127593994 122.933622899585 30.502976655960083
+cnt,num_of_patients,gr,gr_time,ip,ip_time,qa_max,qa_time 9 8 129.04518677354164 0.0032160282135009766 119.42743858114778 1.116722822189331 126.03468199642214 34.50735139846802
 df       Greedy(score sec/patient)  ...  Quantum annealing(ptime sec)
 map#                             ...                              
-0                    596.872917  ...                     31.413710
-1                    991.647346  ...                     34.565989
-2                   1541.454374  ...                     34.772748
-3                    743.674051  ...                     35.445254
-4                   1000.464406  ...                     33.551715
-5                    836.448301  ...                     34.163701
-6                   1169.307720  ...                     34.851462
-7                    786.099795  ...                     32.363011
-8                    780.146662  ...                     36.051673
-9                    726.713494  ...                     34.543099
+0                   1015.399654  ...                     29.588167
+1                   1116.648094  ...                     35.410284
+2                   1195.950340  ...                     30.326838
+3                   1270.039267  ...                     32.723253
+4                    981.536383  ...                     33.798625
+5                   1079.194424  ...                     33.762763
+6                    630.076592  ...                     33.218394
+7                   1039.824692  ...                     34.301605
+8                   1029.058292  ...                     30.502977
+9                    967.838901  ...                     34.507351
 
 [10 rows x 6 columns]
 # Classic despatch
 [patient#, [a2p, p2r, r2d, d2h], Time left for the patient, Estimated time to start treatment, Score(Difference b/w the time left for the patient and the time to start treatment)]
-[0, [8, 7, 0, 0], 21.89512169257548, 12.692105981880868, 9.203015710694611]
-[1, [5, 2, 1, 1], 40.47236869664749, 10.44003640718859, 30.032332289458903]
-[2, [3, 4, 2, 2], 43.123633935269055, 2.1657028131464546, 40.9579311221226]
-[3, [1, 10, 3, 3], 43.445212274910816, 5.264889257089016, 38.1803230178218]
-[4, [6, 5, 4, 4], 11.54398037383536, 6.531657917273174, 5.0123224565621864]
-[5, [0, 8, 5, 5], 30.446917080809094, 9.770400214662944, 20.67651686614615]
-[6, [2, 9, 6, 6], 43.99707995414407, 17.854236958033567, 26.142842996110502]
-[7, [7, 0, 7, 7], 40.96222467864196, 14.864026111428227, 26.098198567213732]
-Total score: 79.58305566070284
+[0, [0, 10, 0, 0], 26.80808396088971, 5.359109520261018, 21.448974440628692]
+[1, [3, 8, 1, 1], 31.735804332691245, 9.287565497625929, 22.448238835065318]
+[2, [7, 5, 2, 2], 50.54867284306344, 15.45089484465417, 35.09777799840927]
+[3, [2, 0, 3, 3], 41.24660782441844, 26.614981972917548, 14.631625851500893]
+[4, [4, 3, 4, 4], 35.11256437922447, 16.366683769070484, 18.74588061015399]
+[5, [5, 1, 5, 5], 49.865219049800714, 30.680275139100225, 19.18494391070049]
+[6, [8, 6, 6, 6], 22.02631887508033, 19.69688385278988, 2.3294350222904505]
+[7, [6, 9, 7, 7], 26.548723439351157, 15.186897649393362, 11.361825789957795]
+Total score: 138.6432922458126
 # IP despatch
-start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7f0760603a90>
+start pulp solver :<pulp.apis.gurobi_api.GUROBI_CMD object at 0x7fd067abc520>
 Optimal
-73.64642762278712
+104.09934696507545
 Ambulance -> Patients
 (0, 2)
-(1, 6)
-(2, 7)
-(3, 5)
+(2, 5)
+(3, 3)
+(4, 0)
 (5, 1)
-(6, 4)
-(7, 0)
-(8, 3)
+(6, 7)
+(7, 4)
+(8, 6)
 Patient -> Rendezvous points
-(0, 7)
-(1, 2)
-(2, 4)
-(3, 10)
-(4, 0)
-(5, 5)
-(6, 9)
-(7, 8)
+(0, 6)
+(1, 0)
+(2, 3)
+(3, 5)
+(4, 10)
+(5, 8)
+(6, 1)
+(7, 9)
 Rendezvous point -> Doctor helis
-(0, 1)
-(2, 6)
-(4, 0)
-(5, 4)
-(7, 2)
-(8, 5)
+(0, 4)
+(1, 5)
+(3, 7)
+(5, 6)
+(6, 2)
+(8, 1)
 (9, 3)
-(10, 7)
+(10, 0)
 routes
 0
-[2, [0, 4, 0, 0], 43.123633935269055, 6.945988877584226, 36.17764505768483]
-1
-[6, [1, 9, 3, 3], 43.99707995414407, 5.000202666432763, 38.99687728771131]
+[2, [0, 3, 7, 7], 50.54867284306344, 13.278735039373487, 37.269937803689956]
 2
-[7, [2, 8, 5, 5], 40.96222467864196, 11.303604424945629, 29.65862025369633]
+[5, [2, 8, 1, 1], 49.865219049800714, 21.3651899867874, 28.500029063013315]
 3
-[5, [3, 5, 4, 4], 30.446917080809094, 6.490931529161221, 23.95598555164787]
+[3, [3, 5, 6, 6], 41.24660782441844, 3.478083820993851, 37.76852400342459]
+4
+[0, [4, 6, 2, 2], 26.80808396088971, 13.070938114312405, 13.737145846577306]
 5
-[1, [5, 2, 6, 6], 40.47236869664749, 10.44003640718859, 30.032332289458903]
+[1, [5, 0, 4, 4], 31.735804332691245, 13.361916339454599, 18.373887993236647]
 6
-[4, [6, 0, 1, 1], 11.54398037383536, 7.1898020167130365, 4.354178357122324]
+[7, [6, 9, 3, 3], 26.548723439351157, 15.186897649393362, 11.361825789957795]
 7
-[0, [7, 7, 2, 2], 21.89512169257548, 17.007221465715087, 4.887900226860392]
+[4, [7, 10, 0, 0], 35.11256437922447, 10.511684127182958, 24.600880252041513]
 8
-[3, [8, 10, 7, 7], 43.445212274910816, 9.26864023504656, 34.176572039864254]
+[6, [8, 1, 5, 5], 22.02631887508033, 13.845901887577405, 8.180416987502927]
 [patient#, [a2p, p2r, r2d, d2h], Time left for the patient, Estimated time to start treatment, Score(Difference b/w the time left for the patient and the time to start treatment)]
-[2, [0, 4, 0, 0], 43.123633935269055, 6.945988877584226, 36.17764505768483]
-[6, [1, 9, 3, 3], 43.99707995414407, 5.000202666432763, 38.99687728771131]
-[7, [2, 8, 5, 5], 40.96222467864196, 11.303604424945629, 29.65862025369633]
-[5, [3, 5, 4, 4], 30.446917080809094, 6.490931529161221, 23.95598555164787]
-[1, [5, 2, 6, 6], 40.47236869664749, 10.44003640718859, 30.032332289458903]
-[4, [6, 0, 1, 1], 11.54398037383536, 7.1898020167130365, 4.354178357122324]
-[0, [7, 7, 2, 2], 21.89512169257548, 17.007221465715087, 4.887900226860392]
-[3, [8, 10, 7, 7], 43.445212274910816, 9.26864023504656, 34.176572039864254]
-Total score: 73.64642762278712
-# QA despatch location# 0
+[2, [0, 3, 7, 7], 50.54867284306344, 13.278735039373487, 37.269937803689956]
+[5, [2, 8, 1, 1], 49.865219049800714, 21.3651899867874, 28.500029063013315]
+[3, [3, 5, 6, 6], 41.24660782441844, 3.478083820993851, 37.76852400342459]
+[0, [4, 6, 2, 2], 26.80808396088971, 13.070938114312405, 13.737145846577306]
+[1, [5, 0, 4, 4], 31.735804332691245, 13.361916339454599, 18.373887993236647]
+[7, [6, 9, 3, 3], 26.548723439351157, 15.186897649393362, 11.361825789957795]
+[4, [7, 10, 0, 0], 35.11256437922447, 10.511684127182958, 24.600880252041513]
+[6, [8, 1, 5, 5], 22.02631887508033, 13.845901887577405, 8.180416987502927]
+Total score: 104.09934696507545
+# QA despatch location# 7
    opt# 0
-    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 1 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
-    OK   # 1 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 1 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
-    OK   # 2 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [0 0 0 0 1 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
-    OK   # 3 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
-    OK   # 4 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
-    OK   # 5 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
-    OK   # 6 ambulance [0 1 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
-    OK   # 7 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
-Total score: 83.24022170179657
+    OK   # 0 ambulance [0 0 0 0 1 0 0 0 0] rendezvous_point [0 0 0 0 0 0 1 0 0 0 0] doctor_heli [0 0 0 0 0 1 0 0] basehospital []
+    OK   # 1 ambulance [0 0 1 0 0 0 0 0 0] rendezvous_point [1 0 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 0 0 1 0 0 0] basehospital []
+    OK   # 2 ambulance [0 0 0 0 0 0 1 0 0] rendezvous_point [0 0 0 1 0 0 0 0 0 0 0] doctor_heli [1 0 0 0 0 0 0 0] basehospital []
+    OK   # 3 ambulance [1 0 0 0 0 0 0 0 0] rendezvous_point [0 0 0 0 0 1 0 0 0 0 0] doctor_heli [0 1 0 0 0 0 0 0] basehospital []
+    OK   # 4 ambulance [0 0 0 0 0 0 0 1 0] rendezvous_point [0 0 0 0 0 0 0 0 0 0 1] doctor_heli [0 0 0 0 0 0 1 0] basehospital []
+    OK   # 5 ambulance [0 0 0 1 0 0 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 1 0 0] doctor_heli [0 0 0 0 0 0 0 1] basehospital []
+    OK   # 6 ambulance [0 0 0 0 0 0 0 0 1] rendezvous_point [0 1 0 0 0 0 0 0 0 0 0] doctor_heli [0 0 1 0 0 0 0 0] basehospital []
+    OK   # 7 ambulance [0 0 0 0 0 1 0 0 0] rendezvous_point [0 0 0 0 0 0 0 0 0 1 0] doctor_heli [0 0 0 1 0 0 0 0] basehospital []
+Total score: 111.97868498347155
 [patient#, [a2p, p2r, r2d, d2h], Time left for the patient, Estimated time to start treatment, Score(Difference b/w the time left for the patient and the time to start treatment)]
-[0, [4, 7, 1, 1], 21.89512169257548, 20.502909539140422, 1.3922121534350573]
-[1, [5, 2, 3, 3], 40.47236869664749, 10.44003640718859, 30.032332289458903]
-[2, [2, 4, 6, 6], 43.123633935269055, 7.392672795562156, 35.7309611397069]
-[3, [6, 10, 2, 2], 43.445212274910816, 13.274042915305431, 30.171169359605386]
-[4, [3, 5, 4, 4], 11.54398037383536, 5.10416917340601, 6.43981120042935]
-[5, [8, 0, 5, 5], 30.446917080809094, 10.642349374913582, 19.80456770589551]
-[6, [1, 9, 7, 7], 43.99707995414407, 5.000202666432763, 38.99687728771131]
-[7, [0, 8, 0, 0], 40.96222467864196, 10.883838829847626, 30.078385848794333]
-Total score: 83.24022170179657
+[0, [4, 6, 5, 5], 26.80808396088971, 13.070938114312405, 13.737145846577306]
+[1, [2, 0, 4, 4], 31.735804332691245, 15.611658459959816, 16.12414587273143]
+[2, [6, 3, 0, 0], 50.54867284306344, 26.074122935343304, 24.47454990772014]
+[3, [0, 5, 1, 1], 41.24660782441844, 11.920460814467894, 29.326147009950546]
+[4, [7, 10, 6, 6], 35.11256437922447, 10.511684127182958, 24.600880252041513]
+[5, [3, 8, 7, 7], 49.865219049800714, 6.076234617851331, 43.78898443194938]
+[6, [8, 1, 2, 2], 22.02631887508033, 13.845901887577405, 8.180416987502927]
+[7, [5, 9, 3, 3], 26.548723439351157, 14.867684026776448, 11.681039412574709]
+Total score: 111.97868498347155
       Greedy(score sec/patient)  Greedy(ptime sec)   
 map#                                                 
-0                    596.872917           0.002801  \
-1                    991.647346           0.002821   
-2                   1541.454374           0.003238   
-3                    743.674051           0.002916   
-4                   1000.464406           0.002869   
-5                    836.448301           0.002908   
-6                   1169.307720           0.002905   
-7                    786.099795           0.002976   
-8                    780.146662           0.002927   
-9                    726.713494           0.002921   
+0                   1015.399654           0.003056  \
+1                   1116.648094           0.003172   
+2                   1195.950340           0.003090   
+3                   1270.039267           0.003138   
+4                    981.536383           0.003081   
+5                   1079.194424           0.003913   
+6                    630.076592           0.003598   
+7                   1039.824692           0.003833   
+8                   1029.058292           0.003229   
+9                    967.838901           0.003216   
 
       Integer Programming(score sec/patient)  Integer Programming(ptime sec)   
 map#                                                                           
-0                                 552.348207                        1.074510  \
-1                                 924.482436                        1.104101   
-2                                1474.209939                        1.068961   
-3                                 689.855188                        1.049423   
-4                                 856.282874                        1.051293   
-5                                 630.204204                        1.110459   
-6                                1050.528901                        1.056910   
-7                                 703.186144                        1.103719   
-8                                 751.401874                        1.117073   
-9                                 547.687606                        1.115713   
+0                                 983.930253                        1.077797  \
+1                                1072.191373                        1.104917   
+2                                1152.781810                        1.057185   
+3                                1125.087239                        1.079872   
+4                                 879.144429                        1.057697   
+5                                 947.909579                        1.120203   
+6                                 522.333694                        1.052407   
+7                                 780.745102                        1.111749   
+8                                 867.295264                        1.113573   
+9                                 895.705789                        1.116723   
 
       Quantum annealing(score sec/patient)  Quantum annealing(ptime sec)  
 map#                                                                      
-0                               607.712408                     31.413710  
-1                               948.067115                     34.565989  
-2                              1499.276019                     34.772748  
-3                               719.314559                     35.445254  
-4                               909.235299                     33.551715  
-5                               722.749394                     34.163701  
-6                              1107.910371                     34.851462  
-7                               775.694904                     32.363011  
-8                               790.435304                     36.051673  
-9                               584.902479                     34.543099  
+0                              1021.225732                     29.588167  
+1                              1096.976680                     35.410284  
+2                              1208.455145                     30.326838  
+3                              1209.507198                     32.723253  
+4                               922.110242                     33.798625  
+5                               994.761453                     33.762763  
+6                               611.440147                     33.218394  
+7                               834.708133                     34.301605  
+8                               922.002172                     30.502977  
+9                               945.260115                     34.507351  
 00_w20000_h20000_a9_p8_r11_d8_m10_q3.avi
 Done

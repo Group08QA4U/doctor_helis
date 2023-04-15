@@ -761,7 +761,7 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
   qa_total_scores_list = []
   qa_processing_time_list=  []
 
-  best_qa_total_score = sys.maxsize
+  best_qa_animation_score = -100000
   best_world_base = None
   best_qa = None
   best_classic = None
@@ -815,8 +815,10 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
       qa_total_scores.append(qa_total_score)
  
       if qa_total_score != None:
-        if best_qa_total_score > qa_total_score:
-          best_qa_total_score = qa_total_score
+        # 生成するアニメーションを決定するロジック
+        # 従来手法とQAを比較して、QAが大きな差を付けて従来手法に勝る地図をアニメーションとして残す
+        if best_qa_animation_score < (classic_total_score - qa_total_score):
+          best_qa_animation_score = classic_total_score - qa_total_score
           best_qa = copy.deepcopy(qa)
           best_world_base = copy.deepcopy(world_base)
           best_location = j
