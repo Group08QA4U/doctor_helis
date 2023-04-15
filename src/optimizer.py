@@ -266,7 +266,7 @@ DWAVE_TOKEN = os.getenv('DWAVE_TOKEN')
 #print('DWAVE_TOKEN',DWAVE_TOKEN)
 
 class QA(Optimizer):
-  def __init__(self, use_d_wave = False, use_hybrid = True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False, is_max_algorithm_p3 = True, lams = None):
+  def __init__(self, use_d_wave = True, use_hybrid = True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False, is_max_algorithm_p3 = True, lams = None):
     super().__init__()
     self.token = DWAVE_TOKEN 
     self.endpoint = 'https://cloud.dwavesys.com/sapi/'
@@ -451,7 +451,7 @@ class QA(Optimizer):
       if route[1][0] == -1 or route[1][1] == -1 or route[1][2] == -1 or route[1][3] == -1:
         total_score = None
         break
-      total_score += route[4] # min_time_to_treatment
+      total_score += route[3] # min_time_to_treatment
       #print(route)
     print('Total score:',total_score)
 
@@ -760,9 +760,8 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
   ip_processing_time_list = []
   qa_total_scores_list = []
   qa_processing_time_list=  []
-  anime_list = []
 
-  best_qa_total_score = -10000
+  best_qa_total_score = sys.maxsize
   best_world_base = None
   best_qa = None
   best_classic = None
@@ -793,7 +792,7 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
     # QAで計算
     start = time.time()
     qa_total_scores = []
-    lams=[39.0,39.0,2.0]
+    lams=[39.0,39.0,2.5]
     is_new_algo = False
     is_max_algo = True
     #for is_max_algo in [True,False]:
@@ -815,8 +814,8 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
       qa_total_scores.append(qa_total_score)
  
       if qa_total_score != None:
-        if best_qa_total_score < (qa_total_score - classic_total_score):
-          best_qa_total_score = (qa_total_score - classic_total_score)
+        if best_qa_total_score > qa_total_score:
+          best_qa_total_score = qa_total_score
           best_qa = copy.deepcopy(qa)
           best_world_base = copy.deepcopy(world_base)
           best_location = j
@@ -856,9 +855,8 @@ def grid_search(life_saving_resources_params, hyper_params, map_relocations=10, 
 
   qa_total_scores_list = []
   classic_total_scores_list = []
-  anime_list = []
 
-  best_qa_total_score = -10000
+  best_qa_total_score = sys.maxsize
   best_world_base = None
   best_qa = None
   #best_classic = None
@@ -871,14 +869,6 @@ def grid_search(life_saving_resources_params, hyper_params, map_relocations=10, 
     params_dict['map_relocations'] = j
     # 要救助者、救命リソースをランダム配置
     world_base = worlds.World(width = width, height = height, num_of_patients=num_of_patients, num_of_fire_departments = num_of_fire_departments, num_of_rendezvous_points = num_of_rendezvous_points, num_of_basehospitals = num_of_basehospitals)
-
-    # 古典コンピューターで計算
-    #world_classic = copy.deepcopy(world_base)
-    #classic = Classic()
-    #best_classic = copy.deepcopy(classic)
-    #classic_total_score = world_classic.getTotalScore(classic)
-    #classic_total_scores_list.append(classic_total_score)
-
 
     # QAで計算
     qa_total_scores = []
@@ -908,32 +898,49 @@ def grid_search(life_saving_resources_params, hyper_params, map_relocations=10, 
 
 
 
-   #   qa_total_scores.append(qa_total_score)
- 
-      #if qa_total_score != None:
-      #  if best_qa_total_score < (qa_total_score - classic_total_score):
-      #    best_qa_total_score = (qa_total_score - classic_total_score)
-      #    best_qa = copy.deepcopy(qa)
-      #    best_world_base = copy.deepcopy(world_base)
-      #    best_location = j
 
-    #qa_total_scores_list.append(qa_total_scores)
+def bayes(X):
+  print('X',X)  
+  lams=[X[0],X[1],X[2]]
 
+  map_relocations=3
+  qa_trial_count=3
+  width = 20000
+  height = 20000
+  num_of_patients = 8
+  num_of_fire_departments = 9
+  num_of_rendezvous_points = 11
+  num_of_basehospitals = 8
 
+  use_d_wave = True
+  is_new_algo = False
+  is_max_algo = True
 
-  #df = output_as_csv(classic_total_scores_list, qa_total_scores_list, num_of_patients, num_of_fire_departments = num_of_fire_departments, num_of_rendezvous_points = num_of_rendezvous_points, num_of_basehospitals = num_of_basehospitals)
+  best_qa_total_score = sys.maxsize
 
-  #print(best_world_base)
-  #print(best_qa)
-  #print(best_classic)
-  #print('# Classic despatch')
-  #world_classic = copy.deepcopy(best_world_base)
-  #world_classic.despatch(best_classic)  
+  # 要救助者、救命リソースをランダム配置
+  world_base = worlds.World(width = width, height = height, num_of_patients=num_of_patients, num_of_fire_departments = num_of_fire_departments, num_of_rendezvous_points = num_of_rendezvous_points, num_of_basehospitals = num_of_basehospitals)
 
-  #print('# QA despatch location#',best_location)
-  #world_qa = copy.deepcopy(best_world_base)
-  #world_qa.despatch(best_qa)  
-  
-  
-  #return df, world_classic, world_qa
+  # QAで計算
+  qa_total_scores = []
+  for k in range(qa_trial_count):
+    title = 'patients#:' + str(num_of_patients) + ' ' + \
+            'qa_trial_count#:' + str(k) + ' ' + 'ambulance:' + str(num_of_fire_departments) + ' ' + \
+            'rendezvous_points:' + str(num_of_rendezvous_points) + ' ' + \
+            'doctor_helis:' + str(num_of_basehospitals) + ' lams:' + " ".join([str(_) for _ in lams]) + ' ' + \
+            'is_new_algo:' + str(is_new_algo) + ' ' + 'is_max_algo:' + str(is_max_algo)
+    print(title)
+    world_qa = copy.deepcopy(world_base)
 
+    # QA
+    qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, is_max_algorithm_p3=is_max_algo, lams=lams)
+
+    qa_total_score = world_qa.getTotalScore(qa)
+    qa_total_scores.append(qa_total_score)
+
+    if qa_total_score != None:
+      if best_qa_total_score > qa_total_score:
+        best_qa_total_score = qa_total_score
+
+  print('best_qa_total_score',best_qa_total_score)
+  return best_qa_total_score
