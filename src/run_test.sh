@@ -2,4 +2,9 @@
 #python doctor_helis.py -m 10 -q 3 -width 20000 -height 20000 -p 14 -a 14 -r 20 -d 14 -l1 34.63320538704878 -l2 49.15841176773455 -l3 4.18550171630701 &> output.m10.q3.w20000.h20000.p14.a14.r20.d14.l1_34.63320538704878.l2_49.15841176773455.l3_4.18550171630701.txt
 #python doctor_helis.py -m 10 -q 3 -width 20000 -height 20000 -p 14 -a 14 -r 20 -d 14 -l1 34.63320538704878 -l2 49.15841176773455 -l3 4.08550171630701 
 #python doctor_helis.py -m 10 -q 3 -width 20000 -height 20000 -p 14 -a 14 -r 20 -d 14 -l1 34.63320538704878 -l2 49.15841176773455 -l3 4.08550171630701 
-python doctor_helis.py -m 10 -q 3 -width 20000 -height 20000 -p 14 -a 14 -r 20 -d 14 -l1  46.63456592378094 -l2 46.63456592378094 -l3 6.427365734432015  &> output.m10.q3.w20000.h20000.p14.a14.r20.d14.l1_46.63456592378094.l2_46.63456592378094.l3_6.427365734432015.txt
+#python doctor_helis.py -m 10 -q 3 -width 20000 -height 20000 -p 14 -a 14 -r 20 -d 14 -l1  46.63456592378094 -l2 46.63456592378094 -l3 6.427365734432015  &> output.m10.q3.w20000.h20000.p14.a14.r20.d14.l1_46.63456592378094.l2_46.63456592378094.l3_6.427365734432015.txt
+#python doctor_helis.py -m 10 -q 3 -width 20000 -height 20000 -p 14 -a 14 -r 20 -d 14 -l1  65.0 -l2 65.0 -l3 13.0  &> output.m10.q3.w20000.h20000.p14.a14.r20.d14.l1_65.0.l2_65.0.l3_13.0.txt
+#python doctor_helis.py -m 10 -q 3 -width 20000 -height 20000 -p 14 -a 14 -r 20 -d 14 -l1  90.0 -l2 90.0 -l3 20.0  &> output.m10.q3.w20000.h20000.p14.a14.r20.d14.l1_90.0.l2_90.0.l3_20.0.txt
+#python doctor_helis.py -m 5 -q 3 -width 20000 -height 20000 -p 14 -a 14 -r 20 -d 14 -l1  65.0 -l2 65.0 -l3 13.0  &> output.m10.q3.w20000.h20000.p14.a14.r20.d14.l1_65.0.l2_65.0.l3_13.0.txt
+#python doctor_helis.py -m 10 -q 3 -width 20000 -height 20000 -p 8 -a 9 -r 11 -d 8 -l1 65.0 -l2 65.0 -l3 13.0 &> output.m10.q3.w20000.h20000.p8.a9.r11.d8.l1_65.0.l2_65.0.l3_13.0.txt
+python doctor_helis.py -m 10 -q 3 -width 20000 -height 20000 -p 14 -a 14 -r 40 -d 14 -l1 65.0 -l2 65.0 -l3 13.0 &> output.m10.q3.w20000.h20000.p14.a14.r40.d14.l1_65.0.l2_65.0.l3_13.0.txt

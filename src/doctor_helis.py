@@ -23,7 +23,7 @@ parser.add_argument('-l3', dest='lamda3', type=float, default=8, help='hayper pa
 
 def main(map_realocation_cnt, qa_trial_count, width, height, num_of_patients, num_of_fire_departments, num_of_rendezvous_points, num_of_basehospitals, lams):
 
-    params = [width,height,num_of_fire_departments,num_of_patients,\
+    params = [width,height,num_of_patients,num_of_fire_departments,\
               num_of_rendezvous_points,num_of_basehospitals,\
               map_realocation_cnt,qa_trial_count,lams]
 
@@ -41,7 +41,7 @@ def main(map_realocation_cnt, qa_trial_count, width, height, num_of_patients, nu
     anime = ani.Animation(best_world_classic, best_world_ip, best_world_qa, 1000).animate()
 
     video_filename = 'w' + str(params[0]) + '_' + 'h' + str(params[1]) + \
-                '_' +'a' + str(params[2]) + '_' + 'p' + str(params[3]) + \
+                '_' +'p' + str(params[2]) + '_' + 'a' + str(params[3]) + \
                 '_' +'r' + str(params[4]) + '_' + 'd' + str(params[5]) + \
                 '_' +'m' + str(params[6]) + '_' + 'q' + str(params[7]) + \
                 '_' + 'lams_' + ".".join([str(_) for _ in lams])  + '.avi'
@@ -60,7 +60,7 @@ if __name__ == "__main__":
     p = params.patients
     a = params.ambulance
     r = params.rendezvous_points
-    d = params.rendezvous_points
+    d = params.doctorhelis
     l1 = params.lamda1
     l2 = params.lamda2
     l3 = params.lamda3

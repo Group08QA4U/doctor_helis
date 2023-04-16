@@ -915,21 +915,21 @@ def grid_search(life_saving_resources_params, hyper_params, map_relocations=10, 
 
 
 
-def bayes(X):
+def bayes(X, qa_trial_count, width, height, num_of_patients, num_of_fire_departments, num_of_rendezvous_points, num_of_basehospitals, use_d_wave=True, is_new_algo = False, is_max_algo = True ):
   lams=[X[0],X[0],X[1]]
 
-  map_relocations=1
-  qa_trial_count=2
-  width = 20000
-  height = 20000
-  num_of_patients = 14
-  num_of_fire_departments = 14
-  num_of_rendezvous_points = 20
-  num_of_basehospitals = 14
+  #map_relocations=1
+  #qa_trial_count=2
+  #width = 20000
+  #height = 20000
+  #num_of_patients = 14
+  #num_of_fire_departments = 14
+  #num_of_rendezvous_points = 20
+  #num_of_basehospitals = 14
 
-  use_d_wave = True
-  is_new_algo = False
-  is_max_algo = True
+  #use_d_wave = True
+  #is_new_algo = False
+  #is_max_algo = True
 
   best_qa_total_score = sys.maxsize
 
@@ -938,6 +938,7 @@ def bayes(X):
 
   # QAで計算
   qa_total_scores = []
+  qa = QA(width * height, use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, is_max_algorithm_p3=is_max_algo, lams=lams)
   for k in range(qa_trial_count):
     title = 'patients#:' + str(num_of_patients) + ' ' + \
             'qa_trial_count#:' + str(k) + ' ' + 'ambulance:' + str(num_of_fire_departments) + ' ' + \
@@ -949,7 +950,6 @@ def bayes(X):
 
     # QA
     #qa = QA(use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, is_max_algorithm_p3=is_max_algo, lams=lams)
-    qa = QA(width * height, use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, is_max_algorithm_p3=is_max_algo, lams=lams)
 
     qa_total_score = world_qa.getTotalScore(qa)
     qa_total_scores.append(qa_total_score)
