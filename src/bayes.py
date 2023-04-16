@@ -15,10 +15,10 @@ def objective(x):
 
 # 探索範囲の設定
 space = Space([
-    #Real(35.0, 100.0, name='x1'),
-    #Real(0.0, 10.0, name='x2')
-    Real(1.0, 50.0, name='x1'),
-    Real(1.0, 50.0, name='x2')
+    Real(35.0, 100.0, name='x1'),
+    Real(0.0, 20.0, name='x2')
+    #Real(1.0, 50.0, name='x1'),
+    #Real(1.0, 50.0, name='x2')
 ])
 
 #map_relocation = 5

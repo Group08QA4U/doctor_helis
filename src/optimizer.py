@@ -278,51 +278,50 @@ class QA(Optimizer):
     self.is_max_algorithm_p3 = is_max_algorithm_p3
 
     self.lams = lams
+    self.qubo = {}
 
   def getCandidateRoutes(self, time_a2p, time_p2r, time_r2d, time_r2h, remaining_time_all_patients):
     super().getCandidateRoutes(time_a2p, time_p2r, time_r2d, time_r2h, remaining_time_all_patients)
-    num_route = self.num_of_ambulances * self.num_of_rendezvous_points * self.num_of_doctor_helis * self.num_of_basehospitals
-    #N = self.num_of_patients * num_route
-    route_estimated_time = []
-    candidate_routes = []
-    diff_time = np.zeros(self.num_of_patients*num_route).reshape(self.num_of_patients,num_route)
-    #print('p',self.num_of_patients,'a',self.num_of_ambulances,'r',self.num_of_rendezvous_points,'d',self.num_of_doctor_helis,'b',self.num_of_basehospitals)
-    #print(remaining_time_all_patients)
-    #print(remaining_time_all_patients[0][2])
+    # QUBOが空なら生成  
+    if any(self.qubo) != True:
+      num_route = self.num_of_ambulances * self.num_of_rendezvous_points * self.num_of_doctor_helis * self.num_of_basehospitals
+      route_estimated_time = []
+      candidate_routes = []
+      diff_time = np.zeros(self.num_of_patients*num_route).reshape(self.num_of_patients,num_route)
     
-    # 生存時間、搬送時間の計算
-    estimate_time = np.arange(self.num_of_patients * num_route).reshape((self.num_of_patients, self.num_of_ambulances, self.num_of_rendezvous_points, self.num_of_doctor_helis, self.num_of_basehospitals))
-    route_to_start_treatment = self.num_of_patients * self.num_of_ambulances * self.num_of_rendezvous_points * self.num_of_doctor_helis
-    estimate_time_to_start_treatment = np.arange(route_to_start_treatment).reshape((self.num_of_patients, self.num_of_ambulances, self.num_of_rendezvous_points, self.num_of_doctor_helis))
-    for i in range(self.num_of_patients):
-      for j in range(self.num_of_ambulances):
-        for k in range(self.num_of_rendezvous_points):    
-          for l in range(self.num_of_doctor_helis):
-            for m in range(self.num_of_basehospitals):
-              n_route =  j*self.num_of_rendezvous_points + k*self.num_of_doctor_helis + l*self.num_of_basehospitals + m
-              estimate_time[i][j][k][l][m] = remaining_time_all_patients[i] - (max(time_a2p[j][i] + time_p2r[i][k], time_r2d[k][l]) + time_r2h[k][m])
-              estimate_time_to_start_treatment[i][j][k][l] = max(time_a2p[j][i] + time_p2r[i][k], time_r2d[k][l])
+      # 生存時間、搬送時間の計算
+      estimate_time = np.arange(self.num_of_patients * num_route).reshape((self.num_of_patients, self.num_of_ambulances, self.num_of_rendezvous_points, self.num_of_doctor_helis, self.num_of_basehospitals))
+      route_to_start_treatment = self.num_of_patients * self.num_of_ambulances * self.num_of_rendezvous_points * self.num_of_doctor_helis
+      estimate_time_to_start_treatment = np.arange(route_to_start_treatment).reshape((self.num_of_patients, self.num_of_ambulances, self.num_of_rendezvous_points, self.num_of_doctor_helis))
+      for i in range(self.num_of_patients):
+        for j in range(self.num_of_ambulances):
+          for k in range(self.num_of_rendezvous_points):    
+            for l in range(self.num_of_doctor_helis):
+              for m in range(self.num_of_basehospitals):
+                n_route =  j*self.num_of_rendezvous_points + k*self.num_of_doctor_helis + l*self.num_of_basehospitals + m
+                estimate_time[i][j][k][l][m] = remaining_time_all_patients[i] - (max(time_a2p[j][i] + time_p2r[i][k], time_r2d[k][l]) + time_r2h[k][m])
+                estimate_time_to_start_treatment[i][j][k][l] = max(time_a2p[j][i] + time_p2r[i][k], time_r2d[k][l])
       
-    if self.lams != None:   
-      qubo = self.QUBO(time_a2p, time_p2r, time_r2d, time_r2h, estimate_time, remaining_time_all_patients, lam1 = self.lams[0], lam2 = self.lams[1], lam3 = self.lams[2] )
-    else:
-      qubo = self.QUBO(time_a2p, time_p2r, time_r2d, time_r2h, estimate_time, remaining_time_all_patients, )
+      if self.lams != None:   
+        self.qubo = self.QUBO(time_a2p, time_p2r, time_r2d, time_r2h, estimate_time, remaining_time_all_patients, lam1 = self.lams[0], lam2 = self.lams[1], lam3 = self.lams[2] )
+      else:
+        self.qubo = self.QUBO(time_a2p, time_p2r, time_r2d, time_r2h, estimate_time, remaining_time_all_patients, )
       
     self.Nsamples=10
       
     if self.use_d_wave:
         if self.use_hybrid:
           sampler = LeapHybridSampler(solver='hybrid_binary_quadratic_model_version2', token=self.token, endpoint=self.endpoint)
-          results = sampler.sample_qubo(qubo)
+          results = sampler.sample_qubo(self.qubo)
         else:
           dw_sampler = DWaveSampler(solver='Advantage_system1.1', token=self.token, endpoint=self.endpoint)
           sampler = EmbeddingComposite(dw_sampler)
-          results = sampler.sample_qubo(qubo, num_reads=self.Nsamples)
+          results = sampler.sample_qubo(self.qubo, num_reads=self.Nsamples)
 
     else:      
       # OpenJIJ
       sampler = SQASampler(num_sweeps = 3000)
-      results = sampler.sample_qubo(qubo, num_reads=self.Nsamples)
+      results = sampler.sample_qubo(self.qubo, num_reads=self.Nsamples)
       
 
     return self.postProcessing(results, time_a2p, time_p2r, time_r2d, time_r2h, remaining_time_all_patients)
@@ -788,9 +787,16 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
     classic_processing_time_list.append( time.time() - start)
 
     # 整数計画で計算
+    #start = time.time()
+    #world_ip = copy.deepcopy(world_base)
+    #ip = IP()
+    #best_ip = copy.deepcopy(ip)
+    #ip_total_score = world_ip.getTotalScore(ip)
+    #ip_total_scores_list.append(ip_total_score)
+    #ip_processing_time_list.append( time.time() - start)
     start = time.time()
     world_ip = copy.deepcopy(world_base)
-    ip = IP()
+    ip = Classic()
     best_ip = copy.deepcopy(ip)
     ip_total_score = world_ip.getTotalScore(ip)
     ip_total_scores_list.append(ip_total_score)
@@ -807,6 +813,9 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
     #lams=[34.63320538704878, 49.15841176773455, 4.08550171630701]
     is_new_algo = False
     is_max_algo = True
+
+    # QA
+    qa = QA( width * height, use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, is_max_algorithm_p3=is_max_algo, lams=lams)
     for k in range(qa_trial_count):
       title = 'patients#:' + str(num_of_patients) + ' ' + 'relocation#:' + str(j) + ' '  + \
               'qa_trial_count#:' + str(k) + ' ' + 'ambulance:' + str(num_of_fire_departments) + ' ' + \
@@ -816,8 +825,6 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
       print(title)      
       world_qa = copy.deepcopy(world_base)
 
-      # QA
-      qa = QA( width * height, use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, is_max_algorithm_p3=is_max_algo, lams=lams)
 
       qa_total_score = world_qa.getTotalScore(qa)
       qa_total_scores.append(qa_total_score)

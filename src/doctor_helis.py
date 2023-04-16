@@ -44,7 +44,7 @@ def main(map_realocation_cnt, qa_trial_count, width, height, num_of_patients, nu
                 '_' +'a' + str(params[2]) + '_' + 'p' + str(params[3]) + \
                 '_' +'r' + str(params[4]) + '_' + 'd' + str(params[5]) + \
                 '_' +'m' + str(params[6]) + '_' + 'q' + str(params[7]) + \
-                '_' + 'lams:' + " ".join([str(_) for _ in lams])  + '.avi'
+                '_' + 'lams_' + ".".join([str(_) for _ in lams])  + '.avi'
 
     print(video_filename)
     writervideo = animation.FFMpegWriter(fps=30)
