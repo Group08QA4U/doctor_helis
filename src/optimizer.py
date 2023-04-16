@@ -708,11 +708,35 @@ class QA(Optimizer):
               Q3[(i * M + k, i * M + l)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N / S
               Q3[(i * M + l, i * M + k)] = lam3 * max(time_a2p2r, time_r2d[k-a][j-(a + r)]) / N / S
 
-
+    # QUBO行列を可視化するvisualize_qubo.py入力するCSVを書き出してプログラムを終了する（debug）
+    #saveQUBO(Q1,Q2,Q3)
     Q.update(Q1) 
     Q.update(Q2)     
     Q.update(Q3)
     return Q
+
+import csv
+def saveQUBO(Q1,Q2,Q3):
+    qubos = [Q1,Q2,Q3]
+    csvfiles = ['Q1.csv','Q2.csv','Q3.csv']
+
+    for qubo, csv_file in zip(qubos, csvfiles): 
+
+        csv_data = []
+        for k, v in qubo.items():
+            csv_data.append([k[0],k[1],v])
+ 
+        print('Save as',csv_file)
+        with open(csv_file, 'w', ) as f:
+            writer = csv.writer(f)
+            writer.writerows(csv_data)
+
+    print('Done')
+
+
+
+    exit()
+
 
 import pandas as pd
 import matplotlib.pyplot as plt

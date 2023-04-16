@@ -50,6 +50,7 @@ def visialization(x1, x2, y):
     # グラフの設定
     ax1.set_xlabel('lam1 and lam2')
     ax1.set_ylabel('lam3')
+    #ax1.set_ylim(0,20)
     plt.title('Energy')
 
 
@@ -60,8 +61,9 @@ def visialization(x1, x2, y):
 
 
     cp = ax2.contourf(X1, X2,Y)
-    ax1.set_xlabel('X-axis')
-    ax1.set_ylabel('Y-axis')
+    ax2.set_xlabel('lam1 and lam2')
+    ax2.set_ylabel('lam3')
+    #ax2.set_ylim(0,20)
     #plt.title('Contour plot of 3D data')
     #plt.colorbar(cp)
 
