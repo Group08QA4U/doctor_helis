@@ -266,7 +266,7 @@ DWAVE_TOKEN = os.getenv('DWAVE_TOKEN')
 #print('DWAVE_TOKEN',DWAVE_TOKEN)
 
 class QA(Optimizer):
-  def __init__(self, area, use_d_wave = True, use_hybrid = True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False, is_max_algorithm_p3 = True, lams = None):
+  def __init__(self, area, use_d_wave = True, use_hybrid = True, is_new_algorithm_p1 = False, is_new_algorithm_p2 = False, is_max_algorithm_p3 = False, lams = None):
     super().__init__()
     self.token = DWAVE_TOKEN 
     self.endpoint = 'https://cloud.dwavesys.com/sapi/'
@@ -569,7 +569,9 @@ class QA(Optimizer):
     if self.use_d_wave != True:
       lam3 = -0.000001
 
-    if self.is_max_algorithm_p3:  
+    if self.is_max_algorithm_p3 == False:  
+      #print('self.is_max_algorithm_p3',self.is_max_algorithm_p3)
+      #exit()
       # 要救助者
       for i in range(N):
 
@@ -811,20 +813,20 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
     classic_processing_time_list.append( time.time() - start)
 
     # 整数計画で計算
-    #start = time.time()
-    #world_ip = copy.deepcopy(world_base)
-    #ip = IP()
-    #best_ip = copy.deepcopy(ip)
-    #ip_total_score = world_ip.getTotalScore(ip)
-    #ip_total_scores_list.append(ip_total_score)
-    #ip_processing_time_list.append( time.time() - start)
     start = time.time()
     world_ip = copy.deepcopy(world_base)
-    ip = Classic()
+    ip = IP()
     best_ip = copy.deepcopy(ip)
     ip_total_score = world_ip.getTotalScore(ip)
     ip_total_scores_list.append(ip_total_score)
     ip_processing_time_list.append( time.time() - start)
+    #start = time.time()
+    #world_ip = copy.deepcopy(world_base)
+    #ip = Classic()
+    #best_ip = copy.deepcopy(ip)
+    #ip_total_score = world_ip.getTotalScore(ip)
+    #ip_total_scores_list.append(ip_total_score)
+    #ip_processing_time_list.append( time.time() - start)
 
     # QAで計算
     start = time.time()
@@ -836,7 +838,7 @@ def evaluate(num_of_patients, map_relocations=1, qa_trial_count=1, width = 86000
     #lams=[38.2604549772066, 40.227539295627075, 3.611067604728468]
     #lams=[34.63320538704878, 49.15841176773455, 4.08550171630701]
     is_new_algo = False
-    is_max_algo = True
+    is_max_algo = False
 
     # QA
     qa = QA( width * height, use_d_wave=use_d_wave, is_new_algorithm_p1 = is_new_algo, is_new_algorithm_p2 = is_new_algo, is_max_algorithm_p3=is_max_algo, lams=lams)
@@ -939,7 +941,7 @@ def grid_search(life_saving_resources_params, hyper_params, map_relocations=10, 
 
 
 
-def bayes(X, qa_trial_count, width, height, num_of_patients, num_of_fire_departments, num_of_rendezvous_points, num_of_basehospitals, use_d_wave=True, is_new_algo = False, is_max_algo = True ):
+def bayes(X, qa_trial_count, width, height, num_of_patients, num_of_fire_departments, num_of_rendezvous_points, num_of_basehospitals, use_d_wave=True, is_new_algo = False, is_max_algo = False ):
   lams=[X[0],X[0],X[1]]
 
   #map_relocations=1
